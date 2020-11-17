@@ -837,6 +837,7 @@ public class CLDRConverter {
         "DateTimePatternChars",
         "PluralRules",
         "DayPeriodRules",
+        "DateFormatItem",
     };
 
     private static Map<String, Object> extractFormatData(Map<String, Object> map, String id) {
@@ -846,11 +847,12 @@ public class CLDRConverter {
                 continue;
             }
             String prefix = calendarType.keyElementName();
-            for (String element : FORMAT_DATA_ELEMENTS) {
-                String key = prefix + element;
-                copyIfPresent(map, "java.time." + key, formatData);
-                copyIfPresent(map, key, formatData);
-            }
+            Arrays.stream(FORMAT_DATA_ELEMENTS)
+                .flatMap(elem -> map.keySet().stream().filter(k -> k.startsWith(prefix + elem)))
+                .forEach(key -> {
+                    copyIfPresent(map, "java.time." + key, formatData);
+                    copyIfPresent(map, key, formatData);
+                });
         }
 
         for (String key : map.keySet()) {
