@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, 2016, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012, 2020, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -906,6 +906,18 @@ public class TCKDuration extends AbstractTCKTest {
         assertEquals(Duration.ofNanos(-1).isZero(), false);
         assertEquals(Duration.ofSeconds(-1).isZero(), false);
         assertEquals(Duration.ofSeconds(-1, -1).isZero(), false);
+    }
+
+    @Test
+    public void test_isPositive() {
+        assertEquals(Duration.ofNanos(0).isPositive(), false);
+        assertEquals(Duration.ofSeconds(0).isPositive(), false);
+        assertEquals(Duration.ofNanos(1).isPositive(), true);
+        assertEquals(Duration.ofSeconds(1).isPositive(), true);
+        assertEquals(Duration.ofSeconds(1, 1).isPositive(), true);
+        assertEquals(Duration.ofNanos(-1).isPositive(), false);
+        assertEquals(Duration.ofSeconds(-1).isPositive(), false);
+        assertEquals(Duration.ofSeconds(-1, -1).isPositive(), false);
     }
 
     @Test
