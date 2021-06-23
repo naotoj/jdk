@@ -955,9 +955,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="light-lumen">
 				<displayName>lumens</displayName>
 			</unit>
-			<unit type="mass-grain">
-				<displayName>grains</displayName>
-			</unit>
 			<unit type="torque-newton-meter">
 				<displayName>newton-metres</displayName>
 				<unitPattern count="one">{0} newton-metre</unitPattern>
@@ -973,19 +970,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} imp. fluid ounce</unitPattern>
 				<unitPattern count="other">{0} imp. fluid ounces</unitPattern>
 			</unit>
-			<unit type="volume-drop">
-				<displayName>drops</displayName>
-			</unit>
 			<unit type="volume-dram">
 				<displayName>fluid drams</displayName>
 				<unitPattern count="one">{0} fluid dram</unitPattern>
 				<unitPattern count="other">{0} fluid drams</unitPattern>
-			</unit>
-			<unit type="volume-jigger">
-				<displayName>jiggers</displayName>
-			</unit>
-			<unit type="volume-pinch">
-				<displayName>pinches</displayName>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>imp. quart</displayName>
