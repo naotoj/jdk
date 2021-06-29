@@ -553,7 +553,6 @@ public class LocaleResources {
         var inferred = possibleInferred(skeleton);
         ResourceBundle r = localeData.getDateFormatData(locale);
 
-System.out.println("req :"+requestedSkeleton);
         var matched = inferred
 //.peek(s -> System.out.println("inf: "+s))
                 .map(s -> skeletonFromRB(r, CalendarDataUtility.normalizeCalendarType(calType), s))
@@ -563,13 +562,17 @@ System.out.println("req :"+requestedSkeleton);
                 .map(s -> adjustSkeletonLength(skeleton, s))
                 .orElse(null);
 
-System.out.println("requested: " + requestedSkeleton + ", matched: "+matched);
+System.out.println("requested: " + requestedSkeleton + ", locale: " + locale + ", caltype: " + calType + ", matched: "+matched);
         return matched;
     }
 
+    // Possible valid skeleton patterns. Retrieved from
     private static Set<String> validSkeletons;
+    // Input Skeleton map for "preferred" and "allowed"
+    // Map<"preferred"/"allowed", Map<"region", "skeleton">>>
     private static Map<String, String> preferredInputSkeletons;
     private static Map<String, String> allowedInputSkeletons;
+    // Skeletons for "j" and "C" input skeleton symbols for this locale
     private String jPattern;
     private String CPattern;
     private void initSkeletonIfNeeded() {
@@ -642,7 +645,6 @@ System.out.println("requested: " + requestedSkeleton + ", matched: "+matched);
     private Stream<String> possibleInferred(String skeleton) {
         return List.of(skeleton).stream()
             .flatMap(s -> {
-                Stream<String> ret = List.of(s).stream();
                 if (s.indexOf('M') >= 0) {
                     return Stream.concat(priorityList(s, "M", "M"), priorityList(s, "M", "L"));
                 } else if (s.indexOf('L') >= 0) {
