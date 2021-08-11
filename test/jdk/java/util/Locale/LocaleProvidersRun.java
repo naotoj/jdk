@@ -34,7 +34,7 @@
  *        providersrc.spi.src.tznp8013086
  * @modules java.base/sun.util.locale
  *          java.base/sun.util.locale.provider
- * @run main/othervm -Djdk.lang.Process.allowAmbiguousCommands=false LocaleProvidersRun
+ * @run testng/othervm -Djdk.lang.Process.allowAmbiguousCommands=false LocaleProvidersRun
  */
 
 import java.util.Locale;
@@ -43,141 +43,150 @@ import jdk.test.lib.JDKToolLauncher;
 import jdk.test.lib.process.ProcessTools;
 import jdk.test.lib.Utils;
 
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import static org.testng.Assert.fail;
+
 public class LocaleProvidersRun {
-    public static void main(String[] args) throws Throwable {
+    private static Locale platDefLoc;
+    private static String defLang;
+    private static String defCtry;
+    private static Locale platDefFormat;
+    private static String defFmtLang;
+    private static String defFmtCtry;
+    private static boolean isWinOrMac;
+
+    @BeforeTest
+    public static void init() {
         //get the platform default locales
-        Locale platDefLoc = Locale.getDefault(Locale.Category.DISPLAY);
-        String defLang = platDefLoc.getLanguage();
-        String defCtry = platDefLoc.getCountry();
+        platDefLoc = Locale.getDefault(Locale.Category.DISPLAY);
+        defLang = platDefLoc.getLanguage();
+        defCtry = platDefLoc.getCountry();
         System.out.println("DEFLANG = " + defLang);
         System.out.println("DEFCTRY = " + defCtry);
 
-        Locale platDefFormat = Locale.getDefault(Locale.Category.FORMAT);
-        String defFmtLang = platDefFormat.getLanguage();
-        String defFmtCtry = platDefFormat.getCountry();
+        platDefFormat = Locale.getDefault(Locale.Category.FORMAT);
+        defFmtLang = platDefFormat.getLanguage();
+        defFmtCtry = platDefFormat.getCountry();
         System.out.println("DEFFMTLANG = " + defFmtLang);
         System.out.println("DEFFMTCTRY = " + defFmtCtry);
 
-        //Run Test
-        //testing HOST is selected for the default locale,
-        // if specified on Windows or MacOSX
-        String osName = System.getProperty("os.name");
-        String param1 = "JRE";
-        if(osName.startsWith("Windows") || osName.startsWith("Mac")) {
-            param1 = "HOST";
-        }
-        testRun("HOST,JRE", "adapterTest", param1, defLang, defCtry);
-
-        //testing HOST is NOT selected for the non-default locale, if specified
-        //Try to find the locale JRE supports which is not the platform default
-        // (HOST supports that one)
-        String param2;
-        String param3;
-        if (!defLang.equals("en") && !defFmtLang.equals("en")){
-            param2 = "en";
-            param3 = "US";
-        } else if(!defLang.equals("ja") && !defFmtLang.equals("ja")){
-            param2 = "ja";
-            param3 = "JP";
-        } else {
-            param2 = "zh";
-            param3 = "CN";
-        }
-        testRun("HOST,JRE", "adapterTest", "JRE", param2, param3);
-
-        //testing SPI is NOT selected, as there is none.
-        testRun("SPI,JRE", "adapterTest", "JRE", "en", "US");
-        testRun("SPI,COMPAT", "adapterTest", "JRE", "en", "US");
-
-        //testing the order, variant #1. This assumes en_GB DateFormat data are
-        // available both in JRE & CLDR
-        testRun("CLDR,JRE", "adapterTest", "CLDR", "en", "GB");
-        testRun("CLDR,COMPAT", "adapterTest", "CLDR", "en", "GB");
-
-        //testing the order, variant #2. This assumes en_GB DateFormat data are
-        // available both in JRE & CLDR
-        testRun("JRE,CLDR", "adapterTest", "JRE", "en", "GB");
-        testRun("COMPAT,CLDR", "adapterTest", "JRE", "en", "GB");
-
-        //testing the order, variant #3 for non-existent locale in JRE
-        // assuming "haw" is not in JRE.
-        testRun("JRE,CLDR", "adapterTest", "CLDR", "haw", "");
-        testRun("COMPAT,CLDR", "adapterTest", "CLDR", "haw", "");
-
-        //testing the order, variant #4 for the bug 7196799. CLDR's "zh" data
-        // should be used in "zh_CN"
-        testRun("CLDR", "adapterTest", "CLDR", "zh", "CN");
-
-        //testing FALLBACK provider. SPI and invalid one cases.
-        testRun("SPI", "adapterTest", "FALLBACK", "en", "US");
-        testRun("FOO", "adapterTest", "CLDR", "en", "US");
-        testRun("BAR,SPI", "adapterTest", "FALLBACK", "en", "US");
-
-        //testing 7198834 fix.
-        testRun("HOST", "bug7198834Test", "", "", "");
-
-        //testing 8000245 fix.
-        testRun("JRE", "tzNameTest", "Europe/Moscow", "", "");
-        testRun("COMPAT", "tzNameTest", "Europe/Moscow", "", "");
-
-        //testing 8000615 fix.
-        testRun("JRE", "tzNameTest", "America/Los_Angeles", "", "");
-        testRun("COMPAT", "tzNameTest", "America/Los_Angeles", "", "");
-
-        //testing 8001440 fix.
-        testRun("CLDR", "bug8001440Test", "", "", "");
-
-        //testing 8010666 fix.
-        if (defLang.equals("en")) {
-            testRun("HOST", "bug8010666Test", "", "", "");
-        }
-
-        //testing 8013086 fix.
-        testRun("JRE,SPI", "bug8013086Test", "ja", "JP", "");
-        testRun("COMPAT,SPI", "bug8013086Test", "ja", "JP", "");
-
-        //testing 8013903 fix. (Windows only)
-        testRun("HOST,JRE", "bug8013903Test", "", "", "");
-        testRun("HOST", "bug8013903Test", "", "", "");
-        testRun("HOST,COMPAT", "bug8013903Test", "", "", "");
-
-        //testing 8027289 fix, if the platform format default is zh_CN
-        // this assumes Windows' currency symbol for zh_CN is \u00A5, the yen
-        // (yuan) sign.
-        if (defFmtLang.equals("zh") && defFmtCtry.equals("CN")) {
-            testRun("JRE,HOST", "bug8027289Test", "FFE5", "", "");
-            testRun("COMPAT,HOST", "bug8027289Test", "FFE5", "", "");
-            testRun("HOST", "bug8027289Test", "00A5", "", "");
-        }
-
-        //testing 8220227 fix. (Windows only)
-        if (!defLang.equals("en")) {
-            testRun("HOST", "bug8220227Test", "", "", "");
-        }
-
-        //testing 8228465 fix. (Windows only)
-        testRun("HOST", "bug8228465Test", "", "", "");
-
-        //testing 8232871 fix. (macOS only)
-        testRun("HOST", "bug8232871Test", "", "", "");
-
-        //testing 8232860 fix. (macOS/Windows only)
-        testRun("HOST", "bug8232860Test", "", "", "");
-
-        //testing 8245241 fix.
-        //jdk.lang.Process.allowAmbiguousCommands=false is needed for properly escaping
-        //double quotes in the string argument.
-        testRun("FOO", "bug8245241Test",
-            "Invalid locale provider adapter \"FOO\" ignored.", "", "");
-
-        //testing 8248695 fix.
-        testRun("HOST", "bug8248695Test", "", "", "");
-
-        //testing 8257964 fix. (macOS/Windows only)
-        testRun("HOST", "bug8257964Test", "", "", "");
+        var osName = System.getProperty("os.name");
+        isWinOrMac = osName.startsWith("Windows") || osName.startsWith("Mac");
     }
 
-    private static void testRun(String prefList, String methodName,
+    @DataProvider
+    public Object[][] testRunData() {
+        return new Object[][]{
+            //testing HOST is selected for the default locale,
+            // if specified on Windows or MacOSX
+            {"HOST,JRE", "adapterTest", isWinOrMac ? "HOST" : "JRE", defLang, defCtry},
+
+            //testing HOST is NOT selected for the non-default locale, if specified
+            //Try to find the locale JRE supports which is not the platform default
+            // (HOST supports that one)
+            {"HOST,JRE", "adapterTest", "JRE", "ga", "IE"},
+
+            //testing SPI is NOT selected, as there is none.
+            {"SPI,JRE", "adapterTest", "JRE", "en", "US"},
+            {"SPI,COMPAT", "adapterTest", "JRE", "en", "US"},
+
+            //testing the order, variant #1. This assumes en_GB DateFormat data are
+            // available both in JRE & CLDR
+            {"CLDR,JRE", "adapterTest", "CLDR", "en", "GB"},
+            {"CLDR,COMPAT", "adapterTest", "CLDR", "en", "GB"},
+
+            //testing the order, variant #2. This assumes en_GB DateFormat data are
+            // available both in JRE & CLDR
+            {"JRE,CLDR", "adapterTest", "JRE", "en", "GB"},
+            {"COMPAT,CLDR", "adapterTest", "JRE", "en", "GB"},
+
+            //testing the order, variant #3 for non-existent locale in JRE
+            // assuming "haw" is not in JRE.
+            {"JRE,CLDR", "adapterTest", "CLDR", "haw", ""},
+            {"COMPAT,CLDR", "adapterTest", "CLDR", "haw", ""},
+
+            //testing the order, variant #4 for the bug 7196799. CLDR's "zh" data
+            // should be used in "zh_CN"
+            {"CLDR", "adapterTest", "CLDR", "zh", "CN"},
+
+            //testing FALLBACK provider. SPI and invalid one cases.
+            {"SPI", "adapterTest", "FALLBACK", "en", "US"},
+            {"FOO", "adapterTest", "CLDR", "en", "US"},
+            {"BAR,SPI", "adapterTest", "FALLBACK", "en", "US"},
+
+            //testing 7198834 fix.
+            {"HOST", "bug7198834Test", "", "", ""},
+
+            //testing 8000245 fix.
+            {"JRE", "tzNameTest", "Europe/Moscow", "", ""},
+            {"COMPAT", "tzNameTest", "Europe/Moscow", "", ""},
+
+            //testing 8000615 fix.
+            {"JRE", "tzNameTest", "America/Los_Angeles", "", ""},
+            {"COMPAT", "tzNameTest", "America/Los_Angeles", "", ""},
+
+            //testing 8001440 fix.
+            {"CLDR", "bug8001440Test", "", "", ""},
+
+            //testing 8013086 fix.
+            {"JRE,SPI", "bug8013086Test", "ja", "JP", ""},
+            {"COMPAT,SPI", "bug8013086Test", "ja", "JP", ""},
+
+            //testing 8013903 fix. (Windows only)
+            {"HOST,JRE", "bug8013903Test", "", "", ""},
+            {"HOST", "bug8013903Test", "", "", ""},
+            {"HOST,COMPAT", "bug8013903Test", "", "", ""},
+
+
+            //testing 8228465 fix. (Windows only)
+            {"HOST", "bug8228465Test", "", "", ""},
+
+            //testing 8232871 fix. (macOS only)
+            {"HOST", "bug8232871Test", "", "", ""},
+
+            //testing 8232860 fix. (macOS/Windows only)
+            {"HOST", "bug8232860Test", "", "", ""},
+
+            //testing 8245241 fix.
+            //jdk.lang.Process.allowAmbiguousCommands=false is needed for properly escaping
+            //double quotes in the string argument.
+            {"FOO", "bug8245241Test",
+                    "Invalid locale provider adapter \"FOO\" ignored.", "", ""},
+
+            //testing 8248695 fix.
+            {"HOST", "bug8248695Test", "", "", ""},
+
+            //testing 8257964 fix. (macOS/Windows only)
+            {"HOST", "bug8257964Test", "", "", ""},
+        };
+    }
+
+    @DataProvider
+    public Object[][] testRunDataEn() {
+        return new Object[][]{
+            //testing 8010666 fix.
+            {"HOST", "bug8010666Test", "", "", ""},
+            //testing 8220227 fix. (Windows only)
+            {"HOST", "bug8220227Test", "", "", ""},
+        };
+    }
+
+    @DataProvider
+    public Object[][] testRunDataZhCN() {
+        return new Object[][]{
+            //testing 8027289 fix, if the platform format default is zh_CN
+            // this assumes Windows' currency symbol for zh_CN is \u00A5, the yen
+            // (yuan) sign.
+            {"JRE,HOST", "bug8027289Test", "FFE5", "", ""},
+            {"COMPAT,HOST", "bug8027289Test", "FFE5", "", ""},
+            {"HOST", "bug8027289Test", "00A5", "", ""},
+        };
+    }
+
+    @Test (dataProvider = "testRunData")
+    public void testRun(String prefList, String methodName,
             String param1, String param2, String param3) throws Throwable{
         JDKToolLauncher launcher = JDKToolLauncher.createUsingTestJDK("java");
         launcher.addToolArg("-ea")
@@ -196,6 +205,24 @@ public class LocaleProvidersRun {
                 .getExitValue();
         if (exitCode != 0) {
             throw new RuntimeException("Unexpected exit code: " + exitCode);
+        }
+    }
+
+    @Test (dataProvider = "testRunDataEn")
+    public void testRunEn(String prefList, String methodName,
+                        String param1, String param2, String param3) throws Throwable {
+        // Only run if def locale is English
+        if ("en".equals(defLang)) {
+            testRun(prefList, methodName, param1, param2, param3);
+        }
+    }
+
+    @Test (dataProvider = "testRunDataZhCN")
+    public void testRunZhCN(String prefList, String methodName,
+                          String param1, String param2, String param3) throws Throwable {
+        // Only run if def locale is English
+        if ("zh".equals(defLang) && "CN".equals(defCtry)) {
+            testRun(prefList, methodName, param1, param2, param3);
         }
     }
 }
