@@ -1239,7 +1239,7 @@ public final class Duration
             tempNanos = tempNanos - NANOS_PER_SECOND;
         }
         long millis = Math.multiplyExact(tempSeconds, 1000);
-        millis = Math.addExact(millis, tempNanos / NANOS_PER_MILLI);
+        millis = Math.addExact(millis, tempSeconds < 0 ? Math.floorDiv(tempNanos, NANOS_PER_MILLI) : tempNanos / NANOS_PER_MILLI);
         return millis;
     }
 
