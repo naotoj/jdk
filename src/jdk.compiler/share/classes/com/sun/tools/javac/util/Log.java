@@ -26,6 +26,7 @@
 package com.sun.tools.javac.util;
 
 import java.io.*;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -265,8 +266,10 @@ public class Log extends AbstractLog {
         PrintWriter out = context.get(outKey);
         PrintWriter err = context.get(errKey);
         if (out == null && err == null) {
-            out = new PrintWriter(System.out, true);
-            err = new PrintWriter(System.err, true);
+            String enc = System.getProperty("sun.stdout.encoding", System.getProperty("native.encoding"));
+            Charset cs = enc != null ? Charset.forName(enc) : Charset.defaultCharset();
+            out = new PrintWriter(System.out, true, cs);
+            err = new PrintWriter(System.err, true, cs);
             return initWriters(out, err);
         } else if (out == null || err == null) {
             PrintWriter pw = (out != null) ? out : err;
