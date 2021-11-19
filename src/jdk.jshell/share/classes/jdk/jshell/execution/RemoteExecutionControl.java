@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, 2017, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2014, 2021, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -30,6 +30,7 @@ import java.io.PrintStream;
 import java.lang.reflect.Method;
 import java.net.Socket;
 
+import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -63,8 +64,11 @@ public class RemoteExecutionControl extends DirectExecutionControl implements Ex
         InputStream inStream = socket.getInputStream();
         OutputStream outStream = socket.getOutputStream();
         Map<String, Consumer<OutputStream>> outputs = new HashMap<>();
-        outputs.put("out", st -> System.setOut(new PrintStream(st, true)));
-        outputs.put("err", st -> System.setErr(new PrintStream(st, true)));
+        String nativeEncoding = System.getProperty("native.encoding");
+        outputs.put("out", st -> System.setOut(new PrintStream(st, true,
+                Charset.forName(System.getProperty("sun.stdout.encoding", nativeEncoding)))));
+        outputs.put("err", st -> System.setErr(new PrintStream(st, true,
+                Charset.forName(System.getProperty("sun.stderr.encoding", nativeEncoding)))));
         Map<String, Consumer<InputStream>> input = new HashMap<>();
         input.put("in", System::setIn);
         forwardExecutionControlAndIO(new RemoteExecutionControl(), inStream, outStream, outputs, input);
