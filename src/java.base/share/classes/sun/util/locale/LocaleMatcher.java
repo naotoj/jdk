@@ -157,17 +157,6 @@ public final class LocaleMatcher {
     }
 
     /**
-     * Remove duplicate tags from the given {@code tags} by
-     * ignoring case considerations.
-     */
-    private static Collection<String> removeDuplicates(
-            Collection<String> tags) {
-        Set<String> distinctTags = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-        return tags.stream().filter(x -> distinctTags.add(x))
-                .toList();
-    }
-
-    /**
      * Returns true if the given {@code list} contains an element which matches
      * with the given {@code tag} ignoring case considerations.
      */
