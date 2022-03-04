@@ -42,15 +42,21 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 import java.util.SimpleTimeZone;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.spi.LocaleServiceProvider;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.zip.CRC32;
 
 import jdk.internal.util.StaticProperty;
 import sun.security.action.GetPropertyAction;
+import sun.util.locale.provider.LocaleServiceProviderPool;
 
 /**
  * Loads TZDB time-zone rules for j.u.TimeZone
@@ -60,26 +66,33 @@ import sun.security.action.GetPropertyAction;
 public final class ZoneInfoFile {
 
     /**
+     * Lazy loaded set of available IDs
+     */
+    private static class LoadZoneIDs {
+        static final Set<String> zoneIDs;
+
+        static {
+            var ids = Stream.concat(
+                    Arrays.stream(regions),
+                    Arrays.stream(oldMappings).map(m -> m[0]));
+            if (!USE_OLDMAPPING) {
+                ids = Stream.concat(ids, Stream.of("EST", "HST", "MST"));
+            }
+            zoneIDs = ids.collect(Collectors.toUnmodifiableSet());
+        }
+
+        // No instantiation
+        private LoadZoneIDs() {
+        }
+    }
+
+    /**
      * Gets all available IDs supported in the Java run-time.
      *
      * @return a set of time zone IDs.
      */
-    public static String[] getZoneIds() {
-        int len = regions.length + oldMappings.length;
-        if (!USE_OLDMAPPING) {
-            len += 3;    // EST/HST/MST not in tzdb.dat
-        }
-        String[] ids = Arrays.copyOf(regions, len);
-        int i = regions.length;
-        if (!USE_OLDMAPPING) {
-            ids[i++] = "EST";
-            ids[i++] = "HST";
-            ids[i++] = "MST";
-        }
-        for (int j = 0; j < oldMappings.length; j++) {
-            ids[i++] = oldMappings[j][0];
-        }
-        return ids;
+    public static Set<String> getZoneIds() {
+        return LoadZoneIDs.zoneIDs;
     }
 
     /**

@@ -49,6 +49,7 @@ import java.text.MessageFormat;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.spi.LocaleNameProvider;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import jdk.internal.vm.annotation.Stable;
 
@@ -1197,17 +1198,28 @@ public final class Locale implements Cloneable, Serializable {
     }
 
     /**
-     * Returns an array of all installed locales.
+     * {@return an array of all installed locales}.
      * The returned array represents the union of locales supported
      * by the Java runtime environment and by installed
      * {@link java.util.spi.LocaleServiceProvider LocaleServiceProvider}
      * implementations. At a minimum, the returned array must contain a
      * {@code Locale} instance equal to {@link Locale#ROOT Locale.ROOT} and
      * a {@code Locale} instance equal to {@link Locale#US Locale.US}.
-     *
-     * @return An array of installed locales.
      */
     public static Locale[] getAvailableLocales() {
+        return LocaleServiceProviderPool.getAllAvailableLocales().toArray(new Locale[0]);
+    }
+
+    /**
+     * {@return a set of all installed locales}.
+     * The returned stream represents the union of locales supported
+     * by the Java runtime environment and by installed
+     * {@link java.util.spi.LocaleServiceProvider LocaleServiceProvider}
+     * implementations. At a minimum, the returned stream must contain a
+     * {@code Locale} instance equal to {@link Locale#ROOT Locale.ROOT} and
+     * a {@code Locale} instance equal to {@link Locale#US Locale.US}.
+     */
+    public static Set<Locale> getAvailableLocaleSet() {
         return LocaleServiceProviderPool.getAllAvailableLocales();
     }
 

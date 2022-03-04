@@ -50,12 +50,6 @@ import sun.util.locale.provider.TimeZoneNameUtility;
 public class CLDRTimeZoneNameProviderImpl extends TimeZoneNameProviderImpl {
 
     private static final String NO_INHERITANCE_MARKER = "\u2205\u2205\u2205";
-    private static class AVAILABLE_IDS {
-        static final String[] INSTANCE =
-            Arrays.stream(ZoneInfoFile.getZoneIds())
-                .sorted()
-                .toArray(String[]::new);
-    }
 
     // display name array indexes
     private static final int INDEX_TZID         = 0;
@@ -105,7 +99,7 @@ public class CLDRTimeZoneNameProviderImpl extends TimeZoneNameProviderImpl {
             return namesSuper;
         } else {
             // Derive the names for this id. Validate the id first.
-            if (Arrays.binarySearch(AVAILABLE_IDS.INSTANCE, id) >= 0) {
+            if (ZoneInfoFile.getZoneIds().contains(id)) {
                 String[] names = new String[INDEX_GEN_SHORT + 1];
                 names[INDEX_TZID] = id;
                 deriveFallbackNames(names, locale);

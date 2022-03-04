@@ -609,8 +609,16 @@ public abstract class TimeZone implements Serializable, Cloneable {
      * Gets all the available IDs supported.
      * @return an array of IDs.
      */
-    public static synchronized String[] getAvailableIDs() {
-        return ZoneInfo.getAvailableIDs();
+    public static String[] getAvailableIDs() {
+        return ZoneInfo.getAvailableIDSet().toArray(new String[0]);
+    }
+
+    /**
+     * Gets all the available IDs supported.
+     * @return a set of IDs.
+     */
+    public static Set<String> getAvailableIDSet() {
+        return ZoneInfo.getAvailableIDSet();
     }
 
     /**

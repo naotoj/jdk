@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
 import java.util.SimpleTimeZone;
 import java.util.TimeZone;
 
@@ -560,7 +561,7 @@ public class ZoneInfo extends TimeZone {
      *
      * @return an array of time zone IDs.
      */
-    public static String[] getAvailableIDs() {
+    public static Set<String> getAvailableIDSet() {
         return ZoneInfoFile.getZoneIds();
     }
 
