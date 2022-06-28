@@ -629,7 +629,8 @@ getGMTOffsetID()
         return strdup("GMT");
     }
 
-    offset = calculateTimeOffset(localtm, gmt);
+//    offset = calculateTimeOffset(localtm, gmt);
+offset = (localtm.tm_hour - gmt.tm_hour)*3600 + (localtm.tm_min - gmt.tm_min)*60;
 
     if (offset == 0) {
         return strdup("GMT");
