@@ -1,26 +1,3 @@
-#
-# DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
-#
-# This code is free software; you can redistribute it and/or modify it
-# under the terms of the GNU General Public License version 2 only, as
-# published by the Free Software Foundation.  Oracle designates this
-# particular file as subject to the "Classpath" exception as provided
-# by Oracle in the LICENSE file that accompanied this code.
-#
-# This code is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-# version 2 for more details (a copy is included in the LICENSE file that
-# accompanied this code).
-#
-# You should have received a copy of the GNU General Public License version
-# 2 along with this work; if not, write to the Free Software Foundation,
-# Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-# Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
-# or visit www.oracle.com if you need additional information or have any
-# questions.
-#
 # tzdb timezone descriptions (deprecated version)
 #
 # This file is in the public domain, so clarified as of
@@ -153,7 +130,7 @@ CA	+690650-1050310	America/Cambridge_Bay	Mountain - NU (west)
 CA	+6227-11421	America/Yellowknife	Mountain - NT (central)
 CA	+682059-1334300	America/Inuvik	Mountain - NT (west)
 CA	+4906-11631	America/Creston	MST - BC (Creston)
-CA	+5946-12014	America/Dawson_Creek	MST - BC (Dawson Cr, Ft St John)
+CA	+5546-12014	America/Dawson_Creek	MST - BC (Dawson Cr, Ft St John)
 CA	+5848-12242	America/Fort_Nelson	MST - BC (Ft Nelson)
 CA	+6043-13503	America/Whitehorse	MST - Yukon (east)
 CA	+6404-13925	America/Dawson	MST - Yukon (west)
@@ -423,7 +400,7 @@ TT	+1039-06131	America/Port_of_Spain
 TV	-0831+17913	Pacific/Funafuti
 TW	+2503+12130	Asia/Taipei
 TZ	-0648+03917	Africa/Dar_es_Salaam
-UA	+5026+03031	Europe/Kiev	Ukraine (most areas)
+UA	+5026+03031	Europe/Kyiv	Ukraine (most areas)
 UA	+4837+02218	Europe/Uzhgorod	Transcarpathia
 UA	+4750+03510	Europe/Zaporozhye	Zaporozhye and east Lugansk
 UG	+0019+03225	Africa/Kampala

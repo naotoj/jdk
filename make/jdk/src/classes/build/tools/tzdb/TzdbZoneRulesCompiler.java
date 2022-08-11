@@ -195,7 +195,8 @@ public final class TzdbZoneRulesCompiler {
 
             // build aliases
             Map<String, String> links = provider.getAliasMap();
-            for (String aliasId : links.keySet()) {
+            for (var it = links.keySet().iterator(); it.hasNext();) {
+                String aliasId = it.next();
                 String realId = links.get(aliasId);
                 printVerbose("Linking alias " + aliasId + " to " + realId);
                 ZoneRules realRules = builtZones.get(realId);
@@ -208,7 +209,14 @@ public final class TzdbZoneRulesCompiler {
                     }
                     links.put(aliasId, realId);
                 }
-                builtZones.put(aliasId, realRules);
+                var aliasRules = builtZones.get(aliasId);
+                if (aliasRules != null && !aliasRules.equals(realRules)) {
+                    it.remove();
+                    printVerbose("    Zone for " + aliasId + " differs from the linked one. Linking ignored.");
+                    continue;
+                } else {
+                    builtZones.put(aliasId, realRules);
+                }
             }
 
             // output to file
