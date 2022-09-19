@@ -152,7 +152,8 @@ public final class TzdbZoneRulesCompiler {
                 srcFiles.add(file);
             } else {
                 System.err.println("Source directory does not contain source file: " + args[i]);
-                System.exit(1);
+//                System.exit(1);
+                continue;
             }
         }
         // check destination file
@@ -167,7 +168,7 @@ public final class TzdbZoneRulesCompiler {
         }
         try {
             // get tzdb source version
-            Matcher m = Pattern.compile("tzdata(?<ver>[0-9]{4}[A-z])")
+            Matcher m = Pattern.compile("tzdata(?<ver>[0-9]{4}[A-z]+)")
                                .matcher(new String(Files.readAllBytes(srcDir.resolve("VERSION")),
                                                    "ISO-8859-1"));
             if (m.find()) {
