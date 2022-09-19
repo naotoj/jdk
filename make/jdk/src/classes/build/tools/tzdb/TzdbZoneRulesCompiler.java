@@ -167,7 +167,7 @@ public final class TzdbZoneRulesCompiler {
         }
         try {
             // get tzdb source version
-            Matcher m = Pattern.compile("tzdata(?<ver>[0-9]{4}[A-z])")
+            Matcher m = Pattern.compile("tzdata(?<ver>[0-9]{4}[A-z]+)")
                                .matcher(new String(Files.readAllBytes(srcDir.resolve("VERSION")),
                                                    "ISO-8859-1"));
             if (m.find()) {
@@ -179,7 +179,7 @@ public final class TzdbZoneRulesCompiler {
 
             // load source files
             printVerbose("Compiling TZDB version " + version);
-            TzdbZoneRulesProvider provider = new TzdbZoneRulesProvider(srcFiles);
+            TzdbZoneRulesProvider provider = new TzdbZoneRulesProvider(srcFiles, srcDir.resolve("zone.tab"));
 
             // build zone rules
             printVerbose("Building rules");
@@ -195,6 +195,8 @@ public final class TzdbZoneRulesCompiler {
 
             // build aliases
             Map<String, String> links = provider.getAliasMap();
+//            for (var it = links.keySet().iterator(); it.hasNext();) {
+//                String aliasId = it.next();
             for (String aliasId : links.keySet()) {
                 String realId = links.get(aliasId);
                 printVerbose("Linking alias " + aliasId + " to " + realId);
@@ -208,6 +210,14 @@ public final class TzdbZoneRulesCompiler {
                     }
                     links.put(aliasId, realId);
                 }
+//                var aliasRules = builtZones.get(aliasId);
+//                if (aliasRules != null && !aliasRules.equals(realRules)) {
+//                    it.remove();
+//                    printVerbose("    Zone for " + aliasId + " differs from the linked one. Linking ignored.");
+//                    continue;
+//                } else {
+//                    builtZones.put(aliasId, realRules);
+//                }
                 builtZones.put(aliasId, realRules);
             }
 

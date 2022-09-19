@@ -40,6 +40,7 @@ import java.time.chrono.IsoChronology;
 import java.time.temporal.TemporalAdjusters;
 import build.tools.tzdb.ZoneOffsetTransitionRule.TimeDefinition;
 import java.time.zone.ZoneRulesException;
+import java.util.stream.Collectors;
 
 /**
  * Compile and build time-zone rules from IANA timezone data
@@ -53,14 +54,22 @@ import java.time.zone.ZoneRulesException;
 
 class TzdbZoneRulesProvider {
 
+    Set<String> packratZones;
+
     /**
      * Creates an instance.
      *
      * @throws ZoneRulesException if unable to load
      */
-    public TzdbZoneRulesProvider(List<Path> files) {
+    public TzdbZoneRulesProvider(List<Path> files, Path packratListFile) {
         try {
-             load(files);
+            packratZones = new HashSet<>(900);
+            packratZones.addAll(Set.of("CET", "CST6CDT", "EET", "EST5EDT", "MET", "MST7MDT", "PST8PDT", "WET"));
+            packratZones.addAll(Files.readAllLines(packratListFile, StandardCharsets.ISO_8859_1).stream()
+                    .filter(line -> !line.isEmpty() && !line.startsWith("#"))
+                    .map(line -> line.split("\\t")[2])
+                    .collect(Collectors.toSet()));
+            load(files);
         } catch (Exception ex) {
             throw new ZoneRulesException("Unable to load TZDB time-zone rules", ex);
         }
@@ -139,7 +148,6 @@ class TzdbZoneRulesProvider {
         excludedZones.add("GMT-0");
         excludedZones.add("ROC");
     }
-
     private Map<String, String> links = new TreeMap<>();
     private Map<String, List<RuleLine>> rules = new TreeMap<>();
 
@@ -147,12 +155,19 @@ class TzdbZoneRulesProvider {
 
         for (Path file : files) {
             List<ZoneLine> openZone = null;
+            var packrat = file.getFileName().toString().equals("backzone");
             try {
                 for (String line : Files.readAllLines(file, StandardCharsets.ISO_8859_1)) {
+                    if (packrat) {
+                        line = line.replaceFirst("^#PACKRATLIST zone.tab ", "");
+                    }
                     if (line.length() == 0 || line.charAt(0) == '#') {
                         continue;
                     }
-                    //StringIterator itr = new StringIterator(line);
+//                    String[] tokens = line.replaceFirst("#.*", "").split("[\\s\\t]+");
+if (line.contains("Hanoi")) {
+    int i = 0;
+}
                     String[] tokens = split(line);
                     if (openZone != null &&               // continuing zone line
                         Character.isWhitespace(line.charAt(0)) &&
@@ -166,7 +181,10 @@ class TzdbZoneRulesProvider {
                     }
                     if (line.startsWith("Zone")) {        // parse Zone line
                         String name = tokens[1];
-                        if (excludedZones.contains(name)){
+                        if (excludedZones.contains(name) ||
+                            !packratZones.contains(name) &&
+                                    !name.startsWith("Etc") &&
+                                    !name.startsWith("SystemV")) {
                             continue;
                         }
                         if (zones.containsKey(name)) {
@@ -181,6 +199,9 @@ class TzdbZoneRulesProvider {
                         openZone.add(zLine);
                         if (zLine.parse(tokens, 2)) {
                             openZone = null;
+                        }
+                        if (packrat) {
+                            links.remove(name);
                         }
                     } else if (line.startsWith("Rule")) { // parse Rule line
                         String name = tokens[1];
