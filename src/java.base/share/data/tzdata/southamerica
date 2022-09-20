@@ -1,26 +1,3 @@
-#
-# DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
-#
-# This code is free software; you can redistribute it and/or modify it
-# under the terms of the GNU General Public License version 2 only, as
-# published by the Free Software Foundation.  Oracle designates this
-# particular file as subject to the "Classpath" exception as provided
-# by Oracle in the LICENSE file that accompanied this code.
-#
-# This code is distributed in the hope that it will be useful, but WITHOUT
-# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
-# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
-# version 2 for more details (a copy is included in the LICENSE file that
-# accompanied this code).
-#
-# You should have received a copy of the GNU General Public License version
-# 2 along with this work; if not, write to the Free Software Foundation,
-# Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
-#
-# Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
-# or visit www.oracle.com if you need additional information or have any
-# questions.
-#
 # tzdb data for South America and environs
 
 # This file is in the public domain, so clarified as of
@@ -609,7 +586,10 @@ Zone America/Argentina/Ushuaia -4:33:12 - LMT	1894 Oct 31
 			-3:00	-	-03
 
 # Aruba
-# See America/Puerto_Rico.
+# Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+Zone	America/Aruba	-4:40:24 -	LMT	1912 Feb 12 # Oranjestad
+			-4:30	-	-0430	1965
+			-4:00	-	AST
 
 # Bolivia
 # Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
@@ -1450,7 +1430,13 @@ Zone	America/Bogota	-4:56:16 -	LMT	1884 Mar 13
 # no information; probably like America/Bogota
 
 # Curaçao
-# See America/Puerto_Rico.
+# Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+Zone	America/Curacao	-4:35:47 -	LMT	1912 Feb 12 # Willemstad
+			-4:30	-	-0430	1965
+			-4:00	-	AST
+
+Link	America/Curacao	America/Kralendijk
+Link	America/Curacao	America/Lower_Princes
 #
 # From Arthur David Olson (2011-06-15):
 # use links for places with new iso3166 codes.
@@ -1774,8 +1760,12 @@ Zone America/Paramaribo	-3:40:40 -	LMT	1911
 			-3:00	-	-03
 
 # Trinidad and Tobago
-# See America/Puerto_Rico.
+# Zone	NAME		STDOFF	RULES	FORMAT	[UNTIL]
+Zone America/Port_of_Spain -4:06:04 -	LMT	1912 Mar 2
+			-4:00	-	AST
 
+Link	America/Port_of_Spain	America/Marigot
+Link	America/Port_of_Spain	America/St_Barthelemy
 # Uruguay
 # From Paul Eggert (1993-11-18):
 # Uruguay wins the prize for the strangest peacetime manipulation of the rules.
