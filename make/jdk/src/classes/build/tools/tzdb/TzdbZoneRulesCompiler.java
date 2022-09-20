@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, 2019, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012, 2022, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -195,8 +195,6 @@ public final class TzdbZoneRulesCompiler {
 
             // build aliases
             Map<String, String> links = provider.getAliasMap();
-//            for (var it = links.keySet().iterator(); it.hasNext();) {
-//                String aliasId = it.next();
             for (String aliasId : links.keySet()) {
                 String realId = links.get(aliasId);
                 printVerbose("Linking alias " + aliasId + " to " + realId);
@@ -210,14 +208,6 @@ public final class TzdbZoneRulesCompiler {
                     }
                     links.put(aliasId, realId);
                 }
-//                var aliasRules = builtZones.get(aliasId);
-//                if (aliasRules != null && !aliasRules.equals(realRules)) {
-//                    it.remove();
-//                    printVerbose("    Zone for " + aliasId + " differs from the linked one. Linking ignored.");
-//                    continue;
-//                } else {
-//                    builtZones.put(aliasId, realRules);
-//                }
                 builtZones.put(aliasId, realRules);
             }
 

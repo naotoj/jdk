@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, 2020, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2014, 2022, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -30,9 +30,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.time.*;
 import java.time.Year;
@@ -148,6 +146,7 @@ class TzdbZoneRulesProvider {
         excludedZones.add("GMT-0");
         excludedZones.add("ROC");
     }
+
     private Map<String, String> links = new TreeMap<>();
     private Map<String, List<RuleLine>> rules = new TreeMap<>();
 
@@ -157,21 +156,17 @@ class TzdbZoneRulesProvider {
             List<ZoneLine> openZone = null;
             var packrat = file.getFileName().toString().equals("backzone");
             try {
-                for (String line : Files.readAllLines(file, StandardCharsets.ISO_8859_1)) {
+                for (String line : Files.readAllLines(file, StandardCharsets.UTF_8)) {
                     if (packrat) {
                         line = line.replaceFirst("^#PACKRATLIST zone.tab ", "");
                     }
                     if (line.length() == 0 || line.charAt(0) == '#') {
                         continue;
                     }
-//                    String[] tokens = line.replaceFirst("#.*", "").split("[\\s\\t]+");
-if (line.contains("Hanoi")) {
-    int i = 0;
-}
-                    String[] tokens = split(line);
+                    String[] tokens = line.replaceFirst("^[\s\t]+", "").replaceFirst("#.*", "").split("[\s\t]+");
                     if (openZone != null &&               // continuing zone line
                         Character.isWhitespace(line.charAt(0)) &&
-                        tokens.length > 0) {
+                        tokens.length > 0 && !tokens[0].isEmpty()) {
                         ZoneLine zLine = new ZoneLine();
                         openZone.add(zLine);
                         if (zLine.parse(tokens, 0)) {
@@ -233,34 +228,6 @@ if (line.contains("Hanoi")) {
                                            "]", ex);
             }
         }
-    }
-
-    private String[] split(String str) {
-        int off = 0;
-        int end = str.length();
-        ArrayList<String> list = new ArrayList<>(10);
-        while (off < end) {
-            char c = str.charAt(off);
-            if (c == '\t' || c == ' ') {
-                off++;
-                continue;
-            }
-            if (c == '#') {    // comment
-                break;
-            }
-            int start = off;
-            while (off < end) {
-                c = str.charAt(off);
-                if (c == ' ' || c == '\t') {
-                    break;
-                }
-                off++;
-            }
-            if (start != off) {
-                list.add(str.substring(start, off));
-            }
-        }
-        return list.toArray(new String[list.size()]);
     }
 
     /**
