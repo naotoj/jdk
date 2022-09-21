@@ -52,21 +52,14 @@ import java.util.stream.Collectors;
 
 class TzdbZoneRulesProvider {
 
-    Set<String> packratZones;
-
     /**
      * Creates an instance.
      *
      * @throws ZoneRulesException if unable to load
      */
-    public TzdbZoneRulesProvider(List<Path> files, Path packratListFile) {
+    public TzdbZoneRulesProvider(List<Path> files) {
         try {
-            packratZones = new HashSet<>(900);
-            packratZones.addAll(Set.of("CET", "CST6CDT", "EET", "EST5EDT", "MET", "MST7MDT", "PST8PDT", "WET"));
-            packratZones.addAll(Files.readAllLines(packratListFile, StandardCharsets.ISO_8859_1).stream()
-                    .filter(line -> !line.isEmpty() && !line.startsWith("#"))
-                    .map(line -> line.split("\\t")[2])
-                    .collect(Collectors.toSet()));
+            initPackratOptions(files);
             load(files);
         } catch (Exception ex) {
             throw new ZoneRulesException("Unable to load TZDB time-zone rules", ex);
@@ -150,15 +143,48 @@ class TzdbZoneRulesProvider {
     private Map<String, String> links = new TreeMap<>();
     private Map<String, List<RuleLine>> rules = new TreeMap<>();
 
-    private void load(List<Path> files) throws IOException {
+    // PACKRAT option related. Following are from TZDB's Makefile
+    //
+    //# If you want out-of-scope and often-wrong data from the file 'backzone',
+    //# but only for entries listed in the backward-compatibility file zone.tab, use
+    //#   PACKRATDATA=    backzone
+    //#   PACKRATLIST=    zone.tab
+    //# If you want all the 'backzone' data, use
+    //#   PACKRATDATA=    backzone
+    //#   PACKRATLIST=
+    //# To omit this data, use
+    //#   PACKRATDATA=
+    //#   PACKRATLIST=
+    private String packratData;
+    private String packratListFile;
+    private Set<String> packratList;
+
+    private void initPackratOptions(List<Path> files) throws IOException {
+        packratListFile = System.getenv("PACKRATLIST");
+        if (packratListFile != null) {
+            packratList = new HashSet<>(768);
+            packratList.addAll(Set.of("CET", "CST6CDT", "EET", "EST5EDT", "MET", "MST7MDT", "PST8PDT", "WET"));
+            packratList.addAll(Files.readAllLines(files.get(0).resolveSibling(packratListFile), StandardCharsets.ISO_8859_1).stream()
+                    .filter(line -> !line.isEmpty() && !line.startsWith("#"))
+                    .map(line -> line.split("\t")[2])
+                    .collect(Collectors.toSet()));
+        }
+
+        packratData = System.getenv("PACKRATDATA");
+        if (packratData != null) {
+            files.add(files.get(0).resolveSibling(packratData));
+        }
+    }
+
+    private void load(List<Path> files) {
 
         for (Path file : files) {
             List<ZoneLine> openZone = null;
-            var packrat = file.getFileName().toString().equals("backzone");
+            var packrat = file.getFileName().toString().equals(packratData);
             try {
                 for (String line : Files.readAllLines(file, StandardCharsets.UTF_8)) {
                     if (packrat) {
-                        line = line.replaceFirst("^#PACKRATLIST zone.tab ", "");
+                        line = line.replaceFirst("^#PACKRATLIST[\s\t]+%s[\s\t]+".formatted(packratListFile), "");
                     }
                     if (line.length() == 0 || line.charAt(0) == '#') {
                         continue;
@@ -177,9 +203,10 @@ class TzdbZoneRulesProvider {
                     if (line.startsWith("Zone")) {        // parse Zone line
                         String name = tokens[1];
                         if (excludedZones.contains(name) ||
-                            !packratZones.contains(name) &&
-                                    !name.startsWith("Etc") &&
-                                    !name.startsWith("SystemV")) {
+                            packratList != null &&
+                                !packratList.contains(name) &&
+                                !name.startsWith("Etc") &&
+                                !name.startsWith("SystemV")) {
                             continue;
                         }
                         if (zones.containsKey(name)) {

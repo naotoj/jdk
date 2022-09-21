@@ -167,11 +167,12 @@ public final class TzdbZoneRulesCompiler {
         }
         try {
             // get tzdb source version
-            Matcher m = Pattern.compile("tzdata(?<ver>[0-9]{4}[A-z]+)")
+            Matcher m = Pattern.compile("tzdata(?<ver>[0-9]{4}[A-z])")
                                .matcher(new String(Files.readAllBytes(srcDir.resolve("VERSION")),
                                                    "ISO-8859-1"));
             if (m.find()) {
-                version = m.group("ver");
+                version = m.group("ver") + "PDATA=" + System.getenv("PACKRATDATA") +
+                        "PLIST=" + System.getenv("PACKRATLIST");
             } else {
                 System.exit(1);
                 System.err.println("Source directory does not contain file: VERSION");
@@ -179,7 +180,7 @@ public final class TzdbZoneRulesCompiler {
 
             // load source files
             printVerbose("Compiling TZDB version " + version);
-            TzdbZoneRulesProvider provider = new TzdbZoneRulesProvider(srcFiles, srcDir.resolve("zone.tab"));
+            TzdbZoneRulesProvider provider = new TzdbZoneRulesProvider(srcFiles);
 
             // build zone rules
             printVerbose("Building rules");
