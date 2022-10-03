@@ -4029,101 +4029,104 @@ public final class DateTimeFormatterBuilder {
                 }
             }
 
-            // parse normal plus/minus offset
-            char sign = text.charAt(position);  // IOOBE if invalid position
-            if (sign == '+' || sign == '-') {
-                // starts
-                int negative = (sign == '-' ? -1 : 1);
-                boolean isColon = isColon();
-                boolean paddedHour = isPaddedHour();
-                int[] array = new int[4];
-                array[0] = position + 1;
-                int parseType = type;
-                // select parse type when lenient
-                if (!context.isStrict()) {
-                    if (paddedHour) {
-                        if (isColon || (parseType == 0 && length > position + 3 && text.charAt(position + 3) == ':')) {
-                            isColon = true; // needed in cases like ("+HH", "+01:01")
-                            parseType = 10;
-                        } else {
-                            parseType = 9;
+            // parse other no offset possibilities
+            return List.of("GMT", "UT", "Z").stream()
+                    .filter(noText -> context.subSequenceEquals(text, position, noText, 0, noText.length()))
+                    .map(noText -> context.setParsedField(OFFSET_SECONDS, 0, position, position + noText.length()))
+                    .findFirst()
+                    .orElseGet(() -> {
+                        // parse normal plus/minus offset
+                        char sign = text.charAt(position);  // IOOBE if invalid position
+                        if (sign == '+' || sign == '-') {
+                            // starts
+                            int negative = (sign == '-' ? -1 : 1);
+                            boolean isColon = isColon();
+                            boolean paddedHour = isPaddedHour();
+                            int[] array = new int[4];
+                            array[0] = position + 1;
+                            int parseType = type;
+                            // select parse type when lenient
+                            if (!context.isStrict()) {
+                                if (paddedHour) {
+                                    if (isColon || (parseType == 0 && length > position + 3 && text.charAt(position + 3) == ':')) {
+                                        isColon = true; // needed in cases like ("+HH", "+01:01")
+                                        parseType = 10;
+                                    } else {
+                                        parseType = 9;
+                                    }
+                                } else {
+                                    if (isColon || (parseType == 11 && length > position + 3 && (text.charAt(position + 2) == ':' || text.charAt(position + 3) == ':'))) {
+                                        isColon = true;
+                                        parseType = 21;  // needed in cases like ("+H", "+1:01")
+                                    } else {
+                                        parseType = 20;
+                                    }
+                                }
+                            }
+                            // parse according to the selected pattern
+                            switch (parseType) {
+                                case 0: // +HH
+                                case 11: // +H
+                                    parseHour(text, paddedHour, array);
+                                    break;
+                                case 1: // +HHmm
+                                case 2: // +HH:mm
+                                case 13: // +H:mm
+                                    parseHour(text, paddedHour, array);
+                                    parseMinute(text, isColon, false, array);
+                                    break;
+                                case 3: // +HHMM
+                                case 4: // +HH:MM
+                                case 15: // +H:MM
+                                    parseHour(text, paddedHour, array);
+                                    parseMinute(text, isColon, true, array);
+                                    break;
+                                case 5: // +HHMMss
+                                case 6: // +HH:MM:ss
+                                case 17: // +H:MM:ss
+                                    parseHour(text, paddedHour, array);
+                                    parseMinute(text, isColon, true, array);
+                                    parseSecond(text, isColon, false, array);
+                                    break;
+                                case 7: // +HHMMSS
+                                case 8: // +HH:MM:SS
+                                case 19: // +H:MM:SS
+                                    parseHour(text, paddedHour, array);
+                                    parseMinute(text, isColon, true, array);
+                                    parseSecond(text, isColon, true, array);
+                                    break;
+                                case 9: // +HHmmss
+                                case 10: // +HH:mm:ss
+                                case 21: // +H:mm:ss
+                                    parseHour(text, paddedHour, array);
+                                    parseOptionalMinuteSecond(text, isColon, array);
+                                    break;
+                                case 12: // +Hmm
+                                    parseVariableWidthDigits(text, 1, 4, array);
+                                    break;
+                                case 14: // +HMM
+                                    parseVariableWidthDigits(text, 3, 4, array);
+                                    break;
+                                case 16: // +HMMss
+                                    parseVariableWidthDigits(text, 3, 6, array);
+                                    break;
+                                case 18: // +HMMSS
+                                    parseVariableWidthDigits(text, 5, 6, array);
+                                    break;
+                                case 20: // +Hmmss
+                                    parseVariableWidthDigits(text, 1, 6, array);
+                                    break;
+                            }
+                            if (array[0] > 0) {
+                                if (array[1] > 23 || array[2] > 59 || array[3] > 59) {
+                                    throw new DateTimeException("Value out of range: Hour[0-23], Minute[0-59], Second[0-59]");
+                                }
+                                long offsetSecs = negative * (array[1] * 3600L + array[2] * 60L + array[3]);
+                                return context.setParsedField(OFFSET_SECONDS, offsetSecs, position, array[0]);
+                            }
                         }
-                    } else {
-                        if (isColon || (parseType == 11 && length > position + 3 && (text.charAt(position + 2) == ':' || text.charAt(position + 3) == ':'))) {
-                            isColon = true;
-                            parseType = 21;  // needed in cases like ("+H", "+1:01")
-                        } else {
-                            parseType = 20;
-                        }
-                    }
-                }
-                // parse according to the selected pattern
-                switch (parseType) {
-                    case 0: // +HH
-                    case 11: // +H
-                        parseHour(text, paddedHour, array);
-                        break;
-                    case 1: // +HHmm
-                    case 2: // +HH:mm
-                    case 13: // +H:mm
-                        parseHour(text, paddedHour, array);
-                        parseMinute(text, isColon, false, array);
-                        break;
-                    case 3: // +HHMM
-                    case 4: // +HH:MM
-                    case 15: // +H:MM
-                        parseHour(text, paddedHour, array);
-                        parseMinute(text, isColon, true, array);
-                        break;
-                    case 5: // +HHMMss
-                    case 6: // +HH:MM:ss
-                    case 17: // +H:MM:ss
-                        parseHour(text, paddedHour, array);
-                        parseMinute(text, isColon, true, array);
-                        parseSecond(text, isColon, false, array);
-                        break;
-                    case 7: // +HHMMSS
-                    case 8: // +HH:MM:SS
-                    case 19: // +H:MM:SS
-                        parseHour(text, paddedHour, array);
-                        parseMinute(text, isColon, true, array);
-                        parseSecond(text, isColon, true, array);
-                        break;
-                    case 9: // +HHmmss
-                    case 10: // +HH:mm:ss
-                    case 21: // +H:mm:ss
-                        parseHour(text, paddedHour, array);
-                        parseOptionalMinuteSecond(text, isColon, array);
-                        break;
-                    case 12: // +Hmm
-                        parseVariableWidthDigits(text, 1, 4, array);
-                        break;
-                    case 14: // +HMM
-                        parseVariableWidthDigits(text, 3, 4, array);
-                        break;
-                    case 16: // +HMMss
-                        parseVariableWidthDigits(text, 3, 6, array);
-                        break;
-                    case 18: // +HMMSS
-                        parseVariableWidthDigits(text, 5, 6, array);
-                        break;
-                    case 20: // +Hmmss
-                        parseVariableWidthDigits(text, 1, 6, array);
-                        break;
-                }
-                if (array[0] > 0) {
-                    if (array[1] > 23 || array[2] > 59 || array[3] > 59) {
-                        throw new DateTimeException("Value out of range: Hour[0-23], Minute[0-59], Second[0-59]");
-                    }
-                    long offsetSecs = negative * (array[1] * 3600L + array[2] * 60L + array[3]);
-                    return context.setParsedField(OFFSET_SECONDS, offsetSecs, position, array[0]);
-                }
-            }
-            // handle special case of empty no offset text
-            if (noOffsetLen == 0) {
-                return context.setParsedField(OFFSET_SECONDS, 0, position, position);
-            }
-            return ~position;
+                        return ~position;
+                    });
         }
 
         private void parseHour(CharSequence parseText, boolean paddedHour, int[] array) {
