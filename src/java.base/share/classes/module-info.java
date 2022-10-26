@@ -226,6 +226,24 @@ module java.base {
         jdk.jfr,
         jdk.jlink,
         jdk.jpackage;
+    exports jdk.internal.org.jline.keymap to
+        jdk.jshell;
+    exports jdk.internal.org.jline.reader to
+        jdk.jshell;
+    exports jdk.internal.org.jline.reader.impl to
+        jdk.jshell;
+    exports jdk.internal.org.jline.reader.impl.completer to
+        jdk.jshell;
+    exports jdk.internal.org.jline.reader.impl.history to
+        jdk.jshell;
+    exports jdk.internal.org.jline.terminal.impl to
+        jdk.jshell;
+    exports jdk.internal.org.jline.terminal to
+        jdk.jshell;
+    exports jdk.internal.org.jline.utils to
+        jdk.jshell;
+    exports jdk.internal.org.jline.terminal.spi to
+        jdk.jshell;
     exports jdk.internal.perf to
         java.management,
         jdk.management.agent,
@@ -404,6 +422,7 @@ module java.base {
     // JDK-internal service types
 
     uses jdk.internal.logger.DefaultLoggerFinder;
+    uses jdk.internal.org.jline.terminal.spi.JnaSupport;
     uses sun.text.spi.JavaTimeDateTimePatternProvider;
     uses sun.util.spi.CalendarProvider;
     uses sun.util.locale.provider.LocaleDataMetaInfo;
