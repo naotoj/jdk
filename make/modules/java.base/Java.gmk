@@ -26,7 +26,7 @@
 DOCLINT += -Xdoclint:all/protected \
     '-Xdoclint/package:java.*,javax.*'
 JAVAC_FLAGS += -XDstringConcat=inline
-COPY += .icu .dat .spp .nrm .caps capabilities.txt content-types.properties \
+COPY += .icu .dat .spp .nrm .caps capabilities.txt colors.txt content-types.properties \
     hijrah-config-Hijrah-umalqura_islamic-umalqura.properties
 CLEAN += intrinsic.properties
 
