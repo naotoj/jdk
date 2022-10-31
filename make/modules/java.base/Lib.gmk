@@ -164,6 +164,23 @@ ifeq ($(call isTargetOsType, unix), true)
 endif
 
 ################################################################################
+# Create the le library
+
+ifeq ($(call isTargetOs, windows), true)
+
+  $(eval $(call SetupJdkLibrary, BUILD_LIBLE, \
+      NAME := le, \
+      OPTIMIZATION := LOW, \
+      CFLAGS := $(CFLAGS_JDKLIB), \
+      LDFLAGS := $(LDFLAGS_JDKLIB), \
+      LIBS := $(JDKLIB_LIBS) user32.lib, \
+  ))
+
+  TARGETS += $(BUILD_LIBLE)
+
+endif
+
+################################################################################
 # Create the symbols file for static builds.
 
 ifeq ($(STATIC_BUILD), true)
