@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003, 2021, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2003, 2022, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -52,10 +52,10 @@ import sun.util.locale.provider.ResourceBundleBasedAdapter;
  *
  * <p>For example, this code allows a user to read a number from
  * {@code System.in}:
- * <blockquote><pre>{@code
- *     Scanner sc = new Scanner(System.in);
+ * {@snippet lang=java :
+ *     Scanner sc = new Scanner(Console.reader());
  *     int i = sc.nextInt();
- * }</pre></blockquote>
+ * }
  *
  * <p>As another example, this code allows {@code long} types to be
  * assigned from entries in a file {@code myNumbers}:
