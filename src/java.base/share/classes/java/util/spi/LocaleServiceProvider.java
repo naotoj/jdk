@@ -112,24 +112,29 @@ import java.util.Locale;
  * provider returns null instead of a name, the lookup will proceed as
  * described above as if the locale was not supported.
  * <p>
- * The search order of locale sensitive services can
- * be configured by using the {@systemProperty java.locale.providers} system property.
- * This system property declares the user's preferred order for looking up
- * the locale sensitive services separated by a comma. As this property value is
+ * Since a JDK implementation may provide multiple sets of the locale sensitive
+ * service implementations, their search order can be configured using the
+ * {@systemProperty java.locale.providers} system property. This system property
+ * declares the user's preferred order for looking up the sets of locale sensitive
+ * services separated by a comma. Each set represents an arbitrary name provided
+ * by the JDK implementation except "{@code SPI}", with which the user provided
+ * implementations of this class are represented. If multiple implementations of the
+ * same subclass of {@code LocaleServiceProvider} can be found on the class path,
+ * it depends on the JDK with regard to which one is loaded. As this property value is
  * read and cached only at the initialization of this class, users should specify the
  * property on the java launcher command line. Setting it at runtime with
  * {@link System#setProperty(String, String)} is discouraged and it may not affect
  * the order.
- * JDK Reference Implementation provides the following four
- * locale providers:
+ * @implNote The JDK Reference Implementation provides the following four
+ * sets of locale sensitive services:
  * <ul>
  * <li> "CLDR": A provider based on Unicode Consortium's
  * <a href="http://cldr.unicode.org/">CLDR Project</a>.
  * <li> "COMPAT": represents the locale sensitive services that is compatible
  * with the prior JDK releases up to JDK 8 (same as JDK 8's "JRE"). This
  * provider is deprecated and will be removed in the future release of JDK.
- * <li> "SPI": represents the locale sensitive services implementing the subclasses of
- * this {@code LocaleServiceProvider} class.
+ * <li> "SPI": represents the user provided locale sensitive services implementing
+ * the subclasses of this {@code LocaleServiceProvider} class on the classpath.
  * <li> "HOST": A provider that reflects the user's custom settings in the
  * underlying operating system. This provider may not be available, depending
  * on the JDK Reference Implementation.
