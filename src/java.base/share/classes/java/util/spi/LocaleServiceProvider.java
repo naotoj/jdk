@@ -119,41 +119,40 @@ import java.util.Locale;
  * services separated by a comma. Each set represents an arbitrary name provided
  * by the JDK implementation except "{@code SPI}", with which the user provided
  * implementations of this class are represented. If multiple implementations of the
- * same subclass of {@code LocaleServiceProvider} can be found on the class path,
- * it depends on the JDK with regard to which one is loaded. As this property value is
- * read and cached only at the initialization of this class, users should specify the
- * property on the java launcher command line. Setting it at runtime with
- * {@link System#setProperty(String, String)} is discouraged and it may not affect
- * the order.
+ * same subclass of {@code LocaleServiceProvider} can be found on the classpath,
+ * it depends on the JDK with regard to which one is loaded.  Applications which
+ * require implementations of the {@code LocaleServiceProvider} must explicitly
+ * specify "{@code SPI}" in order for the Java runtime to load them from the
+ * classpath. As this property value is read and cached only at the initialization
+ * of this class, users should specify the property on the java launcher command
+ * line. Setting it at runtime with {@link System#setProperty(String, String)}
+ * is discouraged and it may not affect the order.
  * @implNote The JDK Reference Implementation provides the following four
  * sets of locale sensitive services:
  * <ul>
- * <li> "CLDR": A provider based on Unicode Consortium's
+ * <li> "{@code CLDR}": A provider based on Unicode Consortium's
  * <a href="http://cldr.unicode.org/">CLDR Project</a>.
- * <li> "COMPAT": represents the locale sensitive services that is compatible
- * with the prior JDK releases up to JDK 8 (same as JDK 8's "JRE"). This
+ * <li> "{@code COMPAT}": represents the locale sensitive services that is compatible
+ * with the prior JDK releases up to JDK 8 (same as JDK 8's "{@code JRE}"). This
  * provider is deprecated and will be removed in the future release of JDK.
- * <li> "SPI": represents the user provided locale sensitive services implementing
+ * <li> "{@code SPI}": represents the user provided locale sensitive services implementing
  * the subclasses of this {@code LocaleServiceProvider} class on the classpath.
- * <li> "HOST": A provider that reflects the user's custom settings in the
- * underlying operating system. This provider may not be available, depending
- * on the JDK Reference Implementation.
- * <li> "JRE": represents a synonym to "COMPAT". This name
+ * <li> "{@code HOST}": A provider that reflects the user's custom settings in the
+ * underlying operating system.
+ * <li> "{@code JRE}": represents a synonym to "{@code COMPAT}". This name
  * is deprecated and will be removed in the future release of JDK.
  * </ul>
  * <p>
- * For example, if the following is specified in the property:
+ * For example, if the following is specified in the system property:
  * <pre>
  * java.locale.providers=SPI,CLDR,COMPAT
  * </pre>
- * the locale sensitive services in the SPI providers are looked up first. If the
- * desired locale sensitive service is not available, then the runtime looks for CLDR,
- * COMPAT in that order.
+ * the locale sensitive services in the "{@code SPI}"SPI providers are looked up first. If the
+ * desired locale sensitive service is not available, then the runtime looks for {@code CLDR},
+ * {@code COMPAT} in that order.
  * <p>
- * The default order for looking up the preferred locale providers is "CLDR,COMPAT",
- * so specifying "CLDR,COMPAT" is identical to the default behavior. Applications which
- * require implementations of the locale sensitive services must explicitly specify
- * "SPI" in order for the Java runtime to load them from the classpath.
+ * The default order for looking up the preferred locale providers is "{@code CLDR,COMPAT}",
+ * so specifying  "{@code CLDR,COMPAT}" is identical to the default behavior.
  *
  * @since        1.6
  */
@@ -225,7 +224,7 @@ public abstract class LocaleServiceProvider {
         for (Locale available : getAvailableLocales()) {
             if (locale.equals(available.stripExtensions())) {
                 return true;
-}
+            }
         }
         return false;
     }
