@@ -112,33 +112,33 @@ import java.util.Locale;
  * provider returns null instead of a name, the lookup will proceed as
  * described above as if the locale was not supported.
  * <p>
- * Since a JDK implementation may provide multiple sets of the locale sensitive
+ * Since an implementation of the JDK may provide multiple sets of locale sensitive
  * service implementations, their search order can be configured using the
  * {@systemProperty java.locale.providers} system property. This system property
  * declares the user's preferred order for looking up the sets of locale sensitive
- * services separated by a comma. Each set represents an arbitrary name provided
- * by the JDK implementation except "{@code SPI}", with which the user provided
- * implementations of this class are represented. If multiple implementations of the
- * same subclass of {@code LocaleServiceProvider} can be found on the classpath,
- * it depends on the JDK with regard to which one is loaded.  Applications which
- * require implementations of the {@code LocaleServiceProvider} must explicitly
- * specify "{@code SPI}" in order for the Java runtime to load them from the
- * classpath. As this property value is read and cached only at the initialization
+ * services separated by a comma. Each string entity represents an arbitrary name of
+ * the set provided by the JDK implementation except "{@code SPI}", with which the
+ * application provided implementations of {@code LocaleServiceProvider} are
+ * represented. Applications which require their implementations of
+ * {@code LocaleServiceProvider} must explicitly specify "{@code SPI}" in the system
+ * property, in order for the Java runtime to load them from the classpath. If
+ * multiple implementations of the same subclass of {@code LocaleServiceProvider}
+ * are found on the classpath, it depends on the JDK with regard to which one is loaded.
+ * As this system property value is read and cached only at the initialization
  * of this class, users should specify the property on the java launcher command
  * line. Setting it at runtime with {@link System#setProperty(String, String)}
  * is discouraged and it may not affect the order.
- * @implNote The JDK Reference Implementation provides the following four
- * sets of locale sensitive services:
+ * @implNote The JDK provides the following four sets of locale sensitive services:
  * <ul>
- * <li> "{@code CLDR}": A provider based on Unicode Consortium's
+ * <li> "{@code CLDR}": The set of locale sensitive services based on Unicode Consortium's
  * <a href="http://cldr.unicode.org/">CLDR Project</a>.
- * <li> "{@code COMPAT}": represents the locale sensitive services that is compatible
+ * <li> "{@code COMPAT}": The set of locale sensitive services that is compatible
  * with the prior JDK releases up to JDK 8 (same as JDK 8's "{@code JRE}"). This
- * provider is deprecated and will be removed in the future release of JDK.
- * <li> "{@code SPI}": represents the user provided locale sensitive services implementing
+ * set is deprecated and will be removed in the future release of JDK.
+ * <li> "{@code SPI}": The set of application provided locale sensitive services implementing
  * the subclasses of this {@code LocaleServiceProvider} class on the classpath.
- * <li> "{@code HOST}": A provider that reflects the user's custom settings in the
- * underlying operating system.
+ * <li> "{@code HOST}": The Set of locale sensitive services that reflects the user's custom
+ * settings in the underlying operating system.
  * <li> "{@code JRE}": represents a synonym to "{@code COMPAT}". This name
  * is deprecated and will be removed in the future release of JDK.
  * </ul>
@@ -147,12 +147,13 @@ import java.util.Locale;
  * <pre>
  * java.locale.providers=SPI,CLDR,COMPAT
  * </pre>
- * the locale sensitive services in the "{@code SPI}"SPI providers are looked up first. If the
- * desired locale sensitive service is not available, then the runtime looks for {@code CLDR},
- * {@code COMPAT} in that order.
+ * the locale sensitive services in the "{@code SPI}" set are looked up first. If the
+ * desired locale sensitive service is not available, then the runtime looks for the one
+ * in {@code CLDR}, {@code COMPAT} in that order.
  * <p>
- * The default order for looking up the preferred locale providers is "{@code CLDR,COMPAT}",
- * so specifying  "{@code CLDR,COMPAT}" is identical to the default behavior.
+ * The default order for looking up the preferred sets of locale providers is
+ * "{@code CLDR,COMPAT}", so specifying  "{@code CLDR,COMPAT}" is identical to the
+ * default behavior.
  *
  * @since        1.6
  */
