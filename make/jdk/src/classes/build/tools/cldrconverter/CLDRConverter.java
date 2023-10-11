@@ -123,6 +123,9 @@ public class CLDRConverter {
     static Map<String, String> pluralRules;
     static Map<String, String> dayPeriodRules;
 
+    // TZDB Short Names Map
+    private static Map<String, String> tzdbShortNamesMap;
+
     static enum DraftType {
         UNCONFIRMED,
         PROVISIONAL,
@@ -283,6 +286,9 @@ public class CLDRConverter {
         // rules maps
         pluralRules = generateRules(handlerPlurals);
         dayPeriodRules = generateRules(handlerDayPeriodRule);
+
+        // TZDB short names map
+        tzdbShortNamesMap = generateTZDBShortNamesMap();
 
         List<Bundle> bundles = readBundleList();
         convertBundles(bundles);
@@ -771,7 +777,9 @@ public class CLDRConverter {
                 if (meta != null) {
                     String metaKey = METAZONE_ID_PREFIX + meta;
                     data = map.get(metaKey);
-                    if (data instanceof String[]) {
+                    if (data instanceof String[] tznames) {
+                        // TZDB short names
+                        fillTZDBShortNames(tzid, tznames);
                         // Keep the metazone prefix here.
                         names.put(metaKey, data);
                         names.put(tzid, meta);
@@ -1244,6 +1252,74 @@ public class CLDRConverter {
             .forEach(k -> covMap.put(Locale.forLanguageTag(k), ""));
 
         return covMap;
+    }
+
+    private static Map<String, String> generateTZDBShortNamesMap() throws IOException {
+        final Map<String, String> shortNameMap = HashMap.newHashMap(1024);
+        Files.walk(Path.of(tzDataDir), 1, FileVisitOption.FOLLOW_LINKS)
+                .map(Path::toFile)
+                .filter(File::isFile)
+                .forEach(f -> {
+                    try {
+                        String zone = null;
+                        String format = null;
+                        for (var line : Files.readAllLines(f.toPath())) {
+                            if (line.contains("#STDOFF")) continue;
+                            line = line.replaceAll("[ \t]*#.*", "");
+                            if (line.startsWith("Zone")) {
+                                var s = line.split("[ \t]+", -1);
+                                zone = s[1];
+                                format = s[4];
+                            } else {
+                                if (zone != null) {
+                                    if (line.isBlank()) {
+                                        shortNameMap.put(zone, format);
+                                        zone = null;
+                                        format = null;
+                                    } else {
+                                        format = line.split("[ \t]+", -1)[3];
+                                    }
+                                }
+                            }
+
+                        }
+                    } catch (IOException ioe) {
+                        throw new UncheckedIOException(ioe);
+                    }
+                });
+        return shortNameMap;
+    }
+    //
+    private static void fillTZDBShortNames(String tzid, String[] names) {
+        var format = tzdbShortNamesMap.get(tzid);
+        if (format != null) {
+            IntStream.of(1, 3, 5).forEach(i -> {
+                if (names[i] == null) {
+                    names[i] = getTZDBShortName(format, i);
+                }
+            });
+        }
+    }
+
+    // fmt could be either
+    // X%sT, +XX/+YY, or +XX
+    private static final String getTZDBShortName(String f, int i) {
+        if (f.contains("%s")) {
+            return switch (i) {
+                case 1 -> f.formatted("S");
+                case 3 -> f.formatted("D");
+                case 5 -> f.formatted("");
+                default -> throw new InternalError();
+            };
+        } else if (f.contains("/")) {
+            return switch (i) {
+                case 1, 5 -> f.substring(0, f.indexOf("/"));
+                case 3 -> f.substring(f.indexOf("/") + 1);
+                default -> throw new InternalError();
+            };
+        } else {
+            return f;
+        }
     }
 
     // for debug
