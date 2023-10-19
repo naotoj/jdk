@@ -481,8 +481,10 @@ public final class ListFormat extends Format {
 
     /**
      * Checks if this {@code ListFormat} is equal to another {@code ListFormat}.
-     * The comparison is based on the {@code Locale} and formatting patterns, given or
-     * generated with {@code Locale}, {@code Type}, and {@code Style}.
+     * The comparison is based on the {@code Locale} and formatting patterns, where
+     * formatting patterns is given with {@link #getInstance(String[])} or
+     * derived from {@code Locale}, {@code Type}, and {@code Style}, with
+     * {@link #getInstance(Locale, Type, Style)}.
      * @param obj the object to check, {@code null} returns {@code false}
      * @return {@code true} if this is equals to the other {@code ListFormat}
      */
