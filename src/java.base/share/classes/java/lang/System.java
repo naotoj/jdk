@@ -797,6 +797,10 @@ public final class System {
      * </tbody>
      * </table>
      * <p>
+     * There are locale-related system properties queried with this method. Those system
+     * properties are used to construct the {@link java.util.Locale##default_locale default
+     * Locale}.
+     * <p>
      * The {@code java.specification.maintenance.version} property is
      * defined if the specification implemented by this runtime at the
      * time of its construction had undergone a <a
