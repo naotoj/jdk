@@ -1678,23 +1678,50 @@ public class SimpleDateFormat extends DateFormat {
                         return start + name.length();
                     }
                 }
+                // lenient
+                if (isLenient()) {
+                    var length = ((SortedMap<String, Integer>) data).lastKey().length();
+                    for (String name : data.keySet()) {
+                        if (text.regionMatches(true, start, name, 0, length)) {
+                            calb.set(field, data.get(name));
+                            return start + length;
+                        }
+                    }
+                }
                 return -start;
             }
 
             String bestMatch = null;
+            var keySet = data.keySet();
+            int bestMatchLength = 0;
 
-            for (String name : data.keySet()) {
+            for (String name : keySet) {
                 int length = name.length();
                 if (bestMatch == null || length > bestMatch.length()) {
                     if (text.regionMatches(true, start, name, 0, length)) {
                         bestMatch = name;
+                        bestMatchLength = length;
+                    }
+                }
+            }
+
+            // lenient
+            if (bestMatch == null && isLenient()) {
+                int minLength = keySet.stream().mapToInt(String::length).min().orElse(Integer.MAX_VALUE);
+                for (String name : keySet) {
+                    int length = Math.min(minLength, text.length());
+                    if (bestMatch == null || length > bestMatch.length()) {
+                        if (text.regionMatches(true, start, name, 0, length)) {
+                            bestMatch = name;
+                            bestMatchLength = length;
+                        }
                     }
                 }
             }
 
             if (bestMatch != null) {
                 calb.set(field, data.get(bestMatch));
-                return start + bestMatch.length();
+                return start + bestMatchLength;
             }
         }
         return -start;
