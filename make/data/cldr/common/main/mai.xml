@@ -1057,15 +1057,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">शुक्र</day>
 							<day type="sat">शनि</day>
 						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">रवि</day>
-							<day type="mon">सोम</day>
-							<day type="tue">मंगल</day>
-							<day type="wed">बुध</day>
-							<day type="thu">बृहस्पति</day>
-							<day type="fri">शुक्र</day>
-							<day type="sat">शनि</day>
-						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">रवि दिन</day>
 							<day type="mon">सोम दिन</day>
