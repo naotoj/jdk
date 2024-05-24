@@ -1687,15 +1687,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">J</day>
 							<day type="sat">S</day>
 						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">Axd</day>
-							<day type="mon">Isn</day>
-							<day type="tue">Tldo</day>
-							<day type="wed">Arbaco</day>
-							<day type="thu">Khms</day>
-							<day type="fri">Jmc</day>
-							<day type="sat">Sbti</day>
-						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
