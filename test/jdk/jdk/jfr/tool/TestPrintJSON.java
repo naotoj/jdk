@@ -42,6 +42,7 @@ import jsonp.JsonException;
 import jsonp.JsonNumber;
 import jsonp.JsonObject;
 import jsonp.JsonParser;
+import jsonp.JsonPathBuilder;
 import jsonp.JsonString;
 import jsonp.JsonValue;
 
@@ -59,6 +60,7 @@ import jsonp.JsonValue;
 public class TestPrintJSON {
 
     public static void main(String... args) throws Throwable {
+        JsonPathBuilder jpb = new JsonPathBuilder();
 
         Path recordingFile = ExecuteHelper.createProfilingRecording().toAbsolutePath();
 
@@ -66,9 +68,10 @@ public class TestPrintJSON {
         String json = output.getStdout();
 
         JsonValue doc = JsonParser.parse(json);
-        if (doc instanceof JsonObject jo &&
-            jo.get("recording") instanceof JsonObject req &&
-                req.get("events") instanceof JsonArray jsonEvents) {
+        if (jpb.objectKey("recording").objectKey("events").build().apply(doc) instanceof JsonArray jsonEvents) {
+//        if (doc instanceof JsonObject jo &&
+//            jo.get("recording") instanceof JsonObject req &&
+//                req.get("events") instanceof JsonArray jsonEvents) {
 
             List<RecordedEvent> events = RecordingFile.readAllEvents(recordingFile);
             Collections.sort(events, new EndTicksComparator());
@@ -77,8 +80,9 @@ public class TestPrintJSON {
             for (JsonValue jsonEvent : jsonEvents.values()) {
                 RecordedEvent recordedEvent = it.next();
                 String typeName = recordedEvent.getEventType().getName();
-                if (jsonEvent instanceof JsonObject o &&
-                    o.get("type") instanceof JsonString name) {
+                if (jpb.clear().objectKey("type").build().apply(jsonEvent) instanceof JsonString name) {
+//                if (jsonEvent instanceof JsonObject o &&
+//                    o.get("type") instanceof JsonString name) {
                     Asserts.assertEquals(typeName, name.value());
                 } else {
                     throw new JsonException("types don't match");
@@ -92,10 +96,15 @@ public class TestPrintJSON {
     }
 
     private static void assertEquals(JsonValue jsonValue, Object jfrObject) throws Exception {
+System.out.printf("asserting %s, %s\n", jsonValue, jfrObject);
+
+        var jpb = new JsonPathBuilder();
+
         // Check object
         if (jfrObject instanceof RecordedObject) {
-            if (jsonValue instanceof JsonObject jo &&
-                jo.get("values") instanceof JsonObject values) {
+//            if (jsonValue instanceof JsonObject jo &&
+//                jo.get("values") instanceof JsonObject values) {
+            if (jpb.objectKey("values").build().apply(jsonValue) instanceof JsonObject values) {
                 RecordedObject recObject = (RecordedObject) jfrObject;
                 Asserts.assertEquals(values.keys().size(), recObject.getFields().size());
                 for (ValueDescriptor v : recObject.getFields()) {
