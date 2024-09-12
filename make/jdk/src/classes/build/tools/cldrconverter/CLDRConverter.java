@@ -786,7 +786,10 @@ public class CLDRConverter {
             String tzKey = Optional.ofNullable((String)handlerSupplMeta.get(tzid))
                                    .orElse(tzid);
             // Follow link, if needed
-            var tzLink = tzdbLinks.get(tzKey);
+            String tzLink = null;
+            for (String t = tzKey; tzdbLinks.containsKey(t);) {
+                t = tzLink = tzdbLinks.get(t);
+            }
             if (tzLink == null && tzdbLinks.containsValue(tzKey)) {
                 // reverse link search
                 // this is needed as in tzdb, "America/Buenos_Aires" links to
@@ -1213,9 +1216,11 @@ public class CLDRConverter {
     // This method assumes handlerMetaZones is already initialized
     private static Set<String> getAvailableZoneIds() {
         assert handlerMetaZones != null;
+        assert tzdbLinks != null;
         if (AVAILABLE_TZIDS == null) {
             AVAILABLE_TZIDS = new HashSet<>(ZoneId.getAvailableZoneIds());
             AVAILABLE_TZIDS.addAll(handlerMetaZones.keySet());
+            AVAILABLE_TZIDS.addAll(tzdbLinks.keySet());
             AVAILABLE_TZIDS.remove(MetaZonesParseHandler.NO_METAZONE_KEY);
         }
 
@@ -1492,10 +1497,11 @@ public class CLDRConverter {
      * If it cannot recognize the pattern, return the argument as is.
      */
     private static String convertGMTName(String f) {
+        if (f.equals("%z")) {
+            // Generate GMT format at runtime
+            return null;
+        }
         try {
-            // Should pre-fill GMT format once COMPAT is gone.
-            // Till then, fall back to GMT format at runtime, after COMPAT short
-            // names are populated
             ZoneOffset.of(f);
             return null;
         } catch (DateTimeException dte) {
