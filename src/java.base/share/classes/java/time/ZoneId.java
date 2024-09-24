@@ -192,9 +192,6 @@ public abstract sealed class ZoneId implements Serializable permits ZoneOffset, 
      * <p>
      * This maps as follows:
      * <ul>
-     * <li>EST - America/Panama</li>
-     * <li>HST - Pacific/Honolulu</li>
-     * <li>MST - America/Phoenix</li>
      * <li>ACT - Australia/Darwin</li>
      * <li>AET - Australia/Sydney</li>
      * <li>AGT - America/Argentina/Buenos_Aires</li>
@@ -208,10 +205,13 @@ public abstract sealed class ZoneId implements Serializable permits ZoneOffset, 
      * <li>CTT - Asia/Shanghai</li>
      * <li>EAT - Africa/Addis_Ababa</li>
      * <li>ECT - Europe/Paris</li>
+     * <li>EST - America/Panama</li>
+     * <li>HST - Pacific/Honolulu</li>
      * <li>IET - America/Indiana/Indianapolis</li>
      * <li>IST - Asia/Kolkata</li>
      * <li>JST - Asia/Tokyo</li>
      * <li>MIT - Pacific/Apia</li>
+     * <li>MST - America/Phoenix</li>
      * <li>NET - Asia/Yerevan</li>
      * <li>NST - Pacific/Auckland</li>
      * <li>PLT - Asia/Karachi</li>

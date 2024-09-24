@@ -787,8 +787,8 @@ public class CLDRConverter {
                                    .orElse(tzid);
             // Follow link, if needed
             String tzLink = null;
-            for (String t = tzKey; tzdbLinks.containsKey(t);) {
-                t = tzLink = tzdbLinks.get(t);
+            for (var k = tzKey; tzdbLinks.containsKey(k);) {
+                k = tzLink = tzdbLinks.get(k);
             }
             if (tzLink == null && tzdbLinks.containsValue(tzKey)) {
                 // reverse link search
@@ -1216,11 +1216,9 @@ public class CLDRConverter {
     // This method assumes handlerMetaZones is already initialized
     private static Set<String> getAvailableZoneIds() {
         assert handlerMetaZones != null;
-        assert tzdbLinks != null;
         if (AVAILABLE_TZIDS == null) {
-            AVAILABLE_TZIDS = new HashSet<>(ZoneId.getAvailableZoneIds());
+            AVAILABLE_TZIDS = new HashSet<>(Arrays.asList(TimeZone.getAvailableIDs()));
             AVAILABLE_TZIDS.addAll(handlerMetaZones.keySet());
-            AVAILABLE_TZIDS.addAll(tzdbLinks.keySet());
             AVAILABLE_TZIDS.remove(MetaZonesParseHandler.NO_METAZONE_KEY);
         }
 
@@ -1495,14 +1493,14 @@ public class CLDRConverter {
     /*
      * Convert TZDB offsets to JDK's offsets, eg, "-08" to "GMT-08:00".
      * If it cannot recognize the pattern, return the argument as is.
+     * Returning null results in generating the GMT format at runtime.
      */
     private static String convertGMTName(String f) {
-        if (f.equals("%z")) {
-            // Generate GMT format at runtime
-            return null;
-        }
         try {
-            ZoneOffset.of(f);
+            if (!f.equals("%z")) {
+                // Validate if the format is an offset
+                ZoneOffset.of(f);
+            }
             return null;
         } catch (DateTimeException dte) {
             // textual representation. return as is
