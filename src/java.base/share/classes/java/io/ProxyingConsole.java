@@ -110,11 +110,11 @@ final class ProxyingConsole extends Console {
      */
     @Override
     public String readln(String prompt) {
-        synchronized (writeLock) {
+//        synchronized (writeLock) {
             synchronized (readLock) {
                 return delegate.readln(prompt);
             }
-        }
+//        }
     }
 
     /**
@@ -168,11 +168,11 @@ final class ProxyingConsole extends Console {
      */
     @Override
     public String readLine(Locale locale, String format, Object ... args) {
-        synchronized (writeLock) {
+//        synchronized (writeLock) {
             synchronized (readLock) {
                 return delegate.readLine(locale, format, args);
             }
-        }
+//        }
     }
 
     /**
@@ -198,11 +198,11 @@ final class ProxyingConsole extends Console {
      */
     @Override
     public char[] readPassword(Locale locale, String format, Object ... args) {
-        synchronized (writeLock) {
+//        synchronized (writeLock) {
             synchronized (readLock) {
                 return delegate.readPassword(locale, format, args);
             }
-        }
+//        }
     }
 
     /**
