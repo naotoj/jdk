@@ -34,5 +34,7 @@ expect {
         puts "timeout"
         exit 1
     }
+    eof {
+        puts "finished in time"
+    }
 }
-expect eof
