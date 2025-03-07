@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2024, 2025, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -23,9 +23,10 @@
 
 /**
  * @test
- * @bug 8331681
+ * @bug 8331681 8351435
  * @summary Verify the java.base's console provider handles the prompt correctly.
  * @library /test/lib
+ * @modules jdk.internal.le
  * @run main/othervm --limit-modules java.base ConsolePromptTest
  * @run main/othervm -Djdk.console=java.base ConsolePromptTest
  */
@@ -58,8 +59,10 @@ public class ConsolePromptTest {
                           String input,
                           String expectedOut) throws Exception {
         ProcessBuilder builder =
-                ProcessTools.createTestJavaProcessBuilder(ConsoleTest.class.getName(),
-                                                          testName);
+                ProcessTools.createTestJavaProcessBuilder(
+                        "-Djdk.console=jdk.internal.le",
+                        ConsoleTest.class.getName(),
+                        testName);
         OutputAnalyzer output = ProcessTools.executeProcess(builder, input);
 
         output.waitFor();
