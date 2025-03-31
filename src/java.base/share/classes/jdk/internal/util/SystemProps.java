@@ -92,13 +92,13 @@ public final class SystemProps {
 
         // "stdout/err.encoding", prepared for System.out/err. For compatibility
         // purposes, substitute them with "sun.*" if they don't exist. If "sun.*" aren't
-        // available either, fall back to "native.encoding".
+        // available either, fall back to "file.encoding".
         putIfAbsent(props, "stdout.encoding", props.getOrDefault("sun.stdout.encoding",
                 raw.propDefault(Raw._stdout_encoding_NDX)));
-        putIfAbsent(props, "stdout.encoding", nativeEncoding);
+        putIfAbsent(props, "stdout.encoding", props.get("file.encoding"));
         putIfAbsent(props, "stderr.encoding", props.getOrDefault("sun.stderr.encoding",
                 raw.propDefault(Raw._stderr_encoding_NDX)));
-        putIfAbsent(props, "stderr.encoding", nativeEncoding);
+        putIfAbsent(props, "stderr.encoding", props.get("file.encoding"));
 
         // Use platform values if not overridden by a commandline -Dkey=value
         // In no particular order
