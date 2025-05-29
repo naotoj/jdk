@@ -49,6 +49,7 @@ import java.text.NumberFormat;
 import java.text.MessageFormat;
 import java.text.ParsePosition;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 import java.util.spi.LocaleNameProvider;
 import java.util.stream.Stream;
@@ -2415,25 +2416,25 @@ public final class Locale implements Cloneable, Serializable {
 
     private String getDisplayKeyTypeExtensionString(String key, LocaleResources lr, Locale inLocale) {
         String type = localeExtensions.getUnicodeLocaleType(key);
-        String displayType = getDisplayString(type, key + "-core", inLocale, DISPLAY_UEXT_TYPE)
-            .or(() -> getDisplayString(type, key, inLocale, DISPLAY_UEXT_TYPE))
+        return getDisplayString(type, key, inLocale, DISPLAY_UEXT_TYPE)
             .orElse(
                 // no localization for this type. try combining key/type separately
-                switch (key) {
-                    case "cu" -> lr.getCurrencyName(type.toLowerCase(Locale.ROOT));
-                    case "rg" -> type != null &&
-                        type.matches("^[a-zA-Z]{2}[zZ]{4}$") ?// UN M.49 code should not be allowed here
-                        lr.getLocaleName(type.substring(0, 2).toUpperCase(Locale.ROOT)) : type;
-                    case "tz" -> TimeZoneNameUtility.convertLDMLShortID(type)
-                        .map(id -> TimeZoneNameUtility.retrieveGenericDisplayName(id, TimeZone.LONG, inLocale))
-                        .orElse(type);
-                    default -> type;
-                }
+                MessageFormat.format(lr.getLocaleName("ListKeyTypePattern"),
+                    getDisplayString(key, null, inLocale, DISPLAY_UEXT_KEY).orElse(key),
+                    switch (key) {
+                        case "cu" -> {
+                            var cname = lr.getCurrencyName(type.toLowerCase(Locale.ROOT));
+                            yield cname != null ? cname : type;
+                        }
+                        case "rg" -> type != null &&
+                            type.matches("^[a-zA-Z]{2}[zZ]{4}$") ?// UN M.49 code should not be allowed here
+                            lr.getLocaleName(type.substring(0, 2).toUpperCase(Locale.ROOT)) : type;
+                        case "tz" -> TimeZoneNameUtility.convertLDMLShortID(type)
+                            .map(id -> TimeZoneNameUtility.retrieveGenericDisplayName(id, TimeZone.LONG, inLocale))
+                            .orElse(type);
+                        default -> type;
+                    })
             );
-
-        return MessageFormat.format(lr.getLocaleName("ListKeyTypePattern"),
-            getDisplayString(key, null, inLocale, DISPLAY_UEXT_KEY).orElse(key),
-            displayType != null ? displayType : type);
     }
 
     /**
