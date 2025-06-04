@@ -49,7 +49,6 @@ import java.text.NumberFormat;
 import java.text.MessageFormat;
 import java.text.ParsePosition;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Function;
 import java.util.spi.LocaleNameProvider;
 import java.util.stream.Stream;
