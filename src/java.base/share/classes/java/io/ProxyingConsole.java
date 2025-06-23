@@ -162,6 +162,10 @@ final class ProxyingConsole extends Console {
      */
     @Override
     public char[] readPassword(Locale locale, String format, Object ... args) {
+        if (!isInputTerminal()) {
+            throw new IllegalStateException();
+        }
+
         synchronized (writeLock) {
             synchronized (readLock) {
                 return delegate.readPassword(locale, format, args);
@@ -174,6 +178,10 @@ final class ProxyingConsole extends Console {
      */
     @Override
     public char[] readPassword() {
+        if (!isInputTerminal()) {
+            throw new IllegalStateException();
+        }
+
         synchronized (readLock) {
             return delegate.readPassword();
         }

@@ -42,15 +42,15 @@ public class ModuleSelectionTest {
         var con = System.console();
         var pc = Class.forName("java.io.ProxyingConsole");
         var jdkc = Class.forName("jdk.internal.io.JdkConsole");
-        var istty = (boolean)MethodHandles.privateLookupIn(Console.class, MethodHandles.lookup())
-                .findStatic(Console.class, "istty", MethodType.methodType(boolean.class))
+        var isInputTTY = (boolean)MethodHandles.privateLookupIn(Console.class, MethodHandles.lookup())
+                .findStatic(Console.class, "isInputTTY", MethodType.methodType(boolean.class))
                 .invoke();
         var impl = con != null ? MethodHandles.privateLookupIn(pc, MethodHandles.lookup())
                 .findGetter(pc, "delegate", jdkc)
                 .invoke(con) : null;
 
         var expected = switch (args[0]) {
-            case "java.base" -> istty ? "java.base" : "null";
+            case "java.base" -> isInputTTY ? "java.base" : "null";
             default -> args[0];
         };
         var actual = con == null ? "null" : impl.getClass().getModule().getName();
@@ -62,7 +62,7 @@ public class ModuleSelectionTest {
                 Actual: %s
                 """.formatted(expected, actual));
         } else {
-            System.out.printf("%s is the expected implementation. (tty: %s)\n", impl, istty);
+            System.out.printf("%s is the expected implementation. (tty: %s)\n", impl, isInputTTY);
         }
     }
 }

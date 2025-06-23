@@ -533,20 +533,58 @@ public sealed class Console implements Flushable permits ProxyingConsole {
     }
 
     /**
+     * {@return {@code true} if the input of this {@code Console} instance is
+     * a terminal}
+     * <p>
+     * This method returns {@code true} if the input of this console device,
+     * associated with the current Java virtual machine, is a terminal,
+     * typically an interactive command line connected to a keyboard.
+     *
+     * @implNote The default implementation returns the value equivalent to calling
+     * {@code isatty(stdin)} on POSIX platforms, or whether standard in file
+     * descriptors are character devices or not on Windows.
+     *
+     * @since 26
+     */
+    public boolean isInputTerminal() {
+        return isInputTTY;
+    }
+
+    /**
+     * {@return {@code true} if the output of this {@code Console} instance is
+     * a terminal}
+     * <p>
+     * This method returns {@code true} if the output of this console device,
+     * associated with the current Java virtual machine, is a terminal,
+     * typically an interactive command line connected to a display.
+     *
+     * @implNote The default implementation returns the value equivalent to calling
+     * {@code isatty(stdout)} on POSIX platforms, or whether standard out file
+     * descriptors are character devices or not on Windows.
+     *
+     * @since 26
+     */
+    public boolean isOutputTerminal() {
+        return isOutputTTY;
+    }
+
+
+    /**
      * {@return {@code true} if the {@code Console} instance is a terminal}
      * <p>
      * This method returns {@code true} if the console device, associated with the current
      * Java virtual machine, is a terminal, typically an interactive command line
      * connected to a keyboard and display.
      *
-     * @implNote The default implementation returns the value equivalent to calling
-     * {@code isatty(stdin/stdout)} on POSIX platforms, or whether standard in/out file
-     * descriptors are character devices or not on Windows.
+     * @implNote The default implementation is equivalent to:
+     * {@snippet lang=java :
+     *    isInputTTY() && isOutputTTY()
+     * }
      *
      * @since 22
      */
     public boolean isTerminal() {
-        return istty;
+        return isInputTTY && isOutputTTY;
     }
 
     private static UnsupportedOperationException newUnsupportedOperationException() {
@@ -554,7 +592,8 @@ public sealed class Console implements Flushable permits ProxyingConsole {
                 "Console class itself does not provide implementation");
     }
 
-    private static final boolean istty = istty();
+    private static final boolean isInputTTY = isInputTTY();
+    private static final boolean isOutputTTY = isOutputTTY();
     private static final Charset STDIN_CHARSET =
         Charset.forName(StaticProperty.stdinEncoding(), UTF_8.INSTANCE);
     private static final Charset STDOUT_CHARSET =
@@ -587,7 +626,8 @@ public sealed class Console implements Flushable permits ProxyingConsole {
 
             for (var jcp : ServiceLoader.load(ModuleLayer.boot(), JdkConsoleProvider.class)) {
                 if (consModName.equals(jcp.getClass().getModule().getName())) {
-                    var jc = jcp.console(istty, STDIN_CHARSET, STDOUT_CHARSET);
+                    var jc = jcp.console(isInputTTY || isOutputTTY,
+                        STDIN_CHARSET, STDOUT_CHARSET);
                     if (jc != null) {
                         c = new ProxyingConsole(jc);
                     }
@@ -598,12 +638,13 @@ public sealed class Console implements Flushable permits ProxyingConsole {
         }
 
         // If not found, default to built-in Console
-        if (istty && c == null) {
+        if ((isInputTTY || isOutputTTY) && c == null) {
             c = new ProxyingConsole(new JdkConsoleImpl(STDIN_CHARSET, STDOUT_CHARSET));
         }
 
         return c;
     }
 
-    private static native boolean istty();
+    private static native boolean isInputTTY();
+    private static native boolean isOutputTTY();
 }

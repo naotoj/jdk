@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005, 2024, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2005, 2025, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -32,7 +32,13 @@
 #include <unistd.h>
 
 JNIEXPORT jboolean JNICALL
-Java_java_io_Console_istty(JNIEnv *env, jclass cls)
+Java_java_io_Console_isInputTTY(JNIEnv *env, jclass cls)
 {
-    return isatty(fileno(stdin)) && isatty(fileno(stdout));
+    return isatty(fileno(stdin));
+}
+
+JNIEXPORT jboolean JNICALL
+Java_java_io_Console_isOutputTTY(JNIEnv *env, jclass cls)
+{
+    return isatty(fileno(stdout));
 }
