@@ -2391,10 +2391,8 @@ public class DecimalFormat extends NumberFormat {
         boolean gotPositive, gotNegative;
 
         // check for positivePrefix; take longest
-        gotPositive = text.regionMatches(position, positivePrefix, 0,
-                positivePrefix.length());
-        gotNegative = text.regionMatches(position, negativePrefix, 0,
-                negativePrefix.length());
+        gotPositive = prefixMatch(text, position, positivePrefix);
+        gotNegative = prefixMatch(text, position, negativePrefix);
 
         if (gotPositive && gotNegative) {
             if (positivePrefix.length() > negativePrefix.length()) {
@@ -3505,6 +3503,28 @@ public class DecimalFormat extends NumberFormat {
             }
         }
         if (needQuote) buffer.append('\'');
+    }
+
+    /**
+     * {@return if the text matches the prefix} In lenient mode, it matches
+     * lenient signs as well
+     */
+    private boolean prefixMatch(String text, int position, String prefix) {
+        var t = text;
+        var p = prefix;
+
+        if (!parseStrict) {
+            // Normalize signs before matching
+            if (!symbols.lenientPositive.isEmpty()) {
+                t = t.replaceAll(symbols.lenientPositive, "+");
+                p = p.replaceAll(symbols.lenientPositive, "+");
+            }
+            if (!symbols.lenientNegative.isEmpty()) {
+                t = t.replaceAll(symbols.lenientNegative, "-");
+                p = p.replaceAll(symbols.lenientNegative, "-");
+            }
+        }
+        return t.regionMatches(position, p, 0, p.length());
     }
 
     /**

@@ -854,6 +854,10 @@ public class DecimalFormatSymbols implements Cloneable, Serializable {
         // maybe filled with previously cached values, or null.
         intlCurrencySymbol = (String) data[1];
         currencySymbol = (String) data[2];
+
+        // parselenient
+        lenientPositive = adapter.getLocaleResources(override).getParseLenient("number", "+").orElse("");
+        lenientNegative = adapter.getLocaleResources(override).getParseLenient("number", "-").orElse("");
     }
 
     /**
@@ -1166,6 +1170,10 @@ public class DecimalFormatSymbols implements Cloneable, Serializable {
      * @since 15
      */
     private  char    monetaryGroupingSeparator;
+
+    // lenient sign patterns. package private access
+    transient String  lenientPositive;
+    transient String  lenientNegative;
 
     // currency; only the ISO code is serialized.
     private transient Currency currency;

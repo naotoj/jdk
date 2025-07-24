@@ -1024,6 +1024,11 @@ public class CLDRConverter {
             copyIfPresent(map, lpKey + "-narrow", formatData);
         }
 
+        // Lenient parsing
+        for (var plKey : Bundle.PARSE_LENIENT_KEYS) {
+            copyIfPresent(map, plKey, formatData);
+        }
+
         return formatData;
     }
 
