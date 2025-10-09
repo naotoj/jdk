@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1995, 2024, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1995, 2025, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -77,16 +77,16 @@ main(int argc, char **argv)
         }
     }
 
-    // Obtain the command line in UTF-16, then convert it to ANSI code page
+    // Obtain the command line in UTF-16, then convert it to console code page
     // without the "best-fit" option
     LPWSTR wcCmdline = GetCommandLineW();
-    int mbSize = WideCharToMultiByte(CP_ACP,
+    int mbSize = WideCharToMultiByte(GetConsoleCP(),
         WC_NO_BEST_FIT_CHARS | WC_COMPOSITECHECK | WC_DEFAULTCHAR,
         wcCmdline, -1, NULL, 0, NULL, NULL);
     // If the call to WideCharToMultiByte() fails, it returns 0, which
     // will then make the following JLI_MemAlloc() to issue exit(1)
     LPSTR mbCmdline = JLI_MemAlloc(mbSize);
-    if (WideCharToMultiByte(CP_ACP, WC_NO_BEST_FIT_CHARS | WC_COMPOSITECHECK | WC_DEFAULTCHAR,
+    if (WideCharToMultiByte(GetConsoleCP(), WC_NO_BEST_FIT_CHARS | WC_COMPOSITECHECK | WC_DEFAULTCHAR,
         wcCmdline, -1, mbCmdline, mbSize, NULL, NULL) == 0) {
         perror("command line encoding conversion failure");
         exit(1);

@@ -918,7 +918,7 @@ CreateApplicationArgs(JNIEnv *env, char **strv, int argc)
     NULL_CHECK0(cls);
 
     if (argc == 0) {
-        return NewPlatformStringArray(env, strv, argc);
+        return NewPlatformConsoleStringArray(env, strv, argc);
     }
     // the holy grail we need to compare with.
     stdargs = JLI_GetStdArgs();
@@ -928,7 +928,7 @@ CreateApplicationArgs(JNIEnv *env, char **strv, int argc)
     if (argc > stdargc) {
         JLI_TraceLauncher("Warning: app args is larger than the original, %d %d\n", argc, stdargc);
         JLI_TraceLauncher("passing arguments as-is.\n");
-        return NewPlatformStringArray(env, strv, argc);
+        return NewPlatformConsoleStringArray(env, strv, argc);
     }
 
     // sanity check, match the args we have, to the holy grail
@@ -941,7 +941,7 @@ CreateApplicationArgs(JNIEnv *env, char **strv, int argc)
         assert (idx == -1);
         JLI_TraceLauncher("Warning: first app arg index not found, %d\n", idx);
         JLI_TraceLauncher("passing arguments as-is.\n");
-        return NewPlatformStringArray(env, strv, argc);
+        return NewPlatformConsoleStringArray(env, strv, argc);
     }
 
     isTool = (idx == 0);
@@ -963,7 +963,7 @@ CreateApplicationArgs(JNIEnv *env, char **strv, int argc)
         JLI_TraceLauncher("Warning: app args count doesn't match, %d %d\n", j, argc);
         JLI_TraceLauncher("passing arguments as-is.\n");
         JLI_MemFree(appArgIdx);
-        return NewPlatformStringArray(env, strv, argc);
+        return NewPlatformConsoleStringArray(env, strv, argc);
     }
 
     // make a copy of the args which will be expanded in java if required.
@@ -996,7 +996,7 @@ CreateApplicationArgs(JNIEnv *env, char **strv, int argc)
         }
         JLI_MemFree(nargv);
         JLI_MemFree(appArgIdx);
-        return NewPlatformStringArray(env, strv, argc);
+        return NewPlatformConsoleStringArray(env, strv, argc);
     }
     NULL_CHECK0(mid = (*env)->GetStaticMethodID(env, cls,
                                                 "expandArgs",
@@ -1004,7 +1004,7 @@ CreateApplicationArgs(JNIEnv *env, char **strv, int argc)
 
     // expand the arguments that require expansion, the java method will strip
     // out the indicator character.
-    NULL_CHECK0(inArray = NewPlatformStringArray(env, nargv, argc));
+    NULL_CHECK0(inArray = NewPlatformConsoleStringArray(env, nargv, argc));
     outArray = (*env)->CallStaticObjectMethod(env, cls, mid, inArray);
     for (i = 0; i < argc; i++) {
         JLI_MemFree(nargv[i]);

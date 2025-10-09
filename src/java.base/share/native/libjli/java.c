@@ -117,7 +117,9 @@ static jboolean ParseArguments(int *pargc, char ***pargv,
                                int *pret);
 static jboolean InitializeJVM(JavaVM **pvm, JNIEnv **penv,
                               InvocationFunctions *ifn);
-static jstring NewPlatformString(JNIEnv *env, char *s);
+static jstring NewPlatformString(JNIEnv *env, char *s, jboolean isStdin);
+static jobjectArray NewPlatformStringArray0(JNIEnv *env, char **strv,
+                                            int strc, jboolean isStdin);
 static jclass LoadMainClass(JNIEnv *env, int mode, char *name);
 static void SetupSplashScreenEnvVars(const char *splash_file_path, char *jar_path);
 static jclass GetApplicationClass(JNIEnv *env);
@@ -174,7 +176,6 @@ static void GrowKnownVMs(int minimum);
 static int  KnownVMIndex(const char* name);
 static void FreeKnownVMs();
 static jboolean IsWildCardEnabled();
-
 
 #define SOURCE_LAUNCHER_MAIN_ENTRY "jdk.compiler/com.sun.tools.javac.launcher.SourceLauncher"
 
@@ -1525,7 +1526,7 @@ static jmethodID makePlatformStringMID = NULL;
  * Returns a new Java string object for the specified platform string.
  */
 static jstring
-NewPlatformString(JNIEnv *env, char *s)
+NewPlatformString(JNIEnv *env, char *s, jboolean isStdin)
 {
     int len = (int)JLI_StrLen(s);
     jbyteArray ary;
@@ -1541,10 +1542,10 @@ NewPlatformString(JNIEnv *env, char *s)
         if (!(*env)->ExceptionCheck(env)) {
             if (makePlatformStringMID == NULL) {
                 NULL_CHECK0(makePlatformStringMID = (*env)->GetStaticMethodID(env,
-                        cls, "makePlatformString", "(Z[B)Ljava/lang/String;"));
+                        cls, "makePlatformString", "(Z[BZ)Ljava/lang/String;"));
             }
             str = (*env)->CallStaticObjectMethod(env, cls,
-                    makePlatformStringMID, USE_STDERR, ary);
+                    makePlatformStringMID, USE_STDERR, ary, isStdin);
             CHECK_EXCEPTION_RETURN_VALUE(0);
             (*env)->DeleteLocalRef(env, ary);
             return str;
@@ -1560,6 +1561,17 @@ NewPlatformString(JNIEnv *env, char *s)
 jobjectArray
 NewPlatformStringArray(JNIEnv *env, char **strv, int strc)
 {
+    return NewPlatformStringArray0(env, strv, strc, JNI_FALSE);
+}
+jobjectArray
+NewPlatformConsoleStringArray(JNIEnv *env, char **strv, int strc)
+{
+    return NewPlatformStringArray0(env, strv, strc, JNI_TRUE);
+}
+
+static jobjectArray
+NewPlatformStringArray0(JNIEnv *env, char **strv, int strc, jboolean isStdin)
+{
     jarray cls;
     jarray ary;
     int i;
@@ -1568,7 +1580,7 @@ NewPlatformStringArray(JNIEnv *env, char **strv, int strc)
     NULL_CHECK0(ary = (*env)->NewObjectArray(env, strc, cls, 0));
     CHECK_EXCEPTION_RETURN_VALUE(0);
     for (i = 0; i < strc; i++) {
-        jstring str = NewPlatformString(env, *strv++);
+        jstring str = NewPlatformString(env, *strv++, isStdin);
         NULL_CHECK0(str);
         (*env)->SetObjectArrayElement(env, ary, i, str);
         (*env)->DeleteLocalRef(env, str);
@@ -1597,7 +1609,7 @@ LoadMainClass(JNIEnv *env, int mode, char *name)
                 "checkAndLoadMain",
                 "(ZILjava/lang/String;)Ljava/lang/Class;"));
 
-    NULL_CHECK0(str = NewPlatformString(env, name));
+    NULL_CHECK0(str = NewPlatformString(env, name, JNI_FALSE));
     NULL_CHECK0(result = (*env)->CallStaticObjectMethod(env, cls, mid,
                                                         USE_STDERR, mode, str));
 
@@ -1929,7 +1941,7 @@ DescribeModule(JNIEnv *env, char *optString)
     NULL_CHECK(cls);
     NULL_CHECK(describeModuleID = (*env)->GetStaticMethodID(env, cls,
             "describeModule", "(Ljava/lang/String;)V"));
-    NULL_CHECK(joptString = NewPlatformString(env, optString));
+    NULL_CHECK(joptString = NewPlatformString(env, optString, JNI_FALSE));
     (*env)->CallStaticVoidMethod(env, cls, describeModuleID, joptString);
 }
 

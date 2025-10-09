@@ -968,22 +968,30 @@ public final class LauncherHelper {
     private static final String encprop = "sun.jnu.encoding";
     private static String encoding = null;
     private static boolean isCharsetSupported = false;
+    private static final String stdinEncprop = "stdin.encoding";
+    private static String stdinEncoding = null;
+    private static boolean isStdinCharsetSupported = false;
 
     /*
      * converts a c or a byte array to a platform specific string,
      * previously implemented as a native method in the launcher.
+     * "isStdin" is for command line arguments that use console encoding.
+     * Otherwise, sun.jnu.encoding is used for native file paths.
      */
-    static String makePlatformString(boolean printToStderr, byte[] inArray) {
+    static String makePlatformString(boolean printToStderr, byte[] inArray, boolean isStdin) {
         initOutput(printToStderr);
-        if (encoding == null) {
+        if (!isStdin && encoding == null) {
             encoding = System.getProperty(encprop);
             isCharsetSupported = Charset.isSupported(encoding);
         }
+        if (isStdin && stdinEncoding == null) {
+            stdinEncoding = System.getProperty(stdinEncprop);
+            isStdinCharsetSupported = Charset.isSupported(stdinEncoding);
+        }
         try {
-            String out = isCharsetSupported
-                    ? new String(inArray, encoding)
-                    : new String(inArray);
-            return out;
+            var isSupported = isStdin ? isStdinCharsetSupported : isCharsetSupported;
+            var enc = isStdin ? stdinEncoding : encoding;
+            return isSupported ? new String(inArray, enc) : new String(inArray);
         } catch (UnsupportedEncodingException uee) {
             abort(uee, null);
         }
