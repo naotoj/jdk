@@ -65,6 +65,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.text.ParsePosition;
 import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAccessor;
 
 import org.testng.annotations.DataProvider;
@@ -432,6 +433,15 @@ public class TestZoneOffsetParser extends AbstractTestPrinterParser {
         assertEquals(pos.getIndex(), 1);
         assertParsed(parsed, ZoneOffset.UTC);
     }
+
+//    @DataProvider(name="iso_parsers")
+//    Object[][] provider_iso_parsers() {
+//        return new Object[][] {
+//        };
+//    }
+//
+//    @Test(dataProvider="iso_parsers")
+//    public void test_iso_constants_lenient_parse(DateTimeFormatter iso, )
 
     private void assertParsed(TemporalAccessor parsed, ZoneOffset expectedOffset) {
         if (expectedOffset == null) {
