@@ -217,6 +217,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="standard">standard sorteringsrekkjefølgje</type>
 			<type key="d0" type="fwidth">full breidd</type>
 			<type key="d0" type="hwidth">halv breidd</type>
+			<type key="hc" type="c12">12-timarssystem</type>
+			<type key="hc" type="c24">24-timarssystem</type>
 			<type key="hc" type="h11">12-timarssystem (0–11)</type>
 			<type key="hc" type="h12">12-timarssystem (1–12)</type>
 			<type key="hc" type="h23">24-timarssystem (0–23)</type>

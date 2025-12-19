@@ -911,6 +911,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="other">(moneda desconocida)</displayName>
 			</currency>
 		</currencies>
+		<minimalPairs>
+			<ordinalMinimalPairs ordinal="one">El {0}ᵉʳ. equipo clasificado ganó.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">El equipo {0}º. clasificado ganó.</ordinalMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<units>
 		<unitLength type="long">
