@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2001, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -24,28 +24,17 @@
 /*
  * @test
  * @bug 4290801 4942982 5102005 8008577 8021121 8210153 8227313 8301991
- *      8174269
+ *      8174269 8371842
  * @summary Basic tests for currency formatting.
  *          Tests both COMPAT and CLDR data.
  * @modules jdk.localedata
  * @run junit CurrencyFormat
  */
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Locale;
-import java.util.Properties;
-import java.util.StringTokenizer;
-import java.util.TimeZone;
-import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.params.ParameterizedTest;
@@ -94,13 +83,13 @@ public class CurrencyFormat {
                 Currency.getInstance("EUR"),
         };
         String[][] expectedCLDRData = {
-                {"$1,234.56", "$1,234.56", "\u00a51,235", "DEM1,234.56", "\u20ac1,234.56"},
-                {"\uFFE51,235", "$1,234.56", "\uFFE51,235", "DEM1,234.56", "\u20ac1,234.56"},
-                {"1.234,56\u00a0\u20ac", "1.234,56\u00a0$", "1.235\u00a0\u00a5", "1.234,56\u00a0DM", "1.234,56\u00a0\u20ac"},
-                {"1.234,56\u00a0\u20ac", "1.234,56\u00a0USD", "1.235\u00a0JPY", "1.234,56\u00a0DEM", "1.234,56\u00a0\u20ac"},
-                {"1.234,56\u00a0\u20ac", "1.234,56\u00a0USD", "1.235\u00a0JPY", "1.234,56\u00a0DEM", "1.234,56\u00a0\u20ac"},
-                {"\u20ac\u00a01.234,56", "$\u00a01.234,56", "\u00a5\u00a01.235", "DM\u00a01.234,56", "\u20ac\u00a01.234,56"},
-                {"1\u202f234.56\u00a0CHF", "1\u202f234.56\u00a0$US", "1\u202f235\u00a0JPY", "1\u202f234.56\u00a0DEM", "1\u202f234.56\u00a0\u20ac"},
+                {"$1,234.56", "$1,234.56", "¥1,235", "DEM1,234.56", "€1,234.56"},
+                {"￥1,235", "$1,234.56", "￥1,235", "DEM1,234.56", "€1,234.56"},
+                {"1.234,56 €", "1.234,56 $", "1.235 ¥", "1.234,56 DM", "1.234,56 €"},
+                {"1.234,56 €", "1.234,56 USD", "1.235 JPY", "1.234,56 DEM", "1.234,56 €"},
+                {"1.234,56 €", "1.234,56 USD", "1.235 JPY", "1.234,56 DEM", "1.234,56 €"},
+                {"€ 1.234,56", "$ 1.234,56", "¥ 1.235", "DM 1.234,56", "€ 1.234,56"},
+                {"1'234.56 CHF", "1'234.56 $US", "1'235 JPY", "1'234.56 DEM", "1'234.56 €"},
         };
         for (int i = 0; i < locales.length; i++) {
             Locale locale = locales[i];
