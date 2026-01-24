@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2025 Unicode, Inc.
+<!-- Copyright © 1991-2026 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1318,6 +1318,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">Default</type>
 			<type key="em" type="emoji" scope="core">Emoji</type>
 			<type key="em" type="text" scope="core">Testo</type>
+			<type key="hc" type="c12">Sistema orario a 12 ore</type>
+			<type key="hc" type="c12" scope="core">12 ore</type>
+			<type key="hc" type="c24">Sistema orario a 24 ore</type>
+			<type key="hc" type="c24" scope="core">24 ore</type>
 			<type key="hc" type="h11">Sistema orario a 12 ore (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 ore (0–11)</type>
 			<type key="hc" type="h12">Sistema orario a 12 ore (1–12)</type>
@@ -1574,7 +1578,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="h">hh a</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
 						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
-						<dateFormatItem id="Hv">'h'HH v</dateFormatItem>
+						<dateFormatItem id="Hv">HH v</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
 						<dateFormatItem id="MEd">E d/M</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
@@ -1960,7 +1964,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
 						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
-						<dateFormatItem id="Hv">'h'HH v</dateFormatItem>
+						<dateFormatItem id="Hv">HH v</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
