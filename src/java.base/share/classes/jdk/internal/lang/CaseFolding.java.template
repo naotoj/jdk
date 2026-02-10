@@ -188,6 +188,9 @@ public final class CaseFolding {
     }
 
     private static long getDefined(int cp) {
+        if (cp == 0) {
+            return -1;
+        }
         var hashes = CASE_FOLDING_HASHES;
         var length = CASE_FOLDING_CPS.length;  // hashed based on total defined.
         var hash = cp % length;
