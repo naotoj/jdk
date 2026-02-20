@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2015, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -292,7 +292,9 @@ final class StringLatin1 {
             if (cp1 != cp2) {
                 long cf1 = CaseFolding.fold(cp1);
                 long cf2 = CaseFolding.fold(cp2);
-                if (cf1 != cf2) {
+                if (cf1 != cf2 ||
+                    // Special case for Sharp-S
+                    cp1 == 0x00DF) {
                     if (!CaseFolding.isSingleCodePoint(cf1) || !CaseFolding.isSingleCodePoint(cf2)) {
                         return compareToFC0_UTF16(value, k, last, other, k, olast);
                     }
