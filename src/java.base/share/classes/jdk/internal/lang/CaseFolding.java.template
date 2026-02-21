@@ -188,6 +188,9 @@ public final class CaseFolding {
     }
 
     private static long getDefined(int cp) {
+        // Exclude the code point U+0000 which is guaranteed to
+        // not have case folding mapping, as zero is used as the
+        // hash sentinel for an empty slot
         if (cp == 0) {
             return -1;
         }
