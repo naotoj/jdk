@@ -67,12 +67,12 @@ import static java.lang.constant.ConstantDescs.DEFAULT_NAME;
  * Character information is based on the Unicode Standard, version 17.0.
  * <p>
  * The Java platform has supported different versions of the Unicode
- * Standard over time. The following table lists the version of Unicode used
+ * Standard over time. The following tables list the version of Unicode used
  * in each Java release. Unless otherwise specified, all update releases in a
  * given Java release family use the same Unicode version.
  * <table class="striped">
  * <!-- The expanded table should include the current Java release, followed
- * by the older LTS releases. Other releases should be listed in the details
+ * by commonly used releases, with other releases listed in the details
  * section -->
  * <caption style="display:none">Shows Java releases and supported Unicode versions</caption>
  * <thead>

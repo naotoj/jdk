@@ -166,7 +166,7 @@ import java.util.Locale;
  * <a href="http://cldr.unicode.org/">Common Locale Data Repository (CLDR)</a>
  * to implement locale-sensitive APIs in the {@code java.util} and
  * {@code java.text} packages. This locale data derives the set of locales
- * supported by the Java runtime environment. The following table lists the
+ * supported by the Java runtime environment. The following tables list the
  * version of CLDR used in each JDK release. Unless otherwise specified, all
  * update releases in a given JDK release family use the same CLDR version.
  * Note that the CLDR locale data are subject to change. Users should not assume
@@ -176,7 +176,7 @@ import java.util.Locale;
  * for the deltas between their releases.
  * <table class="striped">
  * <!-- The expanded table should include the current JDK release, followed
- * by the older LTS releases. Other releases should be listed in the details
+ * by commonly used releases, with other releases listed in the details
  * section -->
  * <caption style="display:none">JDK releases and supported CLDR versions</caption>
  * <thead>
