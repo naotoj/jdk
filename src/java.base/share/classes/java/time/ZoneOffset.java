@@ -90,7 +90,6 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
 import java.util.function.Supplier;
 
 import jdk.internal.util.DecimalDigits;
-import jdk.internal.vm.annotation.Stable;
 
 /**
  * A time-zone offset from Greenwich/UTC, such as {@code +02:00}.
@@ -179,7 +178,6 @@ public final class ZoneOffset
     /**
      * The zone rules for an offset will always return this offset. Cache it for efficiency.
      */
-    @Stable
     private final transient LazyConstant<ZoneRules> rules =
         LazyConstant.of(new Supplier<ZoneRules>() {
             @Override
