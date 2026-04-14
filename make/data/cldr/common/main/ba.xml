@@ -399,6 +399,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">кари</script>
 			<script type="Cham">чам</script>
 			<script type="Cher">чероки</script>
+			<script type="Chis">чисои</script>
 			<script type="Chrs">хәрәзм</script>
 			<script type="Copt">копт</script>
 			<script type="Cpmn">кипр-миной</script>
@@ -1055,6 +1056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">брахми цифрҙары</type>
 			<type key="numbers" type="cakm">чакма цифрҙары</type>
 			<type key="numbers" type="cham">чам цифрҙары</type>
+			<type key="numbers" type="chis">чисои цифрҙары</type>
 			<type key="numbers" type="cyrl">кириллица һандары</type>
 			<type key="numbers" type="deva">деванагари цифрҙары</type>
 			<type key="numbers" type="diak">дивес акуру цифрҙары</type>
@@ -5200,6 +5202,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<group> </group>
 		</symbols>
 		<symbols numberSystem="cham">
+			<group> </group>
+		</symbols>
+		<symbols numberSystem="chis">
 			<group> </group>
 		</symbols>
 		<symbols numberSystem="deva">

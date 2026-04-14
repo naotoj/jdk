@@ -7950,7 +7950,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>ዲግሪ ሙቐት</displayName>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>ዲግሪ ሴንቲግሬድ</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°ሴ</unitPattern>
 				<unitPattern count="other">{0}°ሴ</unitPattern>
 			</unit>

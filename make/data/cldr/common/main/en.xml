@@ -746,6 +746,7 @@ annotations.
 			<script type="Cari">Carian</script>
 			<script type="Cham">Cham</script>
 			<script type="Cher">Cherokee</script>
+			<script type="Chis">Chisoi</script>
 			<script type="Chrs">Chorasmian</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Coptic</script>
@@ -859,6 +860,7 @@ annotations.
 			<script type="Ougr">Old Uyghur</script>
 			<script type="Palm">Palmyrene</script>
 			<script type="Pauc">Pau Cin Hau</script>
+			<script type="Pcun">Proto-Cuneiform</script>
 			<script type="Perm">Old Permic</script>
 			<script type="Phag">Phags-pa</script>
 			<script type="Phli">Inscriptional Pahlavi</script>
@@ -878,6 +880,7 @@ annotations.
 			<script type="Sarb">Old South Arabian</script>
 			<script type="Saur">Sourashtra</script>
 			<script type="Saur" alt="variant">Saurashtra</script>
+			<script type="Seal">Seal</script>
 			<script type="Sgnw">SignWriting</script>
 			<script type="Shaw">Shavian</script>
 			<script type="Shrd">Sharada</script>
@@ -1082,7 +1085,8 @@ annotations.
 			<territory type="GY">Guyana</territory>
 			<territory type="HK">Hong Kong SAR China</territory>
 			<territory type="HK" alt="short">Hong Kong</territory>
-			<territory type="HM">Heard &amp; McDonald Islands</territory>
+			<territory type="HM">Heard Island &amp; McDonald Islands</territory>
+			<territory type="HM" alt="short">Heard &amp; McDonald Islands</territory>
 			<territory type="HN">Honduras</territory>
 			<territory type="HR">Croatia</territory>
 			<territory type="HT">Haiti</territory>
@@ -1193,7 +1197,8 @@ annotations.
 			<territory type="SD">Sudan</territory>
 			<territory type="SE">Sweden</territory>
 			<territory type="SG">Singapore</territory>
-			<territory type="SH">St. Helena</territory>
+			<territory type="SH">St. Helena, Ascension &amp; Tristan da Cunha</territory>
+			<territory type="SH" alt="short">St. Helena</territory>
 			<territory type="SI">Slovenia</territory>
 			<territory type="SJ">Svalbard &amp; Jan Mayen</territory>
 			<territory type="SK">Slovakia</territory>
@@ -1212,7 +1217,8 @@ annotations.
 			<territory type="TA">Tristan da Cunha</territory>
 			<territory type="TC">Turks &amp; Caicos Islands</territory>
 			<territory type="TD">Chad</territory>
-			<territory type="TF">French Southern Territories</territory>
+			<territory type="TF">French Southern and Antarctic Lands</territory>
+			<territory type="TF" alt="short">French Southern Territories</territory>
 			<territory type="TG">Togo</territory>
 			<territory type="TH">Thailand</territory>
 			<territory type="TJ">Tajikistan</territory>
@@ -1628,6 +1634,7 @@ annotations.
 			<type key="numbers" type="brah">Brahmi Digits</type>
 			<type key="numbers" type="cakm">Chakma Digits</type>
 			<type key="numbers" type="cham">Cham Digits</type>
+			<type key="numbers" type="chis">Chisoi Digits</type>
 			<type key="numbers" type="cyrl">Cyrillic Numerals</type>
 			<type key="numbers" type="deva">Devanagari Digits</type>
 			<type key="numbers" type="diak">Dives Akuru Digits</type>
@@ -4693,7 +4700,7 @@ annotations.
 			</metazone>
 			<metazone type="French_Southern">
 				<long>
-					<standard>French Southern &amp; Antarctic Time</standard>
+					<standard>French Southern Territories Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Galapagos">
@@ -9537,9 +9544,9 @@ annotations.
 				<unitPattern count="other">{0} fl oz Imp.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>tbsp</displayName>
-				<unitPattern count="one">{0} tbsp</unitPattern>
-				<unitPattern count="other">{0} tbsp</unitPattern>
+				<displayName>Tbsp</displayName>
+				<unitPattern count="one">{0} Tbsp</unitPattern>
+				<unitPattern count="other">{0} Tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>tsp</displayName>
@@ -10839,9 +10846,9 @@ annotations.
 				<unitPattern count="other">{0}fl oz Im</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
-				<displayName>tbsp</displayName>
-				<unitPattern count="one">{0}tbsp</unitPattern>
-				<unitPattern count="other">{0}tbsp</unitPattern>
+				<displayName>Tbsp</displayName>
+				<unitPattern count="one">{0}Tbsp</unitPattern>
+				<unitPattern count="other">{0}Tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
 				<displayName>tsp</displayName>

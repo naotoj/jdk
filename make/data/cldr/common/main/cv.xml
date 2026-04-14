@@ -396,6 +396,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">кари ҫырулӑхӗ</script>
 			<script type="Cham">чам ҫырулӑхӗ</script>
 			<script type="Cher">чероки ҫырулӑхӗ</script>
+			<script type="Chis">чисой ҫырулӑхаӗ</script>
 			<script type="Chrs">хорезм ҫырулӑхӗ</script>
 			<script type="Copt">копт ҫырулӑхӗ</script>
 			<script type="Cpmn">кипр-миной ҫырулӑхӗ</script>
@@ -1124,6 +1125,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">брахма хисеп паллисем</type>
 			<type key="numbers" type="cakm">чакма хисеп паллисем</type>
 			<type key="numbers" type="cham">чам хисеп паллисем</type>
+			<type key="numbers" type="chis">чисои хисеп паллисем</type>
 			<type key="numbers" type="cyrl">кирилл хисеп паллисем</type>
 			<type key="numbers" type="deva">деванагари хисеп паллисем</type>
 			<type key="numbers" type="diak">дивехи-акуру хисеп паллисем</type>
@@ -9727,6 +9729,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="cham">
 			<nan>хисеп мар</nan>
 		</symbols>
+		<symbols numberSystem="chis">
+			<nan>хисеп мар</nan>
+		</symbols>
 		<symbols numberSystem="deva">
 			<nan>хисеп мар</nan>
 		</symbols>
@@ -10123,6 +10128,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
+					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="chis">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>

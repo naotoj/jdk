@@ -399,6 +399,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">ၶျႃရီယႅၼ်ႇ</script>
 			<script type="Cham">ၶျႅမ်</script>
 			<script type="Cher">ၶျႄးရူဝ်ၵီႇ</script>
+			<script type="Chis">ၶျီႇသွႆး</script>
 			<script type="Chrs">ၶူဝ်ရသမီးယႅၼ်ႇ</script>
 			<script type="Copt">ၶွပ်းထိၵ်ႉ</script>
 			<script type="Cpmn">သၢႆႉပရူဝ်-မိၼ်ၼူဝ်းဢႅၼ်ႇ</script>
@@ -1055,6 +1056,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="brah">တူဝ်ၼပ်ႉ ပရႃမီႇ</type>
 			<type key="numbers" type="cakm">တူဝ်ၼပ်ႉ ၶျႅၵ်ႉမႃး</type>
 			<type key="numbers" type="cham">တူဝ်ၼပ်ႉ ၶျႅမ်</type>
+			<type key="numbers" type="chis">တူဝ်ၼပ်ႉ ၶျီႇသွႆး</type>
 			<type key="numbers" type="cyrl">တူဝ်ၼပ်ႉ သရီးရိၵ်ႉ</type>
 			<type key="numbers" type="deva">တူဝ်ၼပ်ႉ တႄဝၼႃးၵရီႇ</type>
 			<type key="numbers" type="diak">တူဝ်ၼပ်ႉ တၢႆႉၾ်ဢၵ်ႉၶူးလူႇ</type>
@@ -9850,7 +9852,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">ပူဝ်ၾူတ်ႉ {0}</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName>တီႇၵရီႇသႄးသီးယႅတ်ႉ</displayName>
+				<displayName>°C</displayName>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<displayName>တီႇၵရီႇၾႃႇရႅၼ်ႇႁၢႆႉ</displayName>
