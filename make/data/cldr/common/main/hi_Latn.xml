@@ -451,6 +451,9 @@ annotations.
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1370,10 +1373,10 @@ annotations.
 			</currency>
 		</currencies>
 		<minimalPairs>
-			<ordinalMinimalPairs ordinal="few">{0}rd right lein.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">{0}st right lein.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}th right lein.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">{0}nd right lein.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">{0}rd right lein.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">{0}th right lein.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

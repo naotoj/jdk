@@ -102,6 +102,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
+				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
