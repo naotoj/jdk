@@ -649,9 +649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Апија вријеме</generic>
 					<standard>Апија, стандардно вријеме</standard>
-					<daylight>Апија, љетње вријеме</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">

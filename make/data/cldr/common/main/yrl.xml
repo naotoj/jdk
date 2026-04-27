@@ -3518,9 +3518,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Apiya Hurariyu</generic>
 					<standard>Apiya Uraruiyu Retewa</standard>
-					<daylight>Apiya Kurasí Ara Hurariyu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

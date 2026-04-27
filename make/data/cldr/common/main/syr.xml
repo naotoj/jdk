@@ -2762,9 +2762,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>ܥܕܢܐ ܕܐܦܝܐ</generic>
 					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܐܦܝܐ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܐܦܝܐ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

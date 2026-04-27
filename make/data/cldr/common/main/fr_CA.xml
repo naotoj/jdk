@@ -1226,13 +1226,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>heure avancée d’Anadyr</daylight>
 				</long>
 			</metazone>
-			<metazone type="Apia">
-				<long>
-					<generic>heure d’Apia</generic>
-					<standard>heure normale d’Apia</standard>
-					<daylight>heure avancée d’Apia</daylight>
-				</long>
-			</metazone>
 			<metazone type="Aqtau">
 				<long>
 					<generic>heure d’Aktaou</generic>

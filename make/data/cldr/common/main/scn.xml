@@ -1905,9 +1905,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Ura di Samoa</generic>
 					<standard>Ura sulari di Samoa</standard>
-					<daylight>Ura ligali di Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">

@@ -3742,9 +3742,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Apiatid</generic>
 					<standard>Apia, normaltid</standard>
-					<daylight>Apia, sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">

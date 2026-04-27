@@ -417,13 +417,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>PDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Apia">
-				<long>
-					<generic>hora de Apia</generic>
-					<standard>hora estándar de Apia</standard>
-					<daylight>hora de verano de Apia</daylight>
-				</long>
-			</metazone>
 			<metazone type="Atlantic">
 				<short>
 					<generic>AT</generic>

@@ -2139,9 +2139,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Wektu Apia</generic>
 					<standard>Wektu Standar Samoa</standard>
-					<daylight>Wektu Ketiga Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
