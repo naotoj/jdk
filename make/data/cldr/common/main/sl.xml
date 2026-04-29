@@ -3097,7 +3097,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Čas: Apia</generic>
 					<standard>Standardni čas: Apia</standard>
+					<daylight>Poletni čas: Apia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3760,9 +3762,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoanski čas</generic>
 					<standard>Samoanski standardni čas</standard>
-					<daylight>Samoanski poletni čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

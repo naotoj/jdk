@@ -3013,7 +3013,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apiako ordua</generic>
 					<standard>Apiako ordu estandarra</standard>
+					<daylight>Apiako udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -3755,9 +3757,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoako ordua</generic>
 					<standard>Samoako ordu estandarra</standard>
-					<daylight>Samoako udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

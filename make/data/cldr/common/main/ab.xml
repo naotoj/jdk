@@ -2807,7 +2807,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic draft="unconfirmed">Апиа</generic>
 					<standard draft="unconfirmed">Апиа, астандартә аамҭа</standard>
+					<daylight draft="unconfirmed">Апиа, аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -3513,9 +3515,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="unconfirmed">Самоа</generic>
 					<standard draft="unconfirmed">Самоа, астандартә аамҭа</standard>
-					<daylight draft="unconfirmed">Самоа, аԥхынтәи аамҭа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

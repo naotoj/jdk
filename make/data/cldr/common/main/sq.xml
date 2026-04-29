@@ -3160,7 +3160,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Ora e Apias</generic>
 					<standard>Ora standarde e Apias</standard>
+					<daylight>Ora verore e Apias</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -3871,9 +3873,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Ora e Samoas</generic>
 					<standard>Ora standarde e Samoas</standard>
-					<daylight>Ora verore e Samoas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

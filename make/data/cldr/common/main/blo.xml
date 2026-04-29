@@ -2877,7 +2877,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Samowa kaakɔŋkɔŋɔ̀</generic>
 					<standard>Samowa kaakɔŋkɔŋɔ̀ ɖeiɖei</standard>
+					<daylight>Samowa kaakɔŋkɔŋɔ̀ gafʊbaka</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3551,9 +3553,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samowa Amalɩka kaja kaakɔŋkɔŋɔ̀</generic>
 					<standard>Samowa Amalɩka kaja kaakɔŋkɔŋɔ̀ ɖeiɖei</standard>
-					<daylight>Samowa Amalɩka kaja kaakɔŋkɔŋɔ̀ gafʊbaka</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

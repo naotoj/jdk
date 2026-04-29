@@ -4307,7 +4307,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Самоа ваҡыты</generic>
 					<standard>Самоа стандарт ваҡыты</standard>
+					<daylight>Самоа йәйге ваҡыты</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -5020,9 +5022,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Америка Самоаһы ваҡыты</generic>
 					<standard>Америка Самоаһы стандарт ваҡыты</standard>
-					<daylight>Америка Самоаһы йәйге ваҡыты</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

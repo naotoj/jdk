@@ -2311,7 +2311,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Oras sa Apia</generic>
 					<standard>Standard na Oras sa Apia</standard>
+					<daylight>Daylight Time sa Apia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2974,9 +2976,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Oras sa Samoa</generic>
 					<standard>Standard na Oras sa Samoa</standard>
-					<daylight>Daylight Time sa Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

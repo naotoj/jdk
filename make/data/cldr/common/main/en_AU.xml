@@ -488,13 +488,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>NZDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Samoa">
-				<long>
-					<generic>American Samoa Time</generic>
-					<standard>American Samoa Standard Time</standard>
-					<daylight>Samoa Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Taipei">
 				<long>
 					<generic>Taiwan Time</generic>

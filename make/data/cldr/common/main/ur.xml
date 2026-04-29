@@ -3485,7 +3485,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>ایپیا ٹائم</generic>
 					<standard>ایپیا سٹینڈرڈ ٹائم</standard>
+					<daylight>ایپیا ڈے لائٹ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4148,9 +4150,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ساموآ ٹائم</generic>
 					<standard>ساموآ سٹینڈرڈ ٹائم</standard>
-					<daylight>ساموآ ڈے لائٹ ٹائم</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -3354,7 +3354,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Апиа убактысы</generic>
 					<standard>Апиа кышкы убактысы</standard>
+					<daylight>Апиа жайкы убактысы</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4003,9 +4005,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Самоа убактысы</generic>
 					<standard>Самоа кышкы убактысы</standard>
-					<daylight>Самоа жайкы убактысы</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

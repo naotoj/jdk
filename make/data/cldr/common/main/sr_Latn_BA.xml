@@ -649,7 +649,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apija vrijeme</generic>
 					<standard>Apija, standardno vrijeme</standard>
+					<daylight>Apija, ljetnje vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -1293,9 +1295,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa vrijeme</generic>
 					<standard>Samoa, standardno vrijeme</standard>
-					<daylight>Samoa, ljetnje vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

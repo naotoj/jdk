@@ -3212,7 +3212,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>اپیا وخت</generic>
 					<standard>اپیا معياري وخت</standard>
+					<daylight>اپيا د ورځې روښانه وخت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3861,9 +3863,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>سموا وخت</generic>
 					<standard>سموا معياري وخت</standard>
-					<daylight>سموا د ورځې روښانه وخت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

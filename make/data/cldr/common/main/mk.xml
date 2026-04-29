@@ -4317,7 +4317,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Време во Апија</generic>
 					<standard>Стандардно време во Апија</standard>
+					<daylight>Летно време во Апија</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4988,9 +4990,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Време во Самоа</generic>
 					<standard>Стандардно време во Самоа</standard>
-					<daylight>Летно време во Самоа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

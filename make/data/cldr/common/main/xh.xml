@@ -1352,7 +1352,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apia Time</generic>
 					<standard>Apia Standard Time</standard>
+					<daylight>Apia Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2001,9 +2003,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa Time</generic>
 					<standard>Samoa Standard Time</standard>
-					<daylight>Samoa Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

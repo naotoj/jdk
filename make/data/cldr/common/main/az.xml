@@ -3096,7 +3096,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apia Vaxtı</generic>
 					<standard>Apia Standart Vaxtı</standard>
+					<daylight>Apia Yay Vaxtı</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3752,9 +3754,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa Vaxtı</generic>
 					<standard>Samoa Standart Vaxtı</standard>
-					<daylight>Samoa Yay Vaxtı</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

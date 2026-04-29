@@ -3976,7 +3976,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>وقت آپیا</generic>
 					<standard>وقت عادی آپیا</standard>
+					<daylight>وقت تابستانی آپیا</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4668,9 +4670,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>وقت ساموا</generic>
 					<standard>وقت عادی ساموا</standard>
-					<daylight>وقت تابستانی ساموا</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

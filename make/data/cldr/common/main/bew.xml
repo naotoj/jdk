@@ -3185,7 +3185,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic draft="unconfirmed">Waktu Apia</generic>
 					<standard draft="unconfirmed">Waktu Pakem Apia</standard>
+					<daylight draft="unconfirmed">Waktu Musim Pentèr Apia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -3881,9 +3883,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="unconfirmed">Waktu Samoa</generic>
 					<standard draft="unconfirmed">Waktu Pakem Samoa</standard>
-					<daylight draft="unconfirmed">Waktu Musim Pentèr Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

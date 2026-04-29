@@ -3742,7 +3742,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apiatid</generic>
 					<standard>Apia, normaltid</standard>
+					<daylight>Apia, sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4471,9 +4473,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>samoansk tid</generic>
 					<standard>samoansk normaltid</standard>
-					<daylight>samoansk sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

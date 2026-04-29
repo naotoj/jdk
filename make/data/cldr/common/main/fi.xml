@@ -3635,7 +3635,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apian aika</generic>
 					<standard>Apian normaaliaika</standard>
+					<daylight>Apian kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4346,9 +4348,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoan aika</generic>
 					<standard>Samoan normaaliaika</standard>
-					<daylight>Samoan kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -3873,7 +3873,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Wakhtiga Samoa</generic>
 					<standard>Waqtiga Caadiga Ah ee Samoa</standard>
+					<daylight>Waqtiga Dharaarta ee Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4565,9 +4567,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Wakhtiga American Samoa</generic>
 					<standard>Waqtiga Caadiga Ah ee American Samoa</standard>
-					<daylight>Waqtiga Dharaarta ee American Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

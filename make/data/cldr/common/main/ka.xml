@@ -3505,7 +3505,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>აპიას დრო</generic>
 					<standard>აპიას სტანდარტული დრო</standard>
+					<daylight>აპიას ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4154,9 +4156,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>სამოას დრო</generic>
 					<standard>სამოას სტანდარტული დრო</standard>
-					<daylight>სამოას ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

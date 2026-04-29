@@ -3434,7 +3434,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>የአፒያ ሰዓት</generic>
 					<standard>የአፒያ መደበኛ ሰዓት</standard>
+					<daylight>የአፒያ የቀን ጊዜ ሰዓት</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4097,9 +4099,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>የሳሞዋ ሰዓት</generic>
 					<standard>የሳሞዋ መደበኛ ሰዓት</standard>
-					<daylight>የሳሞዋ የበጋ ሰዓት</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

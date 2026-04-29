@@ -3856,7 +3856,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>एपिया वेळ</generic>
 					<standard>एपिया प्रमाण वेळ</standard>
+					<daylight>एपिया सूर्यप्रकाश वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4565,9 +4567,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>सामोआ वेळ</generic>
 					<standard>सामोआ प्रमाण वेळ</standard>
-					<daylight>सामोआ सूर्यप्रकाश वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -3587,7 +3587,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Óra Apija tá</generic>
 					<standard>Óra Pã Apija tá</standard>
+					<daylight>Rỹ Kã óra Apija tá</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4293,9 +4295,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Óra Samãva tá</generic>
 					<standard>Óra Pã Samãva tá</standard>
-					<daylight>Rỹ Kã óra Samãva tá</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -492,6 +492,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/St_Thomas">
 				<exemplarCity>St. Thomas</exemplarCity>
 			</zone>
+			<metazone type="Apia">
+				<long>
+					<generic>hora de Apia</generic>
+					<standard>hora estándar de Apia</standard>
+					<daylight>hora de verano de Apia</daylight>
+				</long>
+			</metazone>
 			<metazone type="Christmas">
 				<long>
 					<standard>hora de la isla de Navidad</standard>

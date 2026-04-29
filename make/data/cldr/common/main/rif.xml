@@ -2455,7 +2455,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic draft="unconfirmed">akud n samwa</generic>
 					<standard draft="unconfirmed">akud anaway n samwa</standard>
+					<daylight draft="unconfirmed">akud n uzil n samwa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3104,9 +3106,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="unconfirmed">akud n samwa tamarikant</generic>
 					<standard draft="unconfirmed">akud anaway n samwa tamarikant</standard>
-					<daylight draft="unconfirmed">akud n uzil n samwa tamarikant</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -3019,7 +3019,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic draft="unconfirmed">Apia-tiid</generic>
 					<standard draft="unconfirmed">Apia-standerttiid</standard>
+					<daylight draft="unconfirmed">Apia-simmertiid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -3740,9 +3742,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="contributed">Samoaanske tiid</generic>
 					<standard draft="contributed">Samoaanske standerttiid</standard>
-					<daylight draft="contributed">Samoaanske simmertiid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

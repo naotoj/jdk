@@ -3397,7 +3397,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>apijský čas</generic>
 					<standard>apijský standardní čas</standard>
+					<daylight>apijský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4118,9 +4120,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>samojský čas</generic>
 					<standard>samojský standardní čas</standard>
-					<daylight>samojský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

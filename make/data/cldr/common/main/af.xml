@@ -2496,7 +2496,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apia-tyd</generic>
 					<standard>Apia-standaardtyd</standard>
+					<daylight>Apia-dagligtyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3159,9 +3161,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa-tyd</generic>
 					<standard>Samoa-standaardtyd</standard>
-					<daylight>Samoa-dagligtyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

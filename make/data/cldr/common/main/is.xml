@@ -2912,7 +2912,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Tími í Apía</generic>
 					<standard>Staðaltími í Apía</standard>
+					<daylight>Sumartími í Apía</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3575,9 +3577,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samóa-tími</generic>
 					<standard>Staðaltími á Samóa</standard>
-					<daylight>Sumartími á Samóa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -2071,7 +2071,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Saa za Apia</generic>
 					<standard>Saa za Wastani za Apia</standard>
+					<daylight>Saa za Mchana za Apia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2734,9 +2736,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Saa za Samoa</generic>
 					<standard>Saa za Wastani za Samoa</standard>
-					<daylight>Saa za Majira ya joto za Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

@@ -3324,7 +3324,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>czas Apia</generic>
 					<standard>Apia (czas standardowy)</standard>
+					<daylight>Apia (czas letni)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4023,9 +4025,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>czas Samoa</generic>
 					<standard>Samoa (czas standardowy)</standard>
-					<daylight>Samoa (czas letni)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

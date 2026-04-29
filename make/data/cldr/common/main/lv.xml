@@ -3687,7 +3687,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Apia">
 				<long>
+					<generic>Apijas laiks</generic>
 					<standard>Apijas ziemas laiks</standard>
+					<daylight>Apijas vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4365,9 +4367,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa laiks</generic>
 					<standard>Samoa ziemas laiks</standard>
-					<daylight>Samoa vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

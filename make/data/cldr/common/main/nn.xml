@@ -1018,6 +1018,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>sommartid for den nordamerikanske stillehavskysten</daylight>
 				</long>
 			</metazone>
+			<metazone type="Apia">
+				<long>
+					<generic>tidssone for Apia</generic>
+					<standard>normaltid for Apia</standard>
+					<daylight>sommartid for Apia</daylight>
+				</long>
+			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>arabisk tid</generic>
@@ -1475,13 +1482,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>tidssone for Sakhalin</generic>
 					<standard>normaltid for Sakhalin</standard>
 					<daylight>sommartid for Sakhalin</daylight>
-				</long>
-			</metazone>
-			<metazone type="Samoa">
-				<long>
-					<generic>samoansk tid</generic>
-					<standard>samoansk normaltid</standard>
-					<daylight>samoansk sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Taipei">
