@@ -284,9 +284,7 @@ public class TimeZoneNamesTest {
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Eire")), "Irish Standard Time"),
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Eire")), "Greenwich Mean Time"),
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), "Pacific Daylight Time"),
-            // This needs to change once TZDB adopts -7 offset year round, and CLDR uses explicit dst offset
-            // namely, "Pacific Standard Time" -> "Pacific Daylight Time"
-            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), "Pacific Standard Time")
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), "Pacific Daylight Time")
         );
     }
 
@@ -321,9 +319,8 @@ public class TimeZoneNamesTest {
             "getZoneStrings() returned array containing non-empty string element(s)");
     }
 
-    // Explicit metazone dst offset test. As of CLDR v48, only Europe/Dublin utilizes
-    // this attribute, but will be used for America/Vancouver once CLDR adopts the
-    // explicit offset for that zone, which warrants the test data modification.
+    // Explicit metazone dst offset test. As of CLDR v49, Europe/Dublin and
+    // America/Vancouver both utilize explicit standard/daylight offsets.
     @ParameterizedTest
     @MethodSource("explicitDstOffsets")
     public void test_ExplicitMetazoneOffsets(ZonedDateTime zdt, String expected) {
