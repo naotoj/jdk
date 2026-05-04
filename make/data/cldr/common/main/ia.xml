@@ -2546,11 +2546,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>hora estive de Groenlandia occidental</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>hora normal de Guam</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>hora normal del Golfo</standard>

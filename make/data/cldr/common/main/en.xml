@@ -1779,6 +1779,10 @@ annotations.
 			<type key="va" type="posix">POSIX Compliant Locale</type>
 			<type key="va" type="posix" scope="core">POSIX variant</type>
 		</types>
+		<typeValues>
+			<typeValue type="no">Off</typeValue>
+			<typeValue type="yes">On</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 			<measurementSystemName type="UK">UK</measurementSystemName>
@@ -4454,13 +4458,6 @@ annotations.
 					<daylight>AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty Time</generic>
-					<standard>Almaty Standard Time</standard>
-					<daylight>Almaty Summer Time</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazon Time</generic>
@@ -4528,20 +4525,6 @@ annotations.
 					<generic>West Samoa Time</generic>
 					<standard>West Samoa Standard Time</standard>
 					<daylight>West Samoa Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aqtau Time</generic>
-					<standard>Aqtau Standard Time</standard>
-					<daylight>Aqtau Summer Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aqtobe Time</generic>
-					<standard>Aqtobe Standard Time</standard>
-					<daylight>Aqtobe Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4852,11 +4835,6 @@ annotations.
 					<daylight>West Greenland Summer Time</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam Standard Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Gulf Standard Time</standard>
@@ -5005,11 +4983,6 @@ annotations.
 					<standard>Kyrgyzstan Time</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lanka Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line Islands Time</standard>
@@ -5020,13 +4993,6 @@ annotations.
 					<generic>Lord Howe Time</generic>
 					<standard>Lord Howe Standard Time</standard>
 					<daylight>Lord Howe Daylight Time</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macao Time</generic>
-					<standard>Macao Standard Time</standard>
-					<daylight>Macao Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -5144,11 +5110,6 @@ annotations.
 					<daylight>Fernando de Noronha Summer Time</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Northern Mariana Islands Time</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsk Time</generic>
@@ -5226,13 +5187,6 @@ annotations.
 			<metazone type="Pyongyang">
 				<long>
 					<standard>North Korea Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylorda Time</generic>
-					<standard>Kyzylorda Standard Time</standard>
-					<daylight>Kyzylorda Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -5352,6 +5306,11 @@ annotations.
 					<generic>Uruguay Time</generic>
 					<standard>Uruguay Standard Time</standard>
 					<daylight>Uruguay Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Ürümqi Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">

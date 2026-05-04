@@ -1435,6 +1435,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Uključeno</type>
 			<type key="ss" type="standard" scope="core">Isključeno</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Uključeno</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Isključeno</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrički</measurementSystemName>
 			<measurementSystemName type="UK">britanski</measurementSystemName>
@@ -3400,13 +3404,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Aljaskansko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatu vreme</generic>
-					<standard>Almatu standardno vreme</standard>
-					<daylight>Almatu letnje računanje vremena</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonsko vrijeme</generic>
@@ -3454,20 +3451,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apijsko vrijeme</generic>
 					<standard>Apijsko standardno vrijeme</standard>
 					<daylight>Apijsko ljetno vrijeme</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Akvtau vreme</generic>
-					<standard>Akvtau standardno vreme</standard>
-					<daylight>Akvtau letnje računanje vremena</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Akvtobe vreme</generic>
-					<standard>Akvtobe standardno vreme</standard>
-					<daylight>Akvtobe letnje računanje vremena</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3776,11 +3759,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Zapadnogrenlandsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guam standardno vreme</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Zalivsko standardno vrijeme</standard>
@@ -3921,11 +3899,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kirgistansko vrijeme</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lanka vreme</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Vrijeme na Ostrvima Lajn</standard>
@@ -3936,13 +3909,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Vrijeme na Ostrvu Lord Hau</generic>
 					<standard>Standardno vrijeme na Ostrvu Lord Hau</standard>
 					<daylight>Ljetno vrijeme na Ostrvu Lord Hau</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Makao vreme</generic>
-					<standard>Makao standardno vreme</standard>
-					<daylight>Makao letnje računanje vremena</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4060,11 +4026,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ljetno vrijeme na ostrvu Fernando di Noronja</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Severna Marijanska Ostrva vreme</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirsko vrijeme</generic>
@@ -4142,13 +4103,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Pyongyang">
 				<long>
 					<standard>Pjongjanško vrijeme</standard>
-				</long>
-			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kizilorda vreme</generic>
-					<standard>Kizilorda standardno vreme</standard>
-					<daylight>Kizilorda letnje računanje vremena</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">

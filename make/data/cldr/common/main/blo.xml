@@ -3173,11 +3173,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Grinlanɖ gɩteŋshilelaŋ kaakɔŋkɔŋɔ̀ gafʊbaka</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guwam kaakɔŋkɔŋɔ̀</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Gɔlf kaakɔŋkɔŋɔ̀</standard>
@@ -3311,11 +3306,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Kirgistan kaakɔŋkɔŋɔ̀</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Siri Laŋkaa kaakɔŋkɔŋɔ̀</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Laɩn kaBʊtukǝltǝna kaakɔŋkɔŋɔ̀</standard>
@@ -3326,13 +3316,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Lɔrɖ Hoo kaakɔŋkɔŋɔ̀</generic>
 					<standard>Lɔrɖ Hoo kaakɔŋkɔŋɔ̀ ɖeiɖei</standard>
 					<daylight>Lɔrɖ Hoo kaakɔŋkɔŋɔ̀ gafʊbaka</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Makawoo kaakɔŋkɔŋɔ̀</generic>
-					<standard>Makawoo kaakɔŋkɔŋɔ̀ ɖeiɖei</standard>
-					<daylight>akawoo kaakɔŋkɔŋɔ̀ gafʊbaka</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3448,11 +3431,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Fɛrnanɖo ɖe Norɔnya kaakɔŋkɔŋɔ̀</generic>
 					<standard>Fɛrnanɖo ɖe Norɔnya kaakɔŋkɔŋɔ̀ ɖeiɖei</standard>
 					<daylight>Fɛrnanɖo ɖe Norɔnya kaakɔŋkɔŋɔ̀ gafʊbaka</daylight>
-				</long>
-			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Mariyan kǝbʊtukǝltǝna gʊnyɩpɛnɛlaŋ kaakɔŋkɔŋɔ̀</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
