@@ -815,6 +815,12 @@ public class CLDRConverter {
                 data = map.get(TIMEZONE_ID_PREFIX + tzLink);
             }
 
+            String meta = handlerMetaZones.get(tzKey);
+            if (meta == null && tzLink != null) {
+                // Check for tzLink
+                meta = handlerMetaZones.get(tzLink);
+            }
+
             if (data instanceof String[] tznames) {
                 // Hack for UTC. UTC is an alias to Etc/UTC in CLDR
                 if (tzid.equals("Etc/UTC") && !map.containsKey(TIMEZONE_ID_PREFIX + "UTC")) {
@@ -826,24 +832,16 @@ public class CLDRConverter {
                     tznames = Arrays.copyOf(tznames, tznames.length);
                     fillTZDBShortNames(tzKey, tznames);
                     names.put(tzid, tznames);
+                    if (meta != null) {
+                        putMetazoneIfDefaultZone(names, meta, tzKey, tznames);
+                    }
                 }
             } else {
-                String meta = handlerMetaZones.get(tzKey);
-                if (meta == null && tzLink != null) {
-                    // Check for tzLink
-                    meta = handlerMetaZones.get(tzLink);
-                }
                 if (meta != null) {
                     String metaKey = METAZONE_ID_PREFIX + meta;
                     data = map.get(metaKey);
                     if (data instanceof String[] tznames) {
-                        if (isDefaultZone(meta, tzKey)) {
-                            // Record the metazone names only from the default
-                            // (001) zone, with short names filled from TZDB
-                            tznames = Arrays.copyOf(tznames, tznames.length);
-                            fillTZDBShortNames(tzKey, tznames);
-                            names.put(metaKey, tznames);
-                        }
+                        putMetazoneIfDefaultZone(names, meta, tzKey, tznames);
                         names.put(tzid, meta);
                         if (tzLink != null && availableIds.contains(tzLink)) {
                             names.put(tzLink, meta);
@@ -1508,11 +1506,18 @@ public class CLDRConverter {
         }
     }
 
-    private static boolean isDefaultZone(String meta, String tzid) {
+    private static void putMetazoneIfDefaultZone(Map<String, Object> names, String meta, String tzid, String[] tznames) {
         String zone001 = handlerMetaZones.zidMap().get(meta);
         var tzLink = getTZDBLink(tzid);
-        return canonicalTZMap.getOrDefault(tzid, tzid).equals(zone001) ||
-            tzLink != null && canonicalTZMap.getOrDefault(tzLink, tzLink).equals(zone001);
+
+        // put the metazone names only from the default
+        // (001) zone, with short names filled from TZDB
+        if (canonicalTZMap.getOrDefault(tzid, tzid).equals(zone001) ||
+            tzLink != null && canonicalTZMap.getOrDefault(tzLink, tzLink).equals(zone001)) {
+            tznames = Arrays.copyOf(tznames, tznames.length);
+            fillTZDBShortNames(tzid, tznames);
+            names.put(METAZONE_ID_PREFIX + meta, tznames);
+        }
     }
 
     private static String getTZDBLink(String tzid) {
