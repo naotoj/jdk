@@ -451,9 +451,6 @@ annotations.
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<numericSeparators>
-						<numericDateSeparator draft="provisional">.</numericDateSeparator>
-					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
