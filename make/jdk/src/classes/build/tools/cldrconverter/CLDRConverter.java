@@ -1396,6 +1396,8 @@ public class CLDRConverter {
                     String zone = null;
                     String rule = null;
                     String format = null;
+                    String sformat = null;
+                    String srule = null;
                     boolean inVanguard = false;
                     for (var line : Files.readAllLines(p)) {
                         // check for Vanguard lines
@@ -1418,23 +1420,36 @@ public class CLDRConverter {
                         // Zone line
                         if (token0len > 0 && tokens[0].regionMatches(true, 0, "Zone", 0, token0len)) {
                             if (zone != null) {
-                                tzdbShortNamesMap.put(zone, format + NBSP + rule);
+                                tzdbShortNamesMap.put(zone, (sformat != null ? sformat : format) + NBSP + (sformat != null ? srule : rule));
                             }
                             zone = tokens[1];
-                            rule = tokens[3];
+                            if (tokens[3] != null) {
+                                rule = tokens[3];
+                            }
                             format = flipIfNeeded(inVanguard, tokens[4]);
+                            if (format.contains("%s")) {
+                                sformat = format;
+                            }
                         } else {
                             if (zone != null) {
                                 if (token0len > 0 &&
                                    (tokens[0].regionMatches(true, 0, "Rule", 0, token0len) ||
                                     tokens[0].regionMatches(true, 0, "Link", 0, token0len))) {
-                                    tzdbShortNamesMap.put(zone, format + NBSP + rule);
+                                    tzdbShortNamesMap.put(zone, (sformat != null ? sformat : format) + NBSP + (sformat != null ? srule : rule));
                                     zone = null;
                                     rule = null;
                                     format = null;
+                                    sformat = null;
+                                    srule = null;
                                 } else {
-                                    rule = tokens[2];
+                                    if (tokens[2] != null) {
+                                        rule = tokens[2];
+                                    }
                                     format = flipIfNeeded(inVanguard, tokens[3]);
+                                    if (format.contains("%s")) {
+                                        sformat = format;
+                                        srule = rule;
+                                    }
                                 }
                             }
                         }
@@ -1453,7 +1468,7 @@ public class CLDRConverter {
 
                     // Last entry
                     if (zone != null) {
-                        tzdbShortNamesMap.put(zone, format + NBSP + rule);
+                        tzdbShortNamesMap.put(zone, (sformat != null ? sformat : format) + NBSP + (sformat != null ? srule : rule));
                     }
                 } catch (IOException ioe) {
                     throw new UncheckedIOException(ioe);
