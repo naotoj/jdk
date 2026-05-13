@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2023, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -23,7 +23,7 @@
 
 /*
  * @test
- * @bug 8041488 8316974 8318569 8306116
+ * @bug 8041488 8316974 8318569 8306116 8385736
  * @summary Tests for ListFormat class
  * @run junit TestListFormat
  */
@@ -40,6 +40,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -241,6 +242,35 @@ public class TestListFormat {
     }
 
     @ParameterizedTest
+    @ValueSource(ints = {0, 1, 2, 3, 4})
+    void getInstance_1Arg_InvalidLongPattern(int index) {
+        var patterns = new String[]{
+            "{0}, {1}",
+            "{0}, {1}",
+            "{0}, and {1}",
+            "{0} and {1}",
+            "{0} {1} {2}"
+        };
+        patterns[index] = "{0}".repeat(100_000);
+
+        // Ensures validation of invalid long patterns completes without timing out
+        var msg = assertThrows(IllegalArgumentException.class,
+                               () -> ListFormat.getInstance(patterns))
+            .getMessage();
+
+        var expected = "%s is incorrect:".formatted(
+            switch (index) {
+                case 0 -> "start pattern";
+                case 1 -> "middle pattern";
+                case 2 -> "end pattern";
+                case 3 -> "pattern for two";
+                case 4 -> "pattern for three";
+                default -> throw new RuntimeException("invalid index");
+            });
+        assertEquals(expected, msg.substring(0, Math.min(msg.length(), expected.length())));
+    }
+
+    @ParameterizedTest
     @MethodSource
     void getInstance_3Arg(Locale l, ListFormat.Type type, ListFormat.Style style, String expected, boolean roundTrip) throws ParseException {
         var f = ListFormat.getInstance(l, type, style);
@@ -348,6 +378,7 @@ public class TestListFormat {
         // should be inherited from parent locales.
         Locale.availableLocales().forEach(l -> ListFormat.getInstance(l, type, style));
     }
+
     @Test
     void getInstance_3Arg_InheritanceValidation() {
         // Tests if inheritance works as expected.
