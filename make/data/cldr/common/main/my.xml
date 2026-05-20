@@ -954,6 +954,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">ပုံသေ | မူသေ | မူရင်း | ပင်တိုင်</type>
 			<type key="em" type="emoji" scope="core">အီမိုဂျီ</type>
 			<type key="em" type="text" scope="core">စာသား</type>
+			<type key="hc" type="c12">၁၂ နာရီစနစ်</type>
+			<type key="hc" type="c12" scope="core">၁၂</type>
+			<type key="hc" type="c24">၂၄ နာရီ စနစ်</type>
+			<type key="hc" type="c24" scope="core">၂၄</type>
 			<type key="hc" type="h11">၁၂ နာရီ စနစ် (၀–၁၁)</type>
 			<type key="hc" type="h11" scope="core">၁၂ (၀−၁၁)</type>
 			<type key="hc" type="h12">၁၂ နာရီစနစ် (၁–၁၂)</type>
@@ -1022,6 +1026,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ပိတ်</type>
 			<type key="ss" type="standard" scope="core">ဖွင့်</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ပိတ်</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ဖွင့်</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">မက်ထရစ်စနစ်</measurementSystemName>
 			<measurementSystemName type="UK">ဗြိတိန်စနစ်</measurementSystemName>
@@ -1390,6 +1398,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -3543,11 +3555,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ကာဂျစ္စတန် အချိန်</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>သီရိလင်္ကာ အချိန်</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>လိုင်းကျွန်းစု အချိန်</standard>
@@ -3558,13 +3565,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>လော့ဒ်ဟောင် အချိန်</generic>
 					<standard>လော့ဒ်ဟောင် စံတော်ချိန်</standard>
 					<daylight>လော့ဒ်ဟောင် နွေရာသီ အချိန်</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>မကာအို အချိန်</generic>
-					<standard>မကာအို စံတော်ချိန်</standard>
-					<daylight>မကာအို နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3780,9 +3780,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ဆမိုအာ အချိန်</generic>
 					<standard>ဆမိုအာ စံတော်ချိန်</standard>
-					<daylight>ဆမိုးအား နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

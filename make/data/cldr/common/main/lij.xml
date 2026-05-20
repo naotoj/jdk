@@ -854,6 +854,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="collation" type="ducet" draft="unconfirmed">ordine predefinio de Unicode</type>
 			<type key="collation" type="search" draft="unconfirmed">reçerca generica</type>
 			<type key="collation" type="standard" draft="unconfirmed">ordine standard</type>
+			<type key="hc" type="c12" draft="unconfirmed">scistema oräio à 12 oe</type>
+			<type key="hc" type="c24" draft="unconfirmed">scistema oräio à 24 oe</type>
 			<type key="hc" type="h11" draft="unconfirmed">scistema oräio à 12 oe (0–11)</type>
 			<type key="hc" type="h12" draft="unconfirmed">scistema oräio à 12 oe (1–12)</type>
 			<type key="hc" type="h23" draft="unconfirmed">scistema oräio à 24 oe (0–23)</type>
@@ -1979,7 +1981,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat draft="contributed">+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat draft="contributed">UTC{0}</gmtFormat>
-			<gmtZeroFormat draft="contributed">UTC</gmtZeroFormat>
 			<regionFormat draft="contributed">oa: {0}</regionFormat>
 			<regionFormat type="daylight" draft="contributed">oa de stæ: {0}</regionFormat>
 			<regionFormat type="standard" draft="contributed">oa standard: {0}</regionFormat>
@@ -2922,9 +2923,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="unconfirmed">oa de Samoa</generic>
 					<standard draft="unconfirmed">oa standard de Samoa</standard>
-					<daylight draft="unconfirmed">oa de stæ de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

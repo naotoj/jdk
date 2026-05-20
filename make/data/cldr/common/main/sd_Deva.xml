@@ -385,6 +385,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -494,7 +498,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>जीएमटी{0}</gmtFormat>
-			<gmtZeroFormat>जीएमटी</gmtZeroFormat>
 			<regionFormat>{0} वक़्तु</regionFormat>
 			<regionFormat type="daylight">{0} दीं॒ह जो वक्त</regionFormat>
 			<regionFormat type="standard">{0} मइयारी वक़्तु</regionFormat>

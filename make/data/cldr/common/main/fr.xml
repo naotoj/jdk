@@ -710,6 +710,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cari">carien</script>
 			<script type="Cham">cham</script>
 			<script type="Cher">cherokee</script>
+			<script type="Chis" draft="provisional">chisoi</script>
 			<script type="Chrs" draft="provisional">chorasmien</script>
 			<script type="Cirt">cirth</script>
 			<script type="Copt">copte</script>
@@ -823,6 +824,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Ougr" draft="provisional">ancien ouïgour</script>
 			<script type="Palm" draft="unconfirmed">palmyrénien</script>
 			<script type="Pauc" draft="unconfirmed">paou chin haou</script>
+			<script type="Pcun" draft="provisional">proto-cunéiforme</script>
 			<script type="Perm">ancien permien</script>
 			<script type="Phag">phags pa</script>
 			<script type="Phli">pehlevi des inscriptions</script>
@@ -840,6 +842,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Sara">sarati</script>
 			<script type="Sarb" draft="unconfirmed">sudarabique</script>
 			<script type="Saur">saurashtra</script>
+			<script type="Seal" draft="provisional">sigillaire</script>
 			<script type="Sgnw">écriture des signes</script>
 			<script type="Shaw">shavien</script>
 			<script type="Shrd" draft="unconfirmed">charada</script>
@@ -1433,6 +1436,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">par défaut</type>
 			<type key="em" type="emoji" scope="core">Emoji</type>
 			<type key="em" type="text" scope="core">texte</type>
+			<type key="hc" type="c12">système horaire de 12 heures</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">système horaire de 24 heures</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">système horaire de 12 heures (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">système horaire de 12 heures (1–12)</type>
@@ -1555,6 +1562,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Désactivé</type>
 			<type key="ss" type="standard" scope="core">Activé</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Désactivé</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Activé</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">métrique</measurementSystemName>
 			<measurementSystemName type="UK">impérial</measurementSystemName>
@@ -2341,6 +2352,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -2730,37 +2745,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
-				<eras>
-					<eraNames>
-						<era type="10" draft="unconfirmed">Tempyō (729–749)</era>
-						<era type="11" draft="unconfirmed">Tempyō-kampō (749-749)</era>
-						<era type="12" draft="unconfirmed">Tempyō-shōhō (749-757)</era>
-						<era type="13" draft="unconfirmed">Tempyō-hōji (757-765)</era>
-						<era type="14" draft="unconfirmed">Temphō-jingo (765-767)</era>
-						<era type="156" draft="unconfirmed">Kemmu (1334–1336)</era>
-						<era type="216" draft="unconfirmed">Hōryaku (1751–1764)</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="11" draft="unconfirmed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="unconfirmed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="unconfirmed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="unconfirmed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="unconfirmed">Jingo-keiun (767-770)</era>
-						<era type="17" draft="unconfirmed">Ten-ō (781-782)</era>
-						<era type="26" draft="unconfirmed">Ten-an (857-859)</era>
-						<era type="78" draft="unconfirmed">Ten-ei (1110-1113)</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="11" draft="unconfirmed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="unconfirmed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="unconfirmed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="unconfirmed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="unconfirmed">Jingo-keiun (767-770)</era>
-						<era type="17" draft="unconfirmed">Ten-ō (781-782)</era>
-						<era type="26" draft="unconfirmed">Ten-an (857-859)</era>
-						<era type="78" draft="unconfirmed">Ten-ei (1110-1113)</era>
-					</eraNarrow>
-				</eras>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
@@ -3372,7 +3356,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HH:mm;−HH:mm</hourFormat>
 			<gmtFormat>UTC{0}</gmtFormat>
-			<gmtZeroFormat>UTC</gmtZeroFormat>
 			<regionFormat>heure : {0}</regionFormat>
 			<regionFormat type="daylight">{0} (heure d’été)</regionFormat>
 			<regionFormat type="standard">{0} (heure standard)</regionFormat>
@@ -3788,13 +3771,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>heure d’été de l’Alaska</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>heure d’Alma Ata</generic>
-					<standard>heure normale d’Alma Ata</standard>
-					<daylight>heure d’été d’Alma Ata</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>heure de l’Amazonie</generic>
@@ -3842,20 +3818,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>heure d’Apia</generic>
 					<standard>heure normale d’Apia</standard>
 					<daylight>heure d’été d’Apia</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>heure d’Aktaou</generic>
-					<standard>heure normale d’Aktaou</standard>
-					<daylight>heure d’été d’Aktaou</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>heure d’Aqtöbe</generic>
-					<standard>heure normale d’Aqtöbe</standard>
-					<daylight>heure d’été d’Aqtöbe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4154,11 +4116,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>heure d’été de l’Ouest du Groenland</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>heure de Guam</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>heure du Golfe</standard>
@@ -4299,11 +4256,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>heure du Kirghizistan</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="unconfirmed">heure de Lanka</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>heure des îles de la Ligne</standard>
@@ -4314,13 +4266,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>heure de Lord Howe</generic>
 					<standard>heure normale de Lord Howe</standard>
 					<daylight>heure d’été de Lord Howe</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="unconfirmed">heure de Macao</generic>
-					<standard draft="unconfirmed">heure normale de Macao</standard>
-					<daylight draft="unconfirmed">heure d’été de Macao</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4438,11 +4383,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>heure d’été de Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>heure des îles Mariannes du Nord</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>heure de Novossibirsk</generic>
@@ -4527,13 +4467,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>heure de Pyongyang</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="unconfirmed">heure de Kyzylorda</generic>
-					<standard draft="unconfirmed">heure normale de Kyzylorda</standard>
-					<daylight draft="unconfirmed">heure d’été de Kyzylorda</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>heure de La Réunion</standard>
@@ -4560,9 +4493,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>heure des Samoa</generic>
 					<standard>heure normale des Samoa</standard>
-					<daylight>heure d’été des Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5187,11 +5118,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>yuan chinois (zone extracôtière)</displayName>
 				<displayName count="one">yuan chinois (zone extracôtière)</displayName>
 				<displayName count="other">yuans chinois (zone extracôtière)</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName draft="unconfirmed">dollar de la Banque populaire chinoise</displayName>
-				<displayName count="one" draft="unconfirmed">dollar de la Banque populaire chinoise</displayName>
-				<displayName count="other" draft="unconfirmed">dollars de la Banque populaire chinoise</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>yuan renminbi chinois</displayName>

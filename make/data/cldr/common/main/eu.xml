@@ -1190,6 +1190,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">Lehenetsia</type>
 			<type key="em" type="emoji" scope="core">Emojia</type>
 			<type key="em" type="text" scope="core">Testua</type>
+			<type key="hc" type="c12">12 orduko sistema</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 orduko sistema</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 orduko sistema (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 orduko sistema (1–12)</type>
@@ -1304,6 +1308,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Aktibatuta</type>
 			<type key="ss" type="standard" scope="core">Desaktibatuta</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Aktibatuta</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Desaktibatuta</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Sistema metrikoa</measurementSystemName>
 			<measurementSystemName type="UK">Erresuma Batuko sistema</measurementSystemName>
@@ -1909,6 +1917,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} ({0})</pattern>
@@ -2934,13 +2946,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatyko ordua</generic>
-					<standard>Almatyko ordu estandarra</standard>
-					<daylight>Almatyko udako ordua</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazoniako ordua</generic>
@@ -3008,20 +3013,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Apiako ordua</generic>
 					<standard>Apiako ordu estandarra</standard>
 					<daylight>Apiako udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aktauko ordua</generic>
-					<standard>Aktauko ordu estandarra</standard>
-					<daylight>Aktauko udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aktobeko ordua</generic>
-					<standard>Aktobeko ordu estandarra</standard>
-					<daylight>Aktobeko udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3340,11 +3331,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Groenlandiako mendebaldeko udako ordua</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guameko ordu estandarra</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>Golkoko ordu estandarra</standard>
@@ -3493,11 +3479,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Kirgizistango ordua</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Lankako ordua</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>Line uharteetako ordua</standard>
@@ -3508,13 +3489,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Lord Howeko ordua</generic>
 					<standard>Lord Howeko ordu estandarra</standard>
 					<daylight>Lord Howeko udako ordua</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macaoko ordua</generic>
-					<standard>Macaoko ordu estandarra</standard>
-					<daylight>Macaoko udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3632,11 +3606,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Fernando de Noronhako udako ordua</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Ipar Mariana uharteetako ordua</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>Novosibirskeko ordua</generic>
@@ -3716,13 +3685,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>Piongiangeko ordua</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylordako ordua</generic>
-					<standard>Kyzylordako ordu estandarra</standard>
-					<daylight>Kyzylordako udako ordua</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>Reunioneko ordua</standard>
@@ -3749,9 +3711,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoako ordua</generic>
 					<standard>Samoako ordu estandarra</standard>
-					<daylight>Samoako udako ordua</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4654,11 +4614,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>yuan txinatarra (itsasoz haraindikoa)</displayName>
 				<displayName count="one">yuan txinatar (itsasoz haraindikoa)</displayName>
 				<displayName count="other">yuan txinatar (itsasoz haraindikoa)</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName>Txinako Herri Bankuaren dolarra</displayName>
-				<displayName count="one">Txinako Herri Bankuaren dolar</displayName>
-				<displayName count="other">Txinako Herri Bankuaren dolar</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>yuan txinatarra</displayName>

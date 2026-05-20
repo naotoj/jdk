@@ -1094,6 +1094,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">predvolené</type>
 			<type key="em" type="emoji" scope="core">emodži</type>
 			<type key="em" type="text" scope="core">text</type>
+			<type key="hc" type="c12">12-hodinový cyklus</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24-hodinový cyklus</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12-hodinový cyklus (0 – 11)</type>
 			<type key="hc" type="h11" scope="core">12 (0 – 11)</type>
 			<type key="hc" type="h12">12-hodinový cyklus (1 – 12)</type>
@@ -1167,6 +1171,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">vypnuté</type>
 			<type key="ss" type="standard" scope="core">zapnuté</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">vypnuté</typeValue>
+			<typeValue type="yes" draft="unconfirmed">zapnuté</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrický</measurementSystemName>
 			<measurementSystemName type="UK">britský</measurementSystemName>
@@ -1736,6 +1744,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -3130,13 +3142,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>aljašský letný čas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">almaatský čas</generic>
-					<standard draft="contributed">almaatský štandardný čas</standard>
-					<daylight draft="contributed">almaatský letný čas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>amazonský čas</generic>
@@ -3184,20 +3189,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>apijský čas</generic>
 					<standard>apijský štandardný čas</standard>
 					<daylight>apijský letný čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">aktauský čas</generic>
-					<standard draft="contributed">aktauský štandardný čas</standard>
-					<daylight draft="contributed">aktauský letný čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">aktobský čas</generic>
-					<standard draft="contributed">aktobský štandardný čas</standard>
-					<daylight draft="contributed">aktobský letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3498,11 +3489,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>západogrónsky letný čas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">guamský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>štandardný čas Perzského zálivu</standard>
@@ -3643,11 +3629,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kirgizský čas</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">srílanský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>čas Rovníkových ostrovov</standard>
@@ -3658,13 +3639,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>čas ostrova lorda Howa</generic>
 					<standard>štandardný čas ostrova lorda Howa</standard>
 					<daylight>letný čas ostrova lorda Howa</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">macajský čas</generic>
-					<standard draft="contributed">macajský štandardný čas</standard>
-					<daylight draft="contributed">macajský letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3782,11 +3756,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>letný čas súostrovia Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">severomariánsky čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>novosibirský čas</generic>
@@ -3866,13 +3835,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>pchjongjanský čas</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">kyzylordský čas</generic>
-					<standard draft="contributed">kyzylordský štandardný čas</standard>
-					<daylight draft="contributed">kyzylordský letný čas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>réunionský čas</standard>
@@ -3899,9 +3861,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>samojský čas</generic>
 					<standard>samojský štandardný čas</standard>
-					<daylight>samojský letný čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4682,13 +4642,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">čínske jüany (pobrežné)</displayName>
 				<displayName count="many">čínskeho jüana (pobrežného)</displayName>
 				<displayName count="other">čínskych jüanov (pobrežných)</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName draft="contributed">čínsky dolár ČĽB</displayName>
-				<displayName count="one" draft="contributed">čínsky dolár ČĽB</displayName>
-				<displayName count="few" draft="contributed">čínske doláre ČĽB</displayName>
-				<displayName count="many" draft="contributed">čínskeho dolára ČĽB</displayName>
-				<displayName count="other" draft="contributed">čínskych dolárov ČĽB</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>čínsky jüan</displayName>

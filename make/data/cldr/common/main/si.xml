@@ -922,6 +922,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">පෙරනිමිය</type>
 			<type key="em" type="emoji" scope="core">ඉමොජි</type>
 			<type key="em" type="text" scope="core">පෙළ</type>
+			<type key="hc" type="c12">පැය 12 ක්‍රමය</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">පැය 24 ක්‍රමය</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">පැය 12 ක්‍රමය (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">පැය 12 ක්‍රමය (1–12)</type>
@@ -989,6 +993,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ක්‍රියාවිරහිතයි</type>
 			<type key="ss" type="standard" scope="core">ක්‍රියාත්මකයි</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ක්‍රියාවිරහිතයි</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ක්‍රියාත්මකයි</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">මෙට්රික්</measurementSystemName>
 			<measurementSystemName type="UK">එංගලන්ත</measurementSystemName>
@@ -1397,6 +1405,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">.</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -1898,7 +1910,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HH.mm;-HH.mm</hourFormat>
 			<gmtFormat>ග්‍රිමවේ{0}</gmtFormat>
-			<gmtZeroFormat>ග්‍රිමවේ</gmtZeroFormat>
 			<gmtUnknownFormat>ග්‍රිමවේ+?</gmtUnknownFormat>
 			<regionFormat>{0} වේලාව</regionFormat>
 			<regionFormat type="daylight">{0} දිවාආලෝක වේලාව</regionFormat>
@@ -3666,11 +3677,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>කිර්ගිස්තාන වේලාව</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>ශ්‍රී ලංකා වේලාව</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>ලයින් දුපත් වේලාව</standard>
@@ -3896,9 +3902,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>සැමෝවා වේලාව</generic>
 					<standard>සැමෝවා සම්මත වේලාව</standard>
-					<daylight>සැමෝවා ග්‍රීෂ්ම වේලාව</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -7062,6 +7066,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">බි{0}</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>

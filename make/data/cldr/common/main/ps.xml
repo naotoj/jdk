@@ -906,6 +906,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="em" type="default" scope="core">ډیفالټ</type>
 			<type key="em" type="emoji" scope="core">ایموجي</type>
 			<type key="em" type="text" scope="core">متن</type>
+			<type key="hc" type="c12">د ۱۲ ساعتو نظام</type>
+			<type key="hc" type="c12" scope="core">۱۲</type>
+			<type key="hc" type="c24">د ۲۴ ساعتو نظام</type>
+			<type key="hc" type="c24" scope="core">۲۴</type>
 			<type key="hc" type="h11">د ۱۲ ساعتو نظام (۰ـ۱۱)</type>
 			<type key="hc" type="h11" scope="core">۱۲ (۰–۱۱)</type>
 			<type key="hc" type="h12">د ۱۲ ساعتو نظام (۱ ـ ۱۲)</type>
@@ -973,6 +977,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">بند</type>
 			<type key="ss" type="standard" scope="core">چالان</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">بند</typeValue>
+			<typeValue type="yes" draft="unconfirmed">چالان</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">مېټرک</measurementSystemName>
 			<measurementSystemName type="UK">برتانوې</measurementSystemName>
@@ -1290,6 +1298,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -3855,9 +3867,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>سموا وخت</generic>
 					<standard>سموا معياري وخت</standard>
-					<daylight>سموا د ورځې روښانه وخت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

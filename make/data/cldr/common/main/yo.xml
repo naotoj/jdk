@@ -906,6 +906,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="em" type="default" scope="core">Àkùnàyàn</type>
 			<type key="em" type="emoji" scope="core">Ẹ̀mójì</type>
 			<type key="em" type="text" scope="core">àtẹ̀jíṣẹ́</type>
+			<type key="hc" type="c12">Èto Wákàtí 12</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">Èto Wákàtí 24</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">Èto Wákàtí 12 (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">Èto Wákàtí 12 (1–12)</type>
@@ -973,6 +977,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">Pípa</type>
 			<type key="ss" type="standard" scope="core">Títàn</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Pípa</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Títàn</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Mẹ́tíríìkì</measurementSystemName>
 		</measurementSystemNames>
@@ -1244,6 +1252,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -1623,7 +1635,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>WAT{0}</gmtFormat>
-			<gmtZeroFormat>WAT</gmtZeroFormat>
 			<regionFormat>Ìgbà {0}</regionFormat>
 			<regionFormat type="daylight">{0} Àkókò ojúmọmọ</regionFormat>
 			<regionFormat type="standard">{0} Ìlànà Àkókò</regionFormat>
@@ -2677,9 +2688,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Àkókò Samoa</generic>
 					<standard>Àkókò Àfẹnukò Samoa</standard>
-					<daylight>Àkókò Ojúmọmọ Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

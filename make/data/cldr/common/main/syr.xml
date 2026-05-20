@@ -442,6 +442,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="phonebook">ܟܬܒܐ ܕܡܢܝ̈ܢܐ ܕܬܝܠܝܦܘܢ</type>
 			<type key="collation" type="standard">ܛܟ݂ܣܐ ܦܘܪܫܢܝܐ ܫܪܫܝܐ</type>
 			<type key="collation" type="traditional">ܛܟ݂ܣܐ ܦܘܪܫܢܝܐ ܥܝܕ݂ܝܐ</type>
+			<type key="hc" type="c12">ܛܟ݂ܣܐ 12 ܫܥܬ݂ܐ</type>
+			<type key="hc" type="c24">ܛܟ݂ܣܐ 24 ܫܥܬ݂ܐ</type>
 			<type key="hc" type="h11">ܛܟ݂ܣܐ 12 ܫܥܬ݂ܐ (0–11)</type>
 			<type key="hc" type="h12">ܛܟ݂ܣܐ 12 ܫܥܬ݂ܐ (1–12)</type>
 			<type key="hc" type="h23">ܛܟ݂ܣܐ 24 ܫܥܬ݂ܐ (0–23)</type>
@@ -2709,13 +2711,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܐܠܐܣܟܐ</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>ܥܕܢܐ ܕܐܠܡܐܬܝ</generic>
-					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܐܠܡܐܬܝ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܐܠܡܐܬܝ</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>ܥܕܢܐ ܕܐܡܙܢ</generic>
@@ -2763,20 +2758,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ܥܕܢܐ ܕܐܦܝܐ</generic>
 					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܐܦܝܐ</standard>
 					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܐܦܝܐ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>ܥܕܢܐ ܐܟܬܐܘ</generic>
-					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܐܟܬܐܘ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܐܟܬܐܘ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>ܥܕܢܐ ܕܐܟܬܘܒ</generic>
-					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܐܟܬܘܒ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܐܟܬܘܒ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3072,11 +3053,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܓܪܝܢܠܢܕ ܕܡܥܪܒܝܬܐ</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܓܘܐܡ</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܡܥܠܢܐ</standard>
@@ -3217,11 +3193,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>ܥܕܢܐ ܕܩܝܪܓܝܙܣܬܐܢ</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>ܥܕܢܐ ܕܠܐܢܟܐ</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>ܥܕܢܐ ܕܓܙܝܪ̈ܐ ܕܠܐܝܢ</standard>
@@ -3232,13 +3203,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ܥܕܢܐ ܕܠܘܪܕ ܗܐܘ</generic>
 					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܠܘܪܕ ܗܐܘ</standard>
 					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܠܘܪܕ ܗܐܘ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>ܥܕܢܐ ܕܡܐܟܐܘ</generic>
-					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܡܐܟܐܘ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܡܐܟܐܘ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -3356,11 +3320,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܦܪܢܢܕܘ ܕܢܘܪܘܢܗܐ</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>ܥܕܢܐ ܕܓܙܝܖ̈ܐ ܕܡܪܝܐܢܐ ܓܪܒܝܝܬܐ</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>ܥܕܢܐ ܕܢܘܒܘܣܝܒܪܣܟ</generic>
@@ -3440,13 +3399,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>ܥܕܢܐ ܕܦܝܘܢܓܝܢܓ</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>ܥܕܢܐ ܕܟܝܙܝܠܘܪܕܐ</generic>
-					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܟܝܙܝܠܘܪܕܐ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܟܝܙܝܠܘܪܕܐ</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>ܥܕܢܐ ܕܪܝܘܢܝܘܢ</standard>
@@ -3473,9 +3425,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ܥܕܢܐ ܕܣܡܘܐ</generic>
 					<standard>ܥܕܢܐ ܡܫܘܚܬܢܝܬܐ ܕܣܡܘܐ</standard>
-					<daylight>ܥܕܢܐ ܕܒܗܪ ܝܘܡܐ ܕܣܡܘܐ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

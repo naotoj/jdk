@@ -1339,6 +1339,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">standard</type>
 			<type key="em" type="emoji" scope="core">emoji</type>
 			<type key="em" type="text" scope="core">tekst</type>
+			<type key="hc" type="c12">12-timers system</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24-timers system</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12-timers system (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12-timers system (1–12)</type>
@@ -1433,6 +1437,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">av</type>
 			<type key="ss" type="standard" scope="core">på</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">av</typeValue>
+			<typeValue type="yes" draft="unconfirmed">på</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrisk</measurementSystemName>
 			<measurementSystemName type="UK">engelsk</measurementSystemName>
@@ -2184,6 +2192,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -2510,18 +2522,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
-				<eras>
-					<eraAbbr>
-						<era type="11" draft="contributed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="contributed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="contributed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="contributed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="contributed">Jingo-keiun (767-770)</era>
-						<era type="17" draft="contributed">Ten-ō (781-782)</era>
-						<era type="26" draft="contributed">Ten-an (857-859)</era>
-						<era type="78" draft="contributed">Ten-ei (1110-1113)</era>
-					</eraAbbr>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -3484,13 +3484,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="contributed">Almaty-tid</generic>
-					<standard draft="contributed">Almaty, standardtid</standard>
-					<daylight draft="contributed">Almaty, sommertid</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>tidssone for Amazonas</generic>
@@ -3558,20 +3551,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>tidssone for Apia</generic>
 					<standard>normaltid for Apia</standard>
 					<daylight>sommertid for Apia</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="contributed">Aqtau-tid</generic>
-					<standard draft="contributed">Aqtau, standardtid</standard>
-					<daylight draft="contributed">Aqtau, sommertid</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="contributed">Aqtobe-tid</generic>
-					<standard draft="contributed">Aqtobe, standardtid</standard>
-					<daylight draft="contributed">Aqtobe, sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3890,11 +3869,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>vestgrønlandsk sommertid</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard draft="contributed">Guam-tid</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>tidssone for Persiabukta</standard>
@@ -4043,11 +4017,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kirgisisk tid</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard draft="contributed">Lanka-tid</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>tidssone for Linjeøyene</standard>
@@ -4058,13 +4027,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>tidssone for Lord Howe-øya</generic>
 					<standard>normaltid for Lord Howe-øya</standard>
 					<daylight>sommertid for Lord Howe-øya</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic draft="contributed">Macau-tid</generic>
-					<standard draft="contributed">Macau, standardtid</standard>
-					<daylight draft="contributed">Macau, sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4182,11 +4144,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>sommertid for Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard draft="contributed">Nord-Marianene-tid</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>tidssone for Novosibirsk</generic>
@@ -4266,13 +4223,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>tidssone for Pyongyang</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="contributed">Qyzylorda-tid</generic>
-					<standard draft="contributed">Qyzylorda, standardtid</standard>
-					<daylight draft="contributed">Qyzylorda, sommertid</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>tidssone for Réunion</standard>
@@ -4299,9 +4249,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>samoansk tid</generic>
 					<standard>samoansk normaltid</standard>
-					<daylight>samoansk sommertid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5488,9 +5436,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>kinesiske yuan (offshore)</displayName>
 				<displayName count="one">kinesisk yuan (offshore)</displayName>
 				<displayName count="other">kinesiske yuan (offshore)</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName draft="contributed">Kinas folkebank dollar</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>kinesiske yuan</displayName>

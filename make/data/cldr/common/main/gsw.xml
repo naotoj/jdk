@@ -1747,13 +1747,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Alaska-Summerziit</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almaty-Ziit</generic>
-					<standard>Almaty-Schtandardziit</standard>
-					<daylight>Almaty-Summerziit</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>Amazonas-Ziit</generic>

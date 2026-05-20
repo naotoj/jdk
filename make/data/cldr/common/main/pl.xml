@@ -1311,6 +1311,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">domyślna</type>
 			<type key="em" type="emoji" scope="core">emoji</type>
 			<type key="em" type="text" scope="core">tekst</type>
+			<type key="hc" type="c12">system 12-godzinny</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">system 24-godzinny</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">system 12-godzinny (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">system 12-godzinny (1–12)</type>
@@ -1384,6 +1388,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">wył.</type>
 			<type key="ss" type="standard" scope="core">wł.</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">wył.</typeValue>
+			<typeValue type="yes" draft="unconfirmed">wł.</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metryczny</measurementSystemName>
 			<measurementSystemName type="UK">brytyjski</measurementSystemName>
@@ -1941,6 +1949,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -3265,13 +3277,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Alaska (czas letni)</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic draft="unconfirmed">czas ałmacki</generic>
-					<standard draft="unconfirmed">czas ałmacki standardowy</standard>
-					<daylight draft="unconfirmed">czas ałmacki letni</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>czas amazoński</generic>
@@ -3319,20 +3324,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>czas Apia</generic>
 					<standard>Apia (czas standardowy)</standard>
 					<daylight>Apia (czas letni)</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic draft="unconfirmed">czas auktaucki</generic>
-					<standard draft="unconfirmed">czas auktaucki standardowy</standard>
-					<daylight draft="unconfirmed">czas auktaucki letni</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic draft="unconfirmed">czas aktiubiński</generic>
-					<standard draft="unconfirmed">czas aktiubiński standardowy</standard>
-					<daylight draft="unconfirmed">czas aktiubiński letni</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3984,13 +3975,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>czas Pjongjang</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic draft="unconfirmed">czas kyzyłordzki</generic>
-					<standard draft="unconfirmed">czas kyzyłordzki standardowy</standard>
-					<daylight draft="unconfirmed">czas kyzyłordzki letni</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>czas Reunion</standard>
@@ -4017,9 +4001,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>czas Samoa</generic>
 					<standard>Samoa (czas standardowy)</standard>
-					<daylight>Samoa (czas letni)</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

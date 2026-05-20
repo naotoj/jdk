@@ -1038,6 +1038,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">ነባሪ</type>
 			<type key="em" type="emoji" scope="core">ስሜት ገላጭ ምስል</type>
 			<type key="em" type="text" scope="core">ጽሑፍ</type>
+			<type key="hc" type="c12">የ12 ሰዓት ስርዓት</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">የ24 ሰዓት ስርዓት</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">የ12 ሰዓት ስርዓት (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">የ12 ሰዓት ስርዓት (1–12)</type>
@@ -1111,6 +1115,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ጠፍቷል</type>
 			<type key="ss" type="standard" scope="core">በርቷል</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ጠፍቷል</typeValue>
+			<typeValue type="yes" draft="unconfirmed">በርቷል</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ሜትሪክ</measurementSystemName>
 			<measurementSystemName type="UK">ዩኬ</measurementSystemName>
@@ -1552,6 +1560,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -2080,7 +2092,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<timeZoneNames>
 			<hourFormat>+HHmm;-HHmm</hourFormat>
 			<gmtFormat>ጂ ኤም ቲ{0}</gmtFormat>
-			<gmtZeroFormat>ጂ ኤም ቲ</gmtZeroFormat>
 			<gmtUnknownFormat>ጂ ኤም ቲ+</gmtUnknownFormat>
 			<regionFormat>{0} ሰዓት</regionFormat>
 			<regionFormat type="daylight">{0} የቀን ብርሃን ሰዓት</regionFormat>
@@ -4091,9 +4102,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>የሳሞዋ ሰዓት</generic>
 					<standard>የሳሞዋ መደበኛ ሰዓት</standard>
-					<daylight>የሳሞዋ የበጋ ሰዓት</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -6474,6 +6483,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ሜፓ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>

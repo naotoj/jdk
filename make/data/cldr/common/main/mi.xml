@@ -849,6 +849,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="search">Rapunga Arowhānui</type>
 			<type key="collation" type="standard">Raupapa Kōmaka Arowhānui</type>
 			<type key="collation" type="standard" scope="core">Arowhānui</type>
+			<type key="hc" type="c12">Pūnaha Haora 12</type>
+			<type key="hc" type="c24">Pūnaha Haora 24</type>
 			<type key="hc" type="h11">Pūnaha Haora 12 (0–11)</type>
 			<type key="hc" type="h12">Pūnaha Haora 12 (1–12)</type>
 			<type key="hc" type="h23">Pūnaha Haora 24 (0–23)</type>
@@ -1160,6 +1162,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -2808,9 +2814,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Wā Hāmoa</generic>
 					<standard>Wā Hāmoa Arowhānui</standard>
-					<daylight>Wā Hāmoa Awatea</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

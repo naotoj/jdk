@@ -1304,6 +1304,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">predeterminada</type>
 			<type key="em" type="emoji" scope="core">emoji</type>
 			<type key="em" type="text" scope="core">text</type>
+			<type key="hc" type="c12">sistema de 12 hores</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">sistema de 24 hores</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">sistema de 12 hores (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">sistema de 12 hores (1–12)</type>
@@ -1389,6 +1393,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">desactivada</type>
 			<type key="ss" type="standard" scope="core">activada</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">desactivada</typeValue>
+			<typeValue type="yes" draft="unconfirmed">activada</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">mètric</measurementSystemName>
 			<measurementSystemName type="UK">RU</measurementSystemName>
@@ -1976,6 +1984,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -3498,13 +3510,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Horari d’estiu de Lord Howe</daylight>
 				</long>
 			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Hora de Macau</generic>
-					<standard>Hora estàndard de Macau</standard>
-					<daylight>Hora d’estiu de Macau</daylight>
-				</long>
-			</metazone>
 			<metazone type="Magadan">
 				<long>
 					<generic>Hora de Magadan</generic>
@@ -3725,9 +3730,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Hora de Samoa</generic>
 					<standard>Hora estàndard de Samoa</standard>
-					<daylight>Hora d’estiu de Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4342,10 +4345,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>iuan xinès extracontinental</displayName>
 				<displayName count="one">iuan xinès extracontinental</displayName>
 				<displayName count="other">iuans xinesos extracontinentals</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName count="one" draft="contributed">dòlar del Banc Popular Xinès</displayName>
-				<displayName count="other" draft="contributed">dòlars del Banc Popular Xinès</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>iuan</displayName>
@@ -5529,10 +5528,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<pluralMinimalPairs count="one">{0} dia</pluralMinimalPairs>
 			<pluralMinimalPairs count="many">{0} de dies</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">{0} dies</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="few">Agafa el {0}t a la dreta.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="one">Agafa el {0}r a la dreta.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">Agafa el {0}è a la dreta.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="two">Agafa el {0}n a la dreta.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="few">Agafa el {0}t a la dreta.</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">Agafa el {0}è a la dreta.</ordinalMinimalPairs>
 			<genderMinimalPairs gender="feminine">La {0} és</genderMinimalPairs>
 			<genderMinimalPairs gender="masculine">El {0} és</genderMinimalPairs>
 		</minimalPairs>

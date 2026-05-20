@@ -648,7 +648,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>tenpo GMT{0}</gmtFormat>
-			<gmtZeroFormat>tenpo UTC</gmtZeroFormat>
 			<regionFormat>tenpo pi {0}</regionFormat>
 			<regionFormat type="daylight">tenpo seli suno pi {0}</regionFormat>
 			<regionFormat type="standard">tenpo pi {0}</regionFormat>

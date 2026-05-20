@@ -1109,6 +1109,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">Noklusējuma</type>
 			<type key="em" type="emoji" scope="core">Emocijzīmes</type>
 			<type key="em" type="text" scope="core">Teksts</type>
+			<type key="hc" type="c12">12 stundu sistēma</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 stundu sistēma</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 stundu sistēma (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 stundu sistēma (1–12)</type>
@@ -1182,6 +1186,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Izsl.</type>
 			<type key="ss" type="standard" scope="core">Iesl.</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Izsl.</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Iesl.</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metriskā</measurementSystemName>
 			<measurementSystemName type="UK">angļu</measurementSystemName>
@@ -1679,6 +1687,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -4359,9 +4371,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa laiks</generic>
 					<standard>Samoa ziemas laiks</standard>
-					<daylight>Samoa vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
