@@ -82,6 +82,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="fw" type="thu">First day of week is Thursday</type>
 			<type key="fw" type="tue">First day of week is Tuesday</type>
 			<type key="fw" type="wed">First day of week is Wednesday</type>
+			<type key="hc" type="c12">12-hour system</type>
+			<type key="hc" type="c24">24-hour system</type>
 			<type key="hc" type="h11">12-hour system (0–11)</type>
 			<type key="hc" type="h12">12-hour system (1–12)</type>
 			<type key="hc" type="h23">24-hour system (0–23)</type>
@@ -471,6 +473,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1649,6 +1654,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one">{0} fl oz</unitPattern>
 				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>tbsp</displayName>
+				<unitPattern count="one">{0} tbsp</unitPattern>
+				<unitPattern count="other">{0} tbsp</unitPattern>
+			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>dssp</displayName>
 				<unitPattern count="one">{0} dssp</unitPattern>
@@ -1796,6 +1806,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>fl oz</displayName>
 				<unitPattern count="one">{0}fl oz</unitPattern>
 				<unitPattern count="other">{0}fl oz</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>tbsp</displayName>
+				<unitPattern count="one">{0}tbsp</unitPattern>
+				<unitPattern count="other">{0}tbsp</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>dsp</displayName>

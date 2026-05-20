@@ -1180,6 +1180,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">ഡിഫോൾട്ട്</type>
 			<type key="em" type="emoji" scope="core">ഇമോജി</type>
 			<type key="em" type="text" scope="core">ടെക്സ്റ്റ്</type>
+			<type key="hc" type="c12">12 മണിക്കൂർ സംവിധാനം</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 മണിക്കൂർ സംവിധാനം</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 മണിക്കൂർ സംവിധാനം (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 മണിക്കൂർ സംവിധാനം (1–12)</type>
@@ -1286,6 +1290,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ഓഫ്</type>
 			<type key="ss" type="standard" scope="core">ഓൺ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ഓഫ്</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ഓൺ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">മെട്രിക്ക്</measurementSystemName>
 			<measurementSystemName type="UK">യുകെ</measurementSystemName>
@@ -1413,6 +1421,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1721,6 +1732,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -2364,7 +2379,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>ജിഎംടി{0}</gmtFormat>
-			<gmtZeroFormat>ജിഎംടി</gmtZeroFormat>
 			<gmtUnknownFormat>ജിഎംടി+?</gmtUnknownFormat>
 			<regionFormat>{0} സമയം</regionFormat>
 			<regionFormat type="daylight">{0} ഡേലൈറ്റ് സമയം</regionFormat>
@@ -3676,13 +3690,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>അലാസ്‌ക ഡേലൈറ്റ് സമയം</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>അൽമതി സമയം</generic>
-					<standard>അൽമതി സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>അൽമതി വേനൽക്കാല സമയം</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>ആമസോൺ സമയം</generic>
@@ -3730,20 +3737,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>അപിയ സമയം</generic>
 					<standard>അപിയ സ്റ്റാൻഡേർഡ് സമയം</standard>
 					<daylight>അപിയ ഡേലൈറ്റ് സമയം</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>അഖ്തൌ സമയം</generic>
-					<standard>അഖ്തൌ സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>അഖ്തൌ വേനൽക്കാല സമയം</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>അഖ്തോബ് സമയം</generic>
-					<standard>അഖ്തോബ് സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>അഖ്തോബ് വേനൽക്കാല സമയം</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4034,11 +4027,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>പടിഞ്ഞാറൻ ഗ്രീൻലാൻഡ് ഗ്രീഷ്‌മകാല സമയം</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>ഗ്വാം സ്റ്റാൻഡേർഡ് സമയം</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>ഗൾഫ് സ്റ്റാൻഡേർഡ് സമയം</standard>
@@ -4182,11 +4170,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>കിർഗിസ്ഥാൻ സമയം</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>ലങ്ക സമയം</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>ലൈൻ ദ്വീപുകൾ സമയം</standard>
@@ -4197,13 +4180,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ലോർഡ് ഹോവ് സമയം</generic>
 					<standard>ലോർഡ് ഹോവ് സ്റ്റാൻഡേർഡ് സമയം</standard>
 					<daylight>ലോർഡ് ഹോവ് ഡേലൈറ്റ് സമയം</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>മകൌ സമയം</generic>
-					<standard>മകൌ സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>മകൌ വേനൽക്കാല സമയം</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4321,11 +4297,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ഫെർണാഡോ ഡി നൊറോൻഹ ഗ്രീഷ്‌മകാല സമയം</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>നോർത്ത് മറിയാനാ ദ്വീപുകൾ സമയം</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>നോവോസിബിർസ്‌ക് സമയം</generic>
@@ -4405,13 +4376,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>പ്യോംഗ്‌യാംഗ് സമയം</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>ഖിസിലോർഡ സമയം</generic>
-					<standard>ഖിസിലോർഡ സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>ഖിസിലോർഡ വേനൽക്കാല സമയം</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>റീയൂണിയൻ സമയം</standard>
@@ -4438,9 +4402,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>സമോവ സമയം</generic>
 					<standard>സമോവ സ്റ്റാൻഡേർഡ് സമയം</standard>
-					<daylight>സമോവാ ഗ്രീഷ്‌മകാല സമയം</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

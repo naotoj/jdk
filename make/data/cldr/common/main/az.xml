@@ -1096,6 +1096,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">Emojilərin təqdim edilməsi: Standart</type>
 			<type key="em" type="emoji" scope="core">Emoji</type>
 			<type key="em" type="text" scope="core">Mətn</type>
+			<type key="hc" type="c12">12 Saatlıq Sistem</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 Saatlıq Sistem</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 Saatlıq Sistem (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 Saatlıq Sistem (0–12)</type>
@@ -1163,6 +1167,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Deaktiv</type>
 			<type key="ss" type="standard" scope="core">Aktiv</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Deaktiv</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Aktiv</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
 			<measurementSystemName type="UK">Britaniya</measurementSystemName>
@@ -1557,6 +1565,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -3746,9 +3758,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa Vaxtı</generic>
 					<standard>Samoa Standart Vaxtı</standard>
-					<daylight>Samoa Yay Vaxtı</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5390,9 +5400,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<minimalPairs>
 			<pluralMinimalPairs count="one">Alış-veriş kartınızda {0} var. Alınsın?</pluralMinimalPairs>
 			<pluralMinimalPairs count="other">Alış-veriş kartınızda {0} var. Alınsınlar?</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="one">{0}-ci sağ döngəni seçin.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="few">{0}-cü sağ döngəni seçin.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="many">{0}-cı sağ döngəni seçin.</ordinalMinimalPairs>
-			<ordinalMinimalPairs ordinal="one">{0}-ci sağ döngəni seçin.</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">{0}-cu sağ döngəni seçin.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>

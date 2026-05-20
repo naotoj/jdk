@@ -49,6 +49,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ksb">Sháńbálà</language>
 			<language type="ku">Kɔdishì</language>
 			<language type="ku" menu="core">Èdè Kɔ́dìshì</language>
+			<language type="ku" menu="extension">Èdè Kùmáǹjì</language>
 			<language type="kw">Èdè Kɔ́nììshì</language>
 			<language type="lb">Lùshɛ́mbɔ́ɔ̀gì</language>
 			<language type="mul">Ɔlɔ́pɔ̀ èdè</language>
@@ -1182,9 +1183,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Àkókò Samoa</generic>
 					<standard>Àkókò Àfɛnukò Samoa</standard>
-					<daylight>Àkókò Ojúmɔmɔ Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

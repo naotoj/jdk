@@ -1278,6 +1278,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">Výchozí</type>
 			<type key="em" type="emoji" scope="core">Emodži</type>
 			<type key="em" type="text" scope="core">Text</type>
+			<type key="hc" type="c12">12hodinový systém</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24hodinový systém</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12hodinový systém (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12hodinový systém (1–12)</type>
@@ -1355,6 +1359,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">Ne</type>
 			<type key="ss" type="standard" scope="core">Ano</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">Ne</typeValue>
+			<typeValue type="yes" draft="unconfirmed">Ano</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metrický</measurementSystemName>
 			<measurementSystemName type="UK">Velká Británie</measurementSystemName>
@@ -2045,6 +2053,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">.</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -2345,28 +2357,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</months>
 			</calendar>
 			<calendar type="japanese">
-				<eras>
-					<eraAbbr>
-						<era type="11" draft="contributed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="contributed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="contributed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="contributed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="contributed">Jingo-keiun (767-770)</era>
-						<era type="17" draft="contributed">Ten-ō (781-782)</era>
-						<era type="26" draft="contributed">Ten-an (857-859)</era>
-						<era type="78" draft="contributed">Ten-ei (1110-1113)</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="11" draft="contributed">Tenpyō-kampō (749-749)</era>
-						<era type="12" draft="contributed">Tenpyō-shōhō (749-757)</era>
-						<era type="13" draft="contributed">Tenpyō-hōji (757-765)</era>
-						<era type="14" draft="contributed">Tenpyō-jingo (765-767)</era>
-						<era type="15" draft="contributed">Jingo-keiun (767-770)</era>
-						<era type="17" draft="contributed">Ten-ō (781-782)</era>
-						<era type="26" draft="contributed">Ten-an (857-859)</era>
-						<era type="78" draft="contributed">Ten-ei (1110-1113)</era>
-					</eraNarrow>
-				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -3340,13 +3330,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight draft="contributed">AKDT</daylight>
 				</short>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>Almatský čas</generic>
-					<standard>Almatský standardní čas</standard>
-					<daylight>Almatský letní čas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>amazonský čas</generic>
@@ -3414,20 +3397,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>apijský čas</generic>
 					<standard>apijský standardní čas</standard>
 					<daylight>apijský letní čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>Aktauský čas</generic>
-					<standard>Aktauský standardní čas</standard>
-					<daylight>Aktauský letní čas</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>Aktobský čas</generic>
-					<standard>Aktobský standardní čas</standard>
-					<daylight>Aktobský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3733,11 +3702,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>západogrónský letní čas</daylight>
 				</long>
 			</metazone>
-			<metazone type="Guam">
-				<long>
-					<standard>Guamský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Gulf">
 				<long>
 					<standard>standardní čas Perského zálivu</standard>
@@ -3878,11 +3842,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>kyrgyzský čas</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>Srílanský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>čas Rovníkových ostrovů</standard>
@@ -3893,13 +3852,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>čas ostrova lorda Howa</generic>
 					<standard>standardní čas ostrova lorda Howa</standard>
 					<daylight>letní čas ostrova lorda Howa</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>Macajský čas</generic>
-					<standard>Macajský standardní čas</standard>
-					<daylight>Macajský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4017,11 +3969,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>letní čas souostroví Fernando de Noronha</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>Severomariánský čas</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>novosibirský čas</generic>
@@ -4101,13 +4048,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>pchjongjangský čas</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>Kyzylordský čas</generic>
-					<standard>Kyzylordský standardní čas</standard>
-					<daylight>Kyzylordský letní čas</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>réunionský čas</standard>
@@ -4134,9 +4074,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>samojský čas</generic>
 					<standard>samojský standardní čas</standard>
-					<daylight>samojský letní čas</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4920,13 +4858,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="few">čínské jüany (offshore)</displayName>
 				<displayName count="many">čínského jüanu (offshore)</displayName>
 				<displayName count="other">čínských jüanů (offshore)</displayName>
-			</currency>
-			<currency type="CNX">
-				<displayName draft="contributed">čínský dolar ČLB</displayName>
-				<displayName count="one" draft="contributed">čínský dolar ČLB</displayName>
-				<displayName count="few" draft="contributed">čínské dolary ČLB</displayName>
-				<displayName count="many" draft="contributed">čínského dolaru ČLB</displayName>
-				<displayName count="other" draft="contributed">čínských dolarů ČLB</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>čínský jüan</displayName>

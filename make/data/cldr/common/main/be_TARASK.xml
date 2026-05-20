@@ -1941,9 +1941,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="provisional">Час Самоа</generic>
 					<standard draft="provisional">Змоўчны час Самоа</standard>
-					<daylight draft="provisional">Летні час Самоа</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

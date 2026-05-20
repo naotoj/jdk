@@ -1101,6 +1101,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">ଡିଫଲ୍ଟ୍‌</type>
 			<type key="em" type="emoji" scope="core">ଇମୋଜି</type>
 			<type key="em" type="text" scope="core">ଟେକ୍ସ୍‌ଟ୍‌</type>
+			<type key="hc" type="c12">12 ଘଣ୍ଟିଆ ପଦ୍ଧତି</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 ଘଣ୍ଟିଆ ପଦ୍ଧତି</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 ଘଣ୍ଟିଆ ପଦ୍ଧତି (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 ଘଣ୍ଟିଆ ପଦ୍ଧତି (1–12)</type>
@@ -1169,6 +1173,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ଅଫ୍‌</type>
 			<type key="ss" type="standard" scope="core">ଅନ୍‌</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ଅଫ୍‌</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ଅନ୍‌</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">ମେଟ୍ରିକ୍‌</measurementSystemName>
 			<measurementSystemName type="UK">ୟୁକେ</measurementSystemName>
@@ -1537,6 +1545,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -3452,13 +3464,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ଆଲାସ୍କା ଦିବାଲୋକ ସମୟ</daylight>
 				</long>
 			</metazone>
-			<metazone type="Almaty">
-				<long>
-					<generic>ଅଲମାଟୀ ସମୟ</generic>
-					<standard>ଅଲମାଟୀ ମାନକ ସମୟ</standard>
-					<daylight>ଅଲମାଟୀ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
-				</long>
-			</metazone>
 			<metazone type="Amazon">
 				<long>
 					<generic>ଆମାଜନ୍ ସମୟ</generic>
@@ -3506,20 +3511,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ଆପିଆ ସମୟ</generic>
 					<standard>ଆପିଆ ମାନାଙ୍କ ସମୟ</standard>
 					<daylight>ଆପିଆ ଦିବାଲୋକ ସମୟ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtau">
-				<long>
-					<generic>ଅକତୌ ସମୟ</generic>
-					<standard>ଅକତୌ ମାନକ ସମୟ</standard>
-					<daylight>ଅକତୌ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Aqtobe">
-				<long>
-					<generic>ଅକ୍ତୋବ ସମୟ</generic>
-					<standard>ଅକ୍ତୋବ ମାନକ ସମୟ</standard>
-					<daylight>ଅକ୍ତୋବ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3956,11 +3947,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>କିର୍ଗିସ୍ତାନ ସମୟ</standard>
 				</long>
 			</metazone>
-			<metazone type="Lanka">
-				<long>
-					<standard>ଲଙ୍କା ସମୟ</standard>
-				</long>
-			</metazone>
 			<metazone type="Line_Islands">
 				<long>
 					<standard>ଲାଇନ୍‌ ଦ୍ୱୀପପୁଞ୍ଜ ସମୟ</standard>
@@ -3971,13 +3957,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ଲର୍ଡ ହୋୱେ ସମୟ</generic>
 					<standard>ଲର୍ଡ ହୋୱେ ମାନାଙ୍କ ସମୟ</standard>
 					<daylight>ଲର୍ଡ ହୋୱେ ଦିବାଲୋକ ସମୟ</daylight>
-				</long>
-			</metazone>
-			<metazone type="Macau">
-				<long>
-					<generic>ମାକାଓ ସମୟ</generic>
-					<standard>ମକାଓ ମାନକ ସମୟ</standard>
-					<daylight>ମକାଓ ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Magadan">
@@ -4095,11 +4074,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ଫର୍ଣ୍ଣାଣ୍ଡୋ ଡି ନୋରୋନ୍ନା ଗ୍ରୀଷ୍ମକାଳ ସମୟ</daylight>
 				</long>
 			</metazone>
-			<metazone type="North_Mariana">
-				<long>
-					<standard>ଉତ୍ତର ମେରିଆନା ଆଇଲ୍ୟାଣ୍ଡ ସମୟ</standard>
-				</long>
-			</metazone>
 			<metazone type="Novosibirsk">
 				<long>
 					<generic>ନୋଭୋସିବିରସ୍କ ସମୟ</generic>
@@ -4179,13 +4153,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<standard>ପୋୟଙ୍ଗୟାଙ୍ଗ ସମୟ</standard>
 				</long>
 			</metazone>
-			<metazone type="Qyzylorda">
-				<long>
-					<generic>କାଜିଲୋର୍ଡା ସମୟ</generic>
-					<standard>କାଜିଲୋର୍ଡା ମାନକ ସମୟ</standard>
-					<daylight>କାଜିଲୋର୍ଡା ଗ୍ରୀଷ୍ମ ସମୟ</daylight>
-				</long>
-			</metazone>
 			<metazone type="Reunion">
 				<long>
 					<standard>ରିୟୁନିଅନ୍‌ ସମୟ</standard>
@@ -4212,9 +4179,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ସାମୋଆ ସମୟ</generic>
 					<standard>ସାମୋଆ ମାନକ ସମୟ</standard>
-					<daylight>ସାମୋଆ ଦିବାଲୋକ ସମୟ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

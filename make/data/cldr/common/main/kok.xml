@@ -904,6 +904,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="em" type="default" scope="core">डिफॉल्ट</type>
 			<type key="em" type="emoji" scope="core">इमोजी</type>
 			<type key="em" type="text" scope="core">लिखीत</type>
+			<type key="hc" type="c12">12 वरांची यंत्रणा</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24 वरांची यंत्रणा</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12 वरांची यंत्रणा (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12 वरांची यंत्रणा (1–12)</type>
@@ -971,6 +975,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">बंद करचें</type>
 			<type key="ss" type="standard" scope="core">चालू</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">बंद करचें</typeValue>
+			<typeValue type="yes" draft="unconfirmed">चालू</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">मॅट्रिक</measurementSystemName>
 			<measurementSystemName type="UK">युके</measurementSystemName>
@@ -983,7 +991,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[़ ० १ २ ३ ४ ५ ६ ७ ८ ९ ॐ ं ँ ः अ आ इ ई उ ऊ ऋ ऌ ऍ ए ऐ ऑ ओ औ क{क़} ख{ख़} ग{ग़} घ ङ च छ ज{ज़} झ ञ ट ठ ड{ड़} ढ{ढ़} ण त थ द ध न प फ{फ़} ब भ म य{य़} र ल व श ष स ह ळ ऽ ा ि ी ु ू ृ ॅ े ै ॉ ो ौ ्]</exemplarCharacters>
+		<exemplarCharacters>[़ ॐ ं ँ ः अ आ इ ई उ ऊ ऋ ऌ ऍ ए ऐ ऑ ओ औ क{क़} ख{ख़} ग{ग़} घ ङ च छ ज{ज़} झ ञ ट ठ ड{ड़} ढ{ढ़} ण त थ द ध न प फ{फ़} ब भ म य{य़} र ल व श ष स ह ळ ऽ ा ि ी ु ू ृ ॅ े ै ॉ ो ौ ्]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D ॄ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[अ आ इ ई उ ऊ ऋ ऌ ऍ ए ऐ ऑ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल व श ष स ह ळ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0० 1१ 2२ 3३ 4४ 5५ 6६ 7७ 8८ 9९]</exemplarCharacters>
@@ -1478,6 +1486,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -4303,9 +4315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>सामोआ वेळ</generic>
 					<standard>सामोआ प्रमाणित वेळ</standard>
-					<daylight>सामोआ डेलायट वेळ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4595,6 +4605,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤000LCr</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤000LCr</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="chis">
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
 					<pattern type="100000000000000" count="one" alt="alphaNextToNumber">¤000LCr</pattern>

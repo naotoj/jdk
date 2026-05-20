@@ -912,6 +912,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="em" type="default" scope="core">ডিফ’ল্ট</type>
 			<type key="em" type="emoji" scope="core">ইম’জী</type>
 			<type key="em" type="text" scope="core">পাঠ্য</type>
+			<type key="hc" type="c12">১২ ঘণ্টীয়া প্ৰণালী</type>
+			<type key="hc" type="c12" scope="core">১২</type>
+			<type key="hc" type="c24">২৪ ঘণ্টীয়া প্ৰণালী</type>
+			<type key="hc" type="c24" scope="core">২৪</type>
 			<type key="hc" type="h11">১২ ঘণ্টীয়া প্ৰণালী (০–১১)</type>
 			<type key="hc" type="h11" scope="core">১২ (০–১১)</type>
 			<type key="hc" type="h12">১২ ঘণ্টীয়া প্ৰণালী (১–১২)</type>
@@ -979,6 +983,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="ss" type="none" scope="core">ঃ</type>
 			<type key="ss" type="standard" scope="core">ঃ</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ঃ</typeValue>
+			<typeValue type="yes" draft="unconfirmed">ঃ</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">মেট্ৰিক</measurementSystemName>
 			<measurementSystemName type="UK">ইউ. কে.</measurementSystemName>
@@ -1310,6 +1318,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">-</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -3818,9 +3830,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>ছামোৱাৰ সময়</generic>
 					<standard>ছামোৱাৰ মান সময়</standard>
-					<daylight>ছামোৱাৰ ডেলাইট সময়</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

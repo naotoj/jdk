@@ -267,6 +267,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="cf" type="standard" draft="unconfirmed">𐑕𐑑𐑨𐑯𐑛𐑼𐑛 𐑒𐑳𐑮𐑩𐑯𐑕𐑦 𐑓𐑹𐑥𐑨𐑑</type>
 			<type key="cf" type="standard" scope="core" draft="unconfirmed">𐑕𐑑𐑨𐑯𐑛𐑼𐑛</type>
 			<type key="collation" type="standard" draft="unconfirmed">𐑕𐑑𐑨𐑯𐑛𐑼𐑛</type>
+			<type key="hc" type="c12" draft="unconfirmed">12 𐑬𐑼 𐑕𐑦𐑕𐑑𐑩𐑥</type>
+			<type key="hc" type="c12" scope="core" draft="unconfirmed">12</type>
+			<type key="hc" type="c24" draft="unconfirmed">24 𐑬𐑼 𐑕𐑦𐑕𐑑𐑩𐑥</type>
+			<type key="hc" type="c24" scope="core" draft="unconfirmed">24</type>
 			<type key="hc" type="h11" draft="unconfirmed">12 𐑬𐑼 𐑕𐑦𐑕𐑑𐑩𐑥 (0–11)</type>
 			<type key="hc" type="h11" scope="core" draft="unconfirmed">12 (0–11)</type>
 			<type key="hc" type="h12" draft="unconfirmed">12 𐑬𐑼 𐑕𐑦𐑕𐑑𐑩𐑥 (1–12)</type>
@@ -289,6 +293,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core" draft="unconfirmed">𐑪𐑓</type>
 			<type key="ss" type="standard" scope="core" draft="unconfirmed">𐑪𐑯</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">𐑪𐑓</typeValue>
+			<typeValue type="yes" draft="unconfirmed">𐑪𐑯</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric" draft="unconfirmed">𐑥𐑧𐑑𐑮𐑦𐑒</measurementSystemName>
 			<measurementSystemName type="UK" draft="unconfirmed">𐑿𐑒𐑱</measurementSystemName>
@@ -1086,7 +1094,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>·𐑜𐑥𐑑{0}</gmtFormat>
-			<gmtZeroFormat>·𐑜𐑥𐑑</gmtZeroFormat>
 			<gmtUnknownFormat draft="unconfirmed">𐑜𐑥𐑑+?</gmtUnknownFormat>
 			<regionFormat>{0} 𐑑𐑲𐑥</regionFormat>
 			<regionFormat type="daylight" draft="unconfirmed">{0} 𐑛𐑱𐑤𐑲𐑑 𐑑𐑲𐑥</regionFormat>

@@ -848,6 +848,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="collation" type="ducet">डिफाल्ट यूनिकोड सॉर्ट क्रम</type>
 			<type key="collation" type="search">सामान्य प्रयोजन वाली खोज</type>
 			<type key="collation" type="standard">मानक सॉर्ट क्रम</type>
+			<type key="hc" type="c12">12 घंटे वाला प्रारूप</type>
+			<type key="hc" type="c24">24 घंटे वाला प्रारूप</type>
 			<type key="hc" type="h11">12 घंटे वाला प्रारूप (0–11)</type>
 			<type key="hc" type="h12">12 घंटे वाला प्रारूप (1–12)</type>
 			<type key="hc" type="h23">24 घंटे वाला प्रारूप (0–23)</type>
@@ -1154,6 +1156,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<numericSeparators>
+						<numericDateSeparator draft="provisional">/</numericDateSeparator>
+						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1}, {0}</pattern>
@@ -1463,7 +1469,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>जीएमटी{0}</gmtFormat>
-			<gmtZeroFormat>जीएमटी</gmtZeroFormat>
 			<regionFormat>{0} समय</regionFormat>
 			<regionFormat type="daylight">{0} डेलाइट समय</regionFormat>
 			<regionFormat type="standard">{0} मानक समय</regionFormat>
@@ -3201,9 +3206,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>सामोआ समय</generic>
 					<standard>सामोआ मानक समय</standard>
-					<daylight>सामोआ समर समय</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

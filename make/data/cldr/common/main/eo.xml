@@ -894,6 +894,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="em" type="default" scope="core">norma</type>
 			<type key="em" type="emoji" scope="core">miensimboloj</type>
 			<type key="em" type="text" scope="core">teksto</type>
+			<type key="hc" type="c12">12-hora sistemo</type>
+			<type key="hc" type="c12" scope="core">12</type>
+			<type key="hc" type="c24">24-hora sistemo</type>
+			<type key="hc" type="c24" scope="core">24</type>
 			<type key="hc" type="h11">12-hora sistemo (0–11)</type>
 			<type key="hc" type="h11" scope="core">12 (0–11)</type>
 			<type key="hc" type="h12">12-hora sistemo (1–12)</type>
@@ -960,6 +964,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="ss" type="none" scope="core">ne</type>
 			<type key="ss" type="standard" scope="core">jes</type>
 		</types>
+		<typeValues>
+			<typeValue type="no" draft="unconfirmed">ne</typeValue>
+			<typeValue type="yes" draft="unconfirmed">jes</typeValue>
+		</typeValues>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">metra</measurementSystemName>
 			<measurementSystemName type="UK">brita</measurementSystemName>
@@ -2106,7 +2114,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</fields>
 		<timeZoneNames>
 			<gmtFormat>UTC{0}</gmtFormat>
-			<gmtZeroFormat>UTC</gmtZeroFormat>
 			<gmtUnknownFormat>UTC+?</gmtUnknownFormat>
 			<regionFormat>tempo: {0}</regionFormat>
 			<regionFormat type="daylight">{0} (somera tempo)</regionFormat>
@@ -3763,9 +3770,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>uson-samoa tempo</generic>
 					<standard>uson-samoa norma tempo</standard>
-					<daylight>uson-samoa somera tempo</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
