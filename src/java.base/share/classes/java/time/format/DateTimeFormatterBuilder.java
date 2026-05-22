@@ -4293,11 +4293,7 @@ public final class DateTimeFormatterBuilder {
             if (offsetSecs == null) {
                 return false;
             }
-            String key = "timezone.gmtZeroFormat";
-            String gmtText = DateTimeTextProvider.getLocalizedResource(key, context.getLocale());
-            if (gmtText == null) {
-                gmtText = "GMT";  // Default to "GMT"
-            }
+            String gmtText = TimeZoneNameUtility.gmtZeroFormat(context.getLocale());
             buf.append(gmtText);
             int totalSecs = Math.toIntExact(offsetSecs);
             if (totalSecs != 0) {
@@ -4343,11 +4339,7 @@ public final class DateTimeFormatterBuilder {
         public int parse(DateTimeParseContext context, CharSequence text, int position) {
             int pos = position;
             int end = text.length();
-            String key = "timezone.gmtZeroFormat";
-            String gmtText = DateTimeTextProvider.getLocalizedResource(key, context.getLocale());
-            if (gmtText == null) {
-                gmtText = "GMT";  // Default to "GMT"
-            }
+            String gmtText = TimeZoneNameUtility.gmtZeroFormat(context.getLocale());
             if (!context.subSequenceEquals(text, pos, gmtText, 0, gmtText.length())) {
                     return ~position;
                 }
