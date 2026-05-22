@@ -41,7 +41,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Test DateTimeFormatter.ofLocalizedPattern() related methods.
- * @bug 8176706 8284840 8354548
+ * @bug 8176706 8284840 8354548 8384532
  */
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestLocalizedPattern {
