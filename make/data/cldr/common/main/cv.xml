@@ -4007,19 +4007,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
-			<calendar type="ethiopic-amete-alem">
-				<eras>
-					<eraNames>
-						<era type="0">тӗнче пуҫланнӑран</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">т. п-р.</era>
-					</eraAbbr>
-					<eraNarrow>
-						<era type="0">т. п-р.</era>
-					</eraNarrow>
-				</eras>
-			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -4561,6 +4548,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">{0} ({1})</appendItem>
 					</appendItems>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">B h – B h</greatestDifference>
 							<greatestDifference id="h">B h–h</greatestDifference>

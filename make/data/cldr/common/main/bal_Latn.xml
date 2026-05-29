@@ -1359,6 +1359,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMMMd">MM,dd,y</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="islamic">

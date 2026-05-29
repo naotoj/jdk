@@ -2578,6 +2578,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yw" count="other">Y年的第w週</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0}至{1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}至{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}至{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">Bh時 – Bh時</greatestDifference>
 							<greatestDifference id="h">Bh–h時</greatestDifference>

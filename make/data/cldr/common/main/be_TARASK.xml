@@ -2664,10 +2664,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 		</currencies>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="provisional">з {0} кнігі за {0} дзень</pluralMinimalPairs>
-			<pluralMinimalPairs count="few" draft="provisional">з {0} кніг за {0} дні</pluralMinimalPairs>
-			<pluralMinimalPairs count="many" draft="provisional">з {0} кніг за {0} дзён</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="provisional">з {0} кнігі за {0} дня</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="few" draft="provisional">{0}-і дом зьлева</ordinalMinimalPairs>
 			<ordinalMinimalPairs ordinal="other" draft="provisional">{0}-ы дом зьлева</ordinalMinimalPairs>
 		</minimalPairs>

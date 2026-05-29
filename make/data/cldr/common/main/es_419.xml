@@ -382,6 +382,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yQQQ">QQQ 'de' y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="GyM">
 							<greatestDifference id="G">MM/y GGGGG – MM/y GGGGG</greatestDifference>
 							<greatestDifference id="M">MM/y – MM/y GGGGG</greatestDifference>

@@ -1595,20 +1595,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="ethiopic">
 				<eras>
 					<eraNames>
-						<era type="0" draft="unconfirmed">Taʻu ʻĪtiōpia</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0" draft="unconfirmed">TI</era>
-					</eraAbbr>
-				</eras>
-			</calendar>
-			<calendar type="ethiopic-amete-alem">
-				<eras>
-					<eraNames>
 						<era type="0" draft="unconfirmed">Taʻu ʻĪtiōpia-ʻAmete-ʻAlemi</era>
+						<era type="1" draft="unconfirmed">Taʻu ʻĪtiōpia</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">TIAA</era>
+						<era type="1" draft="unconfirmed">TI</era>
 					</eraAbbr>
 				</eras>
 			</calendar>
@@ -2083,6 +2075,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other">'uike' 'hono' w ʻ'o' Y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d – d</greatestDifference>
 						</intervalFormatItem>
