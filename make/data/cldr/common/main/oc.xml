@@ -858,6 +858,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">'setmana' w 'de' Y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0} – {1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="Bhm">
 							<greatestDifference id="B" draft="unconfirmed">h'h'mm B – h'h'mm B</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h'h'mm – h'h'mm B</greatestDifference>

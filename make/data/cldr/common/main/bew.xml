@@ -1780,6 +1780,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other" draft="unconfirmed">'minggu' 'ke'-w Y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="Bhm">
 							<greatestDifference id="B" draft="unconfirmed">h.mm B – h.mm B</greatestDifference>
 							<greatestDifference id="h" draft="unconfirmed">h.mm–h.mm B</greatestDifference>

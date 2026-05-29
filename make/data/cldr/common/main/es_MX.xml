@@ -241,6 +241,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="GyMMM">
 							<greatestDifference id="G">MMM 'de' y G – MMM 'de' y G</greatestDifference>
 							<greatestDifference id="M">MMM–MMM 'de' y G</greatestDifference>

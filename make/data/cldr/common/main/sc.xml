@@ -1860,6 +1860,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<eras>
+					<eraNames>
+						<era type="0">annu de su mundu</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">a.m.</era>
+					</eraAbbr>
+				</eras>
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Bh">
@@ -1891,16 +1899,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
-			</calendar>
-			<calendar type="ethiopic-amete-alem">
-				<eras>
-					<eraNames>
-						<era type="0">annu de su mundu</era>
-					</eraNames>
-					<eraAbbr>
-						<era type="0">a.m.</era>
-					</eraAbbr>
-				</eras>
 			</calendar>
 			<calendar type="generic">
 				<dateFormats>
@@ -2332,6 +2330,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other">w'a' 'chida' 'de' 'su' Y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
 						<intervalFormatItem id="Gy">
 							<greatestDifference id="G">y G – y G</greatestDifference>
 							<greatestDifference id="y">y – y G</greatestDifference>

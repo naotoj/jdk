@@ -48,6 +48,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="ethiopic">Ethiopian Calendar</type>
 		</types>
 	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters type="auxiliary">[áàăâåäãā æ ç éèĕêëē íìĭîïī ḻ ñṉ ŋ óòŏôöøō œ ṯ úùŭûüū ÿ]</exemplarCharacters>
+	</characters>
 	<dates>
 		<calendars>
 			<calendar type="generic">
