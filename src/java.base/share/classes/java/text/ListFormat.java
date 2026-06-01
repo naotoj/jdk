@@ -475,10 +475,13 @@ public final class ListFormat extends Format {
             if (startPattern[1] <= endPattern[0]) {
                 var mid = source.substring(startPattern[1], endPattern[0]);
                 var count = 3;
-                var midIndex = 0;
-                while ((midIndex = mid.indexOf(middleBetween, midIndex)) >= 0) {
-                    count++;
-                    midIndex += middleBetween.length();
+                var mbLength = middleBetween.length();
+                if (mbLength > 0) {
+                    var midIndex = 0;
+                    while ((midIndex = mid.indexOf(middleBetween, midIndex)) >= 0) {
+                        count++;
+                        midIndex += mbLength;
+                    }
                 }
                 parsed = new MessageFormat(createMessageFormatString(count), locale).parseObject(source, parsePos);
             }

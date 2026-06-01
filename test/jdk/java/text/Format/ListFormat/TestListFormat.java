@@ -67,6 +67,14 @@ public class TestListFormat {
             "",
             "",
     };
+    // Ensures regex metacharacters in custom patterns are treated as literals.
+    private static final String[] CUSTOM_PATTERNS_METACHAR = {
+            ". {0} * {1}",
+            "{0} + {1}",
+            "{0} | {1} [",
+            "",
+            "",
+    };
     private static final String[] CUSTOM_PATTERNS_IAE_START = {
             "{0}",
             "{0} mid {1}",
@@ -131,6 +139,10 @@ public class TestListFormat {
                 arguments(CUSTOM_PATTERNS_MINIMAL, SAMPLE2, "sbef foo ebet bar eaft"),
                 arguments(CUSTOM_PATTERNS_MINIMAL, SAMPLE3, "sbef foo sbet bar ebet baz eaft"),
                 arguments(CUSTOM_PATTERNS_MINIMAL, SAMPLE4, "sbef foo sbet bar mid baz ebet qux eaft"),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE1, "foo"),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE2, ". foo | bar ["),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE3, ". foo * bar | baz ["),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE4, ". foo * bar + baz | qux ["),
         };
     }
 
