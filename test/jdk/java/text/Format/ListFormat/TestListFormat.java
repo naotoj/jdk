@@ -40,7 +40,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -129,7 +128,7 @@ public class TestListFormat {
         assertEquals(ListFormat.getInstance(), ListFormat.getInstance(Locale.getDefault(Locale.Category.FORMAT), ListFormat.Type.STANDARD, ListFormat.Style.FULL));
     }
 
-    static Arguments[] getInstance_1Arg() {
+    private static Arguments[] getInstance_1Arg() {
         return new Arguments[] {
                 arguments(CUSTOM_PATTERNS_FULL, SAMPLE1, "foo"),
                 arguments(CUSTOM_PATTERNS_FULL, SAMPLE2, "twobef foo two bar twoaft"),
@@ -146,7 +145,7 @@ public class TestListFormat {
         };
     }
 
-    static Arguments[] getInstance_1Arg_IAE() {
+    private static Arguments[] getInstance_1Arg_IAE() {
         return new Arguments[] {
                 arguments(new String[1], "Pattern array length should be 5"),
                 arguments(new String[6], "Pattern array length should be 5"),
@@ -159,7 +158,7 @@ public class TestListFormat {
         };
     }
 
-    static Arguments[] getInstance_3Arg() {
+    private static Arguments[] getInstance_3Arg() {
         return new Arguments[] {
                 arguments(Locale.US, ListFormat.Type.STANDARD, ListFormat.Style.FULL,
                         "foo, bar, and baz", true),
@@ -201,7 +200,7 @@ public class TestListFormat {
         };
     }
 
-    static Arguments[] parseObject_parsePos() {
+    private static Arguments[] parseObject_parsePos() {
         return new Arguments[] {
                 arguments(CUSTOM_PATTERNS_FULL, SAMPLE1),
                 arguments(CUSTOM_PATTERNS_FULL, SAMPLE2),
@@ -214,7 +213,7 @@ public class TestListFormat {
         };
     }
 
-    static Arguments[] getInstance_3Arg_InheritPatterns() {
+    private static Arguments[] getInstance_3Arg_InheritPatterns() {
         return new Arguments[] {
                 arguments(ListFormat.Type.STANDARD, ListFormat.Style.FULL),
                 arguments(ListFormat.Type.STANDARD, ListFormat.Style.SHORT),
@@ -228,13 +227,23 @@ public class TestListFormat {
         };
     }
 
-    static Arguments[] getLocale_localeDependent() {
+    private static Arguments[] getLocale_localeDependent() {
         return new Arguments[] {
                 arguments(Locale.ROOT),
                 arguments(Locale.US),
                 arguments(Locale.GERMANY),
                 arguments(Locale.JAPAN),
                 arguments(Locale.SIMPLIFIED_CHINESE),
+        };
+    }
+
+    private static Arguments[] getInstance_1Arg_InvalidLongPattern() {
+        return new Arguments[] {
+                arguments(0, "start pattern is incorrect:"),
+                arguments(1, "middle pattern is incorrect:"),
+                arguments(2, "end pattern is incorrect:"),
+                arguments(3, "pattern for two is incorrect:"),
+                arguments(4, "pattern for three is incorrect:"),
         };
     }
 
@@ -254,8 +263,8 @@ public class TestListFormat {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {0, 1, 2, 3, 4})
-    void getInstance_1Arg_InvalidLongPattern(int index) {
+    @MethodSource
+    void getInstance_1Arg_InvalidLongPattern(int index, String expected) {
         var patterns = new String[]{
             "{0}, {1}",
             "{0}, {1}",
@@ -269,16 +278,6 @@ public class TestListFormat {
         var msg = assertThrows(IllegalArgumentException.class,
                                () -> ListFormat.getInstance(patterns))
             .getMessage();
-
-        var expected = "%s is incorrect:".formatted(
-            switch (index) {
-                case 0 -> "start pattern";
-                case 1 -> "middle pattern";
-                case 2 -> "end pattern";
-                case 3 -> "pattern for two";
-                case 4 -> "pattern for three";
-                default -> throw new RuntimeException("invalid index");
-            });
         assertEquals(expected, msg.substring(0, Math.min(msg.length(), expected.length())));
     }
 

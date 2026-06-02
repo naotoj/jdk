@@ -111,7 +111,7 @@ public final class ListFormat extends Format {
     private static final int TWO = 3;
     private static final int THREE = 4;
     private static final int PATTERN_ARRAY_LENGTH = THREE + 1;
-    private static final int PLACEHOLDER_LENGTH = 3;
+    private static final int PLACEHOLDER_LENGTH = 3; // i.e., "{i}".length()
 
     /**
      * The locale to use for formatting list patterns.
@@ -472,8 +472,10 @@ public final class ListFormat extends Format {
                 endPattern = ep;
             }
 
-            if (startPattern[1] <= endPattern[0]) {
-                var mid = source.substring(startPattern[1], endPattern[0]);
+            var startEnd = startPattern[1];
+            var endStart = endPattern[0];
+            if (startEnd <= endStart) {
+                var mid = source.substring(startEnd, endStart);
                 var count = 3;
                 var mbLength = middleBetween.length();
                 if (mbLength > 0) {
@@ -578,7 +580,9 @@ public final class ListFormat extends Format {
     private String createMessageFormatString(int count) {
         var sb = new StringBuilder(256).append(patterns[START]);
         IntStream.range(2, count - 1).forEach(i -> sb.append(middleBetween).append("{").append(i).append("}"));
-        sb.append(patterns[END].replaceFirst("\\{0}", "").replaceFirst("\\{1}", "\\{" + (count - 1) + "\\}"));
+        sb.append(endBetween)
+            .append("{").append(count - 1).append("}")
+            .append(endAfter);
         return sb.toString();
     }
 
