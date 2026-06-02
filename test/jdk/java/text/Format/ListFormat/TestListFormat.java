@@ -23,7 +23,7 @@
 
 /*
  * @test
- * @bug 8041488 8316974 8318569 8306116 8385736
+ * @bug 8041488 8316974 8318569 8306116 8385736 8385834
  * @summary Tests for ListFormat class
  * @run junit TestListFormat
  */
@@ -210,6 +210,10 @@ public class TestListFormat {
                 arguments(CUSTOM_PATTERNS_MINIMAL, SAMPLE2),
                 arguments(CUSTOM_PATTERNS_MINIMAL, SAMPLE3),
                 arguments(CUSTOM_PATTERNS_MINIMAL, SAMPLE4),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE1),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE2),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE3),
+                arguments(CUSTOM_PATTERNS_METACHAR, SAMPLE4),
         };
     }
 
@@ -237,13 +241,24 @@ public class TestListFormat {
         };
     }
 
-    private static Arguments[] getInstance_1Arg_InvalidLongPattern() {
+    private static Arguments[] getInstance_1Arg_InvalidPlaceholder() {
         return new Arguments[] {
-                arguments(0, "start pattern is incorrect:"),
-                arguments(1, "middle pattern is incorrect:"),
-                arguments(2, "end pattern is incorrect:"),
-                arguments(3, "pattern for two is incorrect:"),
-                arguments(4, "pattern for three is incorrect:"),
+                arguments(0, "{0} {0} {1}", "start pattern is incorrect:"),
+                arguments(0, "{0} {1} {1}", "start pattern is incorrect:"),
+                arguments(0, "{0} {1} {2}", "start pattern is incorrect:"),
+                arguments(1, "{0} {0} {1}", "middle pattern is incorrect:"),
+                arguments(1, "{0} {1} {1}", "middle pattern is incorrect:"),
+                arguments(1, "{0} {1} {2}", "middle pattern is incorrect:"),
+                arguments(2, "{0} {0} {1}", "end pattern is incorrect:"),
+                arguments(2, "{0} {1} {1}", "end pattern is incorrect:"),
+                arguments(2, "{0} {1} {2}", "end pattern is incorrect:"),
+                arguments(3, "{0} {0} {1}", "pattern for two is incorrect:"),
+                arguments(3, "{0} {1} {1}", "pattern for two is incorrect:"),
+                arguments(3, "{0} {1} {2}", "pattern for two is incorrect:"),
+                arguments(4, "{0} {2} {1}", "pattern for three is incorrect:"),
+                arguments(4, "{0} {0} {1} {2}", "pattern for three is incorrect:"),
+                arguments(4, "{0} {1} {1} {2}", "pattern for three is incorrect:"),
+                arguments(4, "{0} {1} {2} {2}", "pattern for three is incorrect:"),
         };
     }
 
@@ -264,7 +279,7 @@ public class TestListFormat {
 
     @ParameterizedTest
     @MethodSource
-    void getInstance_1Arg_InvalidLongPattern(int index, String expected) {
+    void getInstance_1Arg_InvalidPlaceholder(int index, String pattern, String expected) {
         var patterns = new String[]{
             "{0}, {1}",
             "{0}, {1}",
@@ -272,9 +287,8 @@ public class TestListFormat {
             "{0} and {1}",
             "{0} {1} {2}"
         };
-        patterns[index] = "{0}".repeat(100_000);
+        patterns[index] = pattern;
 
-        // Ensures validation of invalid long patterns completes without timing out
         var msg = assertThrows(IllegalArgumentException.class,
                                () -> ListFormat.getInstance(patterns))
             .getMessage();
