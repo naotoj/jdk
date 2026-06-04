@@ -84,7 +84,7 @@ import sun.util.locale.provider.LocaleProviderAdapter;
  * Note: these examples are from CLDR, there could be different results from other locale providers.
  * <p>
  * Alternatively, Locale, Type, and/or Style independent instances
- * can be created with {@link #getInstance(String[])}. The String array to the
+ * can be created with {@link #getInstance(String[])}. The String array passed to the
  * method specifies the delimiting patterns for the {@code start}/{@code middle}/{@code end}
  * portion of the formatted string, as well as optional specialized patterns for two or three
  * elements. Refer to the method description for more detail.
@@ -268,7 +268,7 @@ public final class ListFormat extends Format {
      * two := (two_before){0}two_between{1}(two_after)
      * three := (three_before){0}three_between1{1}three_between2{2}(three_after)
      * }
-     * If {@code two} or {@code three} pattern string is empty, it falls back to
+     * If the {@code two} or {@code three} pattern string is empty, it falls back to
      * {@snippet :
      * (start_before){0}end_between{1}(end_after)
      * (start_before){0}start_between{1}end_between{2}(end_after)
@@ -276,8 +276,9 @@ public final class ListFormat extends Format {
      * respectively.
      * If parsing of any pattern string for {@code start}, {@code middle},
      * {@code end}, {@code two}, or {@code three} fails, including duplicate
-     * placeholders or "{2}" in patterns other than the {@code three} element
-     * pattern, it throws an {@code IllegalArgumentException}.
+     * placeholders, "{2}" in patterns other than the {@code three} element
+     * pattern, or any use of "{" or "}" other than "{0}", "{1}", or "{2}",
+     * it throws an {@code IllegalArgumentException}.
      * <p>
      * On formatting, the input string list with {@code n} elements substitutes above
      * placeholders based on the number of elements:
@@ -682,6 +683,10 @@ public final class ListFormat extends Format {
      * @param pattern pattern string to parse
      */
     private static int[] findPlaceholders(String pattern) {
+        if (!validatePlaceholders(pattern)) {
+            return null;
+        }
+
         var positions = new int[3];
         for (int i = 0; i < positions.length; i++) {
             var ph = "{" + i + "}";
@@ -725,5 +730,31 @@ public final class ListFormat extends Format {
 
         return prefixPos < suffixPos ?
             new int[] {prefixPos, suffixPos + suffix.length()} : null;
+    }
+
+    /**
+     * Validates placeholders within the input pattern. Only
+     * "{0}", "{1}", or "{2}" are allowed. Any other use of
+     * curly braces is not allowed.
+     *
+     * @param pattern input pattern
+     * @return validation result
+     */
+    private static boolean validatePlaceholders(String pattern) {
+        for (int i = 0; i < pattern.length(); i++) {
+            var ch = pattern.charAt(i);
+            if (ch == '{') {
+                if (i + PLACEHOLDER_LENGTH > pattern.length() ||
+                    pattern.charAt(i + 1) < '0' ||
+                    pattern.charAt(i + 1) > '2' ||
+                    pattern.charAt(i + 2) != '}') {
+                    return false;
+                }
+                i += PLACEHOLDER_LENGTH - 1;
+            } else if (ch == '}') {
+                return false;
+            }
+        }
+        return true;
     }
 }

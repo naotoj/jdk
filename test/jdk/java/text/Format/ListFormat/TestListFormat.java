@@ -241,8 +241,10 @@ public class TestListFormat {
         };
     }
 
+    private static final String ZERO_REPEAT = "{0}".repeat(100_000);
     private static Arguments[] getInstance_1Arg_InvalidPlaceholder() {
         return new Arguments[] {
+                // Duplicate placeholders
                 arguments(0, "{0} {0} {1}", "start pattern is incorrect: {0} {0} {1}"),
                 arguments(0, "{0} {1} {1}", "start pattern is incorrect: {0} {1} {1}"),
                 arguments(0, "{0} {1} {2}", "start pattern is incorrect: {0} {1} {2}"),
@@ -259,6 +261,17 @@ public class TestListFormat {
                 arguments(4, "{0} {0} {1} {2}", "pattern for three is incorrect: {0} {0} {1} {2}"),
                 arguments(4, "{0} {1} {1} {2}", "pattern for three is incorrect: {0} {1} {1} {2}"),
                 arguments(4, "{0} {1} {2} {2}", "pattern for three is incorrect: {0} {1} {2} {2}"),
+                arguments(4, ZERO_REPEAT + " {1} {2}", "pattern for three is incorrect: " + ZERO_REPEAT + " {1} {2}"),
+
+                // invalid placeholders
+                arguments(0, "{0} {1} {", "start pattern is incorrect: {0} {1} {"),
+                arguments(0, "{0} {1} }", "start pattern is incorrect: {0} {1} }"),
+                arguments(3, "{0} {1} {3}", "pattern for two is incorrect: {0} {1} {3}"),
+                arguments(4, "{3} {0} {1}", "pattern for three is incorrect: {3} {0} {1}"),
+                arguments(4, "{333} {0} {1}", "pattern for three is incorrect: {333} {0} {1}"),
+                arguments(4, "{0} {1} {abc}", "pattern for three is incorrect: {0} {1} {abc}"),
+                arguments(4, "{0} {1} {2, number}", "pattern for three is incorrect: {0} {1} {2, number}"),
+                arguments(4, "{0} {1} {2} {3}", "pattern for three is incorrect: {0} {1} {2} {3}"),
         };
     }
 
