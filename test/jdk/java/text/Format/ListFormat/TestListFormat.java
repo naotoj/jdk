@@ -243,22 +243,22 @@ public class TestListFormat {
 
     private static Arguments[] getInstance_1Arg_InvalidPlaceholder() {
         return new Arguments[] {
-                arguments(0, "{0} {0} {1}", "start pattern is incorrect:"),
-                arguments(0, "{0} {1} {1}", "start pattern is incorrect:"),
-                arguments(0, "{0} {1} {2}", "start pattern is incorrect:"),
-                arguments(1, "{0} {0} {1}", "middle pattern is incorrect:"),
-                arguments(1, "{0} {1} {1}", "middle pattern is incorrect:"),
-                arguments(1, "{0} {1} {2}", "middle pattern is incorrect:"),
-                arguments(2, "{0} {0} {1}", "end pattern is incorrect:"),
-                arguments(2, "{0} {1} {1}", "end pattern is incorrect:"),
-                arguments(2, "{0} {1} {2}", "end pattern is incorrect:"),
-                arguments(3, "{0} {0} {1}", "pattern for two is incorrect:"),
-                arguments(3, "{0} {1} {1}", "pattern for two is incorrect:"),
-                arguments(3, "{0} {1} {2}", "pattern for two is incorrect:"),
-                arguments(4, "{0} {2} {1}", "pattern for three is incorrect:"),
-                arguments(4, "{0} {0} {1} {2}", "pattern for three is incorrect:"),
-                arguments(4, "{0} {1} {1} {2}", "pattern for three is incorrect:"),
-                arguments(4, "{0} {1} {2} {2}", "pattern for three is incorrect:"),
+                arguments(0, "{0} {0} {1}", "start pattern is incorrect: {0} {0} {1}"),
+                arguments(0, "{0} {1} {1}", "start pattern is incorrect: {0} {1} {1}"),
+                arguments(0, "{0} {1} {2}", "start pattern is incorrect: {0} {1} {2}"),
+                arguments(1, "{0} {0} {1}", "middle pattern is incorrect: {0} {0} {1}"),
+                arguments(1, "{0} {1} {1}", "middle pattern is incorrect: {0} {1} {1}"),
+                arguments(1, "{0} {1} {2}", "middle pattern is incorrect: {0} {1} {2}"),
+                arguments(2, "{0} {0} {1}", "end pattern is incorrect: {0} {0} {1}"),
+                arguments(2, "{0} {1} {1}", "end pattern is incorrect: {0} {1} {1}"),
+                arguments(2, "{0} {1} {2}", "end pattern is incorrect: {0} {1} {2}"),
+                arguments(3, "{0} {0} {1}", "pattern for two is incorrect: {0} {0} {1}"),
+                arguments(3, "{0} {1} {1}", "pattern for two is incorrect: {0} {1} {1}"),
+                arguments(3, "{0} {1} {2}", "pattern for two is incorrect: {0} {1} {2}"),
+                arguments(4, "{0} {2} {1}", "pattern for three is incorrect: {0} {2} {1}"),
+                arguments(4, "{0} {0} {1} {2}", "pattern for three is incorrect: {0} {0} {1} {2}"),
+                arguments(4, "{0} {1} {1} {2}", "pattern for three is incorrect: {0} {1} {1} {2}"),
+                arguments(4, "{0} {1} {2} {2}", "pattern for three is incorrect: {0} {1} {2} {2}"),
         };
     }
 
@@ -279,7 +279,7 @@ public class TestListFormat {
 
     @ParameterizedTest
     @MethodSource
-    void getInstance_1Arg_InvalidPlaceholder(int index, String pattern, String expected) {
+    void getInstance_1Arg_InvalidPlaceholder(int index, String invalidPattern, String expected) {
         var patterns = new String[]{
             "{0}, {1}",
             "{0}, {1}",
@@ -287,12 +287,12 @@ public class TestListFormat {
             "{0} and {1}",
             "{0} {1} {2}"
         };
-        patterns[index] = pattern;
+        patterns[index] = invalidPattern;
 
         var msg = assertThrows(IllegalArgumentException.class,
                                () -> ListFormat.getInstance(patterns))
             .getMessage();
-        assertEquals(expected, msg.substring(0, Math.min(msg.length(), expected.length())));
+        assertEquals(expected, msg);
     }
 
     @ParameterizedTest
