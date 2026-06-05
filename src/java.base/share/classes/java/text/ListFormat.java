@@ -677,25 +677,36 @@ public final class ListFormat extends Format {
     /**
      * {@return the positions of the "{0}", "{1}", and "{2}" placeholders in the
      * given pattern string, or null if the pattern is invalid}
+     * Only "{0}", "{1}", or "{2}" placeholders are allowed. Any other use of
+     * curly braces is not allowed.
      *
      * The returned array contains -1 for "{2}" if that placeholder is absent.
      *
      * @param pattern pattern string to parse
      */
     private static int[] findPlaceholders(String pattern) {
-        if (!validatePlaceholders(pattern)) {
-            return null;
-        }
+        var positions = new int[] {-1, -1, -1};
 
-        var positions = new int[3];
-        for (int i = 0; i < positions.length; i++) {
-            var ph = "{" + i + "}";
-            positions[i] = pattern.indexOf(ph);
-            if (positions[i] >= 0) {
-                // Check for duplicate placeholders
-                if (pattern.indexOf(ph, positions[i] + PLACEHOLDER_LENGTH) >= 0) {
+        for (int i = 0; i < pattern.length(); i++) {
+            var ch = pattern.charAt(i);
+            if (ch == '{') {
+                if (i + PLACEHOLDER_LENGTH > pattern.length() ||
+                    pattern.charAt(i + 1) < '0' ||
+                    pattern.charAt(i + 1) > '2' ||
+                    pattern.charAt(i + 2) != '}') {
                     return null;
                 }
+
+                // Check for duplicate placeholders
+                var index = pattern.charAt(i + 1) - '0';
+                if (positions[index] != -1) {
+                    return null;
+                }
+
+                positions[index] = i;
+                i += PLACEHOLDER_LENGTH - 1;
+            } else if (ch == '}') {
+                return null;
             }
         }
 
@@ -730,31 +741,5 @@ public final class ListFormat extends Format {
 
         return prefixPos < suffixPos ?
             new int[] {prefixPos, suffixPos + suffix.length()} : null;
-    }
-
-    /**
-     * Validates placeholders within the input pattern. Only
-     * "{0}", "{1}", or "{2}" are allowed. Any other use of
-     * curly braces is not allowed.
-     *
-     * @param pattern input pattern
-     * @return validation result
-     */
-    private static boolean validatePlaceholders(String pattern) {
-        for (int i = 0; i < pattern.length(); i++) {
-            var ch = pattern.charAt(i);
-            if (ch == '{') {
-                if (i + PLACEHOLDER_LENGTH > pattern.length() ||
-                    pattern.charAt(i + 1) < '0' ||
-                    pattern.charAt(i + 1) > '2' ||
-                    pattern.charAt(i + 2) != '}') {
-                    return false;
-                }
-                i += PLACEHOLDER_LENGTH - 1;
-            } else if (ch == '}') {
-                return false;
-            }
-        }
-        return true;
     }
 }
