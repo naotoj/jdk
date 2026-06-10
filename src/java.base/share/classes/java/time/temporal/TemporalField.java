@@ -189,7 +189,7 @@ public interface TemporalField {
      *   supported = thisField.isSupportedBy(temporal);
      *   supported = temporal.isSupported(thisField);
      * </pre>
-     * It is recommended to use the second approach, {@code isSupported(TemporalField)},
+     * It is recommended to use the second approach, {@code isSupported(thisField)},
      * as it is a lot clearer to read in code.
      * <p>
      * Implementations should determine whether they are supported using the fields
@@ -219,7 +219,7 @@ public interface TemporalField {
      *   range = thisField.rangeRefinedBy(temporal);
      *   range = temporal.range(thisField);
      * </pre>
-     * It is recommended to use the second approach, {@code range(TemporalField)},
+     * It is recommended to use the second approach, {@code range(thisField)},
      * as it is a lot clearer to read in code.
      * <p>
      * Implementations should perform any queries or calculations using the fields
@@ -247,7 +247,7 @@ public interface TemporalField {
      *   value = thisField.getFrom(temporal);
      *   value = temporal.getLong(thisField);
      * </pre>
-     * It is recommended to use the second approach, {@code getLong(TemporalField)},
+     * It is recommended to use the second approach, {@code getLong(thisField)},
      * as it is a lot clearer to read in code.
      * <p>
      * Implementations should perform any queries or calculations using the fields
@@ -284,7 +284,7 @@ public interface TemporalField {
      *   temporal = thisField.adjustInto(temporal, newValue);
      *   temporal = temporal.with(thisField, newValue);
      * </pre>
-     * It is recommended to use the second approach, {@code with(TemporalField, newValue)},
+     * It is recommended to use the second approach, {@code with(thisField, newValue)},
      * as it is a lot clearer to read in code.
      * <p>
      * Implementations should perform any queries or calculations using the fields

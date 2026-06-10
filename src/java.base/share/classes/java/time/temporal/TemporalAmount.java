@@ -189,7 +189,7 @@ public interface TemporalAmount {
      *   dateTime = amount.subtractFrom(dateTime);
      *   dateTime = dateTime.minus(amount);
      * </pre>
-     * It is recommended to use the second approach, {@code minus(TemporalAmount)},
+     * It is recommended to use the second approach, {@code minus(amount)},
      * as it is a lot clearer to read in code.
      *
      * @implSpec
