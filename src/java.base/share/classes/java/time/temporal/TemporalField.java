@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, 2020, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -281,10 +281,10 @@ public interface TemporalField {
      * The second is to use {@link Temporal#with(TemporalField, long)}:
      * <pre>
      *   // these two lines are equivalent, but the second approach is recommended
-     *   temporal = thisField.adjustInto(temporal);
-     *   temporal = temporal.with(thisField);
+     *   temporal = thisField.adjustInto(temporal, newValue);
+     *   temporal = temporal.with(thisField, newValue);
      * </pre>
-     * It is recommended to use the second approach, {@code with(TemporalField)},
+     * It is recommended to use the second approach, {@code with(TemporalField, newValue)},
      * as it is a lot clearer to read in code.
      * <p>
      * Implementations should perform any queries or calculations using the fields
