@@ -186,8 +186,8 @@ public interface TemporalField {
      * The second is to use {@link TemporalAccessor#isSupported(TemporalField)}:
      * <pre>
      *   // these two lines are equivalent, but the second approach is recommended
-     *   temporal = thisField.isSupportedBy(temporal);
-     *   temporal = temporal.isSupported(thisField);
+     *   supported = thisField.isSupportedBy(temporal);
+     *   supported = temporal.isSupported(thisField);
      * </pre>
      * It is recommended to use the second approach, {@code isSupported(TemporalField)},
      * as it is a lot clearer to read in code.
@@ -216,8 +216,8 @@ public interface TemporalField {
      * The second is to use {@link TemporalAccessor#range(TemporalField)}:
      * <pre>
      *   // these two lines are equivalent, but the second approach is recommended
-     *   temporal = thisField.rangeRefinedBy(temporal);
-     *   temporal = temporal.range(thisField);
+     *   range = thisField.rangeRefinedBy(temporal);
+     *   range = temporal.range(thisField);
      * </pre>
      * It is recommended to use the second approach, {@code range(TemporalField)},
      * as it is a lot clearer to read in code.
@@ -244,8 +244,8 @@ public interface TemporalField {
      * (or {@link TemporalAccessor#get(TemporalField)}):
      * <pre>
      *   // these two lines are equivalent, but the second approach is recommended
-     *   temporal = thisField.getFrom(temporal);
-     *   temporal = temporal.getLong(thisField);
+     *   value = thisField.getFrom(temporal);
+     *   value = temporal.getLong(thisField);
      * </pre>
      * It is recommended to use the second approach, {@code getLong(TemporalField)},
      * as it is a lot clearer to read in code.
