@@ -237,7 +237,7 @@ public class TimeZoneNamesTest {
                 "GMT",
                 "Irish Standard Time",
                 "IST",
-                "Dublin Time",
+                "Irish Time",
                 "GMT"},
             {"Pacific/Gambier", Locale.US,
                 "Gambier Time",

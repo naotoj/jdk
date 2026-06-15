@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -816,6 +816,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                         || (currentContainer.getqName().equals("currencyFormat"))
                         || (currentContainer.getqName().equals("percentFormat"))
                         || (currentContainer.getqName().equals("listPattern"))
+                        || (currentContainer.getqName().equals("metazone"))
                         || (currentCalendarType != null && !currentCalendarType.lname().startsWith("islamic-")))) { // ignore islamic variants
                     pushAliasEntry(qName, attributes, attributes.getValue("path"));
                 } else {
@@ -1022,6 +1023,9 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         case "listPattern":
             keyName = type;
             break;
+        case "metazone":
+            keyName = CLDRConverter.METAZONE_ID_PREFIX + type;
+            break;
         default:
             keyName = "";
             break;
@@ -1095,6 +1099,13 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                 style = "ListPatterns_standard";
             }
             return toJDKKey(qName, "", style);
+        }
+
+        // metazone
+        typeKey = "metazone[@type='";
+        start = path.indexOf(typeKey);
+        if (start != -1) {
+            return path.substring(start + typeKey.length(), path.indexOf("']", start));
         }
 
         return calType + "." + toJDKKey(qName, context, width);
@@ -1195,12 +1206,12 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                 String targetKey = getTarget(entry.getKey(), "", "", "");
                 CLDRConverter.aliases.put(srcKey, targetKey);
             } else if (containerqName.equals("currencyFormat") ||
-                        containerqName.equals("percentFormat")) {
+                        containerqName.equals("percentFormat") ||
+                        containerqName.equals("metazone")) {
                 KeyContainer kc = (KeyContainer)entry.getParent();
                 CLDRConverter.aliases.put(
                         toJDKKey(containerqName, "", kc.getKey()),
-                        getTarget(entry.getKey(), "", "", "")
-                );
+                        getTarget(entry.getKey(), "", "", ""));
             } else if (containerqName.equals("listPattern")) {
                 var sae = (StringArrayEntry)entry.getParent();
                 CLDRConverter.aliases.put(

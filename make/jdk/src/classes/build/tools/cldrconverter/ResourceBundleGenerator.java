@@ -104,6 +104,15 @@ class ResourceBundleGenerator implements BundleGenerator {
                 if (key.startsWith(CLDRConverter.METAZONE_ID_PREFIX)) {
                     String meta = key.substring(CLDRConverter.METAZONE_ID_PREFIX.length());
                     if (map.get(key) instanceof String[] value) {
+                        // check alias
+                        if (CLDRConverter.aliases.get(CLDRConverter.METAZONE_ID_PREFIX + meta) instanceof String alias &&
+                            map.get(CLDRConverter.METAZONE_ID_PREFIX + alias) instanceof String[] aliasNames) {
+                                for (int i = 0; i < value.length; i++) {
+                                    if (value[i] == null) {
+                                        value[i] = aliasNames[i];
+                                    }
+                                }
+                        }
                         fmt.format("        final String[] %s = new String[] {\n", CLDRConverter.escape(meta));
                         for (String s : value) {
                             fmt.format("               \"%s\",\n", CLDRConverter.escape(s));
