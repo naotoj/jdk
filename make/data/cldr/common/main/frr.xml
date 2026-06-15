@@ -2081,11 +2081,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Europe/Paris">
 				<exemplarCity draft="unconfirmed">Pariis</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight draft="unconfirmed">Britisk Somertidj</daylight>
-				</long>
-			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity draft="unconfirmed">Grenaada</exemplarCity>
 			</zone>
@@ -2109,11 +2104,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity draft="unconfirmed">Hongkong</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="unconfirmed">Iirsk Standard Tidj</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity draft="unconfirmed">Eilun Man</exemplarCity>
@@ -2455,6 +2445,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight draft="unconfirmed">Brasiilien Somertidj</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight draft="unconfirmed">Britisk Somertidj</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard draft="unconfirmed">Brunei Tidj</standard>
@@ -2713,6 +2708,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic draft="unconfirmed">Iraan Tidj</generic>
 					<standard draft="unconfirmed">Iraan Standard Tidj</standard>
 					<daylight draft="unconfirmed">Iraan Somertidj</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="unconfirmed">Iirsk Standard Tidj</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

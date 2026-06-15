@@ -2206,9 +2206,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>लिब्रेविले</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ब्रिटिश दी तोंदिया दा टैम</daylight>
-				</long>
 				<exemplarCity>लंदन</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2299,9 +2296,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>जयापुरा</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>आइरिश दा मानक टैम</daylight>
-				</long>
 				<exemplarCity>डबलिन</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3169,6 +3163,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>ब्राज़ीलिया दी तोंदिया दा टैम</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ब्रिटिश दी तोंदिया दा टैम</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ब्रूनेई दारूस्सलम दा टैम</standard>
@@ -3427,6 +3426,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ईरान दा टैम</generic>
 					<standard>ईरान दा मानक टैम</standard>
 					<daylight>ईरान दे ध्याड़े दे उजाले दा टैम</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>आइरिश दा मानक टैम</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

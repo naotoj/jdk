@@ -2308,21 +2308,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Føroyar</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Bretsk summartíð</daylight>
-				</long>
-			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Aten</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Suðurgeorgiaoyggjar</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Írsk vanlig tíð</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Tehran">
 				<exemplarCity>Teheran</exemplarCity>
@@ -2578,6 +2568,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Brasilia tíð</generic>
 					<standard>Brasilia vanlig tíð</standard>
 					<daylight>Brasilia summartíð</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Bretsk summartíð</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -2838,6 +2833,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Iran tíð</generic>
 					<standard>Iran vanlig tíð</standard>
 					<daylight>Iran summartíð</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Írsk vanlig tíð</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

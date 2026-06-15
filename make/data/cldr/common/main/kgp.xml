@@ -2722,9 +2722,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Rimreviri</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Óra Mritỹnĩku Rỹ Kã</daylight>
-				</long>
 				<exemplarCity>Rãnere</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2809,9 +2806,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Jaiapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Óra Pã Irỹna</daylight>
-				</long>
 				<exemplarCity>Numrin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3696,6 +3690,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>BRST</daylight>
 				</short>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Óra Mritỹnĩku Rỹ Kã</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Óra Mrunẽj Narusarỹ tá</standard>
@@ -3954,6 +3953,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Óra Irỹ tá</generic>
 					<standard>Óra Pã Irỹ tá</standard>
 					<daylight>Rỹ Kã óra Irỹ tá</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Óra Pã Irỹna</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

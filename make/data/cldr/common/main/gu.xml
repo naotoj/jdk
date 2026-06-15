@@ -2719,9 +2719,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>લિબ્રેવિલે</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>બ્રિટિશ ગ્રીષ્મ સમય</daylight>
-				</long>
 				<exemplarCity>લંડન</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2812,9 +2809,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>જયાપુરા</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>આઈરિશ માનક સમય</daylight>
-				</long>
 				<exemplarCity>ડબલિન</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3699,6 +3693,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>બ્રાઝિલિયા ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>બ્રિટિશ ગ્રીષ્મ સમય</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>બ્રુનેઇ દરુસલામ સમય</standard>
@@ -3960,6 +3959,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ઈરાન સમય</generic>
 					<standard>ઈરાન માનક સમય</standard>
 					<daylight>ઈરાન દિવસ સમય</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>આઈરિશ માનક સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

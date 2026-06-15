@@ -1218,16 +1218,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity>Dëkk buñ xamul</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Waxtu ete bu Grande Bretagne</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>waxtu Irlande</daylight>
-				</long>
-			</zone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>waxtu Afganistan</standard>
@@ -1401,6 +1391,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Waxtu Bresil</generic>
 					<standard>Brasilia time</standard>
 					<daylight>Brasilia summer time</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Waxtu ete bu Grande Bretagne</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -1661,6 +1656,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Waxtu Iran</generic>
 					<standard>Iran waxtu buñ miin</standard>
 					<daylight>Waxtu bëccëg ci Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>waxtu Irlande</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

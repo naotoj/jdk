@@ -2604,11 +2604,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Libreville">
 				<exemplarCity>Librewil</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Beýik Britaniýa tomusky wagty</daylight>
-				</long>
-			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Kaýenna</exemplarCity>
 			</zone>
@@ -2665,11 +2660,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>Jaýapura</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irlandiýa standart wagty</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Iýerusalim</exemplarCity>
@@ -3363,6 +3353,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Braziliýa tomusky wagty</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Beýik Britaniýa tomusky wagty</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Bruneý-Darussalam wagty</standard>
@@ -3621,6 +3616,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Eýran wagty</generic>
 					<standard>Eýran standart wagty</standard>
 					<daylight>Eýran tomusky wagty</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irlandiýa standart wagty</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

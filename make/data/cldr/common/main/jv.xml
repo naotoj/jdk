@@ -1919,11 +1919,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanari</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Wektu Ketigo Inggris</daylight>
-				</long>
-			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Kayenne</exemplarCity>
 			</zone>
@@ -1938,11 +1933,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makasar</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Wektu Standar Irlandia</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Yerusalem</exemplarCity>
@@ -2254,6 +2244,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Wektu Ketigo Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Wektu Ketigo Inggris</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Wektu Brunei</standard>
@@ -2512,6 +2507,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Wektu Iran</generic>
 					<standard>Wektu Standar Iran</standard>
 					<daylight>Wektu Ketigo Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Wektu Standar Irlandia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

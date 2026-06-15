@@ -615,11 +615,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Conakry">
 				<exemplarCity>Conakry</exemplarCity>
 			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>hora estándar de Irlanda</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Khandyga">
 				<exemplarCity>Khandyga</exemplarCity>
 			</zone>
@@ -716,6 +711,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="India">
 				<long>
 					<standard>hora de India</standard>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>hora estándar de Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Marshall_Islands">

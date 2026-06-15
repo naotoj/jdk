@@ -2934,9 +2934,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Librevila</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Lielbritānijas vasaras laiks</daylight>
-				</long>
 				<exemplarCity>Londona</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3021,9 +3018,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Džajapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Īrijas ziemas laiks</daylight>
-				</long>
 				<exemplarCity>Dublina</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3802,6 +3796,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brazīlijas vasaras laiks</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Lielbritānijas vasaras laiks</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunejas Darusalamas laiks</standard>
@@ -4075,6 +4074,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Irānas laiks</generic>
 					<standard>Irānas ziemas laiks</standard>
 					<daylight>Irānas vasaras laiks</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Īrijas ziemas laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2227,9 +2227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Parys</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Britse somertyd</daylight>
-				</long>
 				<exemplarCity>Londen</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
@@ -2246,11 +2243,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Djakarta</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ierse standaardtyd</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Eiland Man</exemplarCity>
@@ -2611,6 +2603,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brasilia-somertyd</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britse somertyd</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Broenei Darussalam-tyd</standard>
@@ -2869,6 +2866,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Iran-tyd</generic>
 					<standard>Iran-standaardtyd</standard>
 					<daylight>Iran-dagligtyd</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ierse standaardtyd</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

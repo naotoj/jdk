@@ -2806,11 +2806,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Paris">
 				<exemplarCity>Pariz</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>britansko ljetno vrijeme</daylight>
-				</long>
-			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity>Guadalupe</exemplarCity>
 			</zone>
@@ -2831,11 +2826,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Džakarta</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>irsko standardno vrijeme</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jeruzalem</exemplarCity>
@@ -3227,6 +3217,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>brazilsko ljetno vrijeme</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>britansko ljetno vrijeme</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>vrijeme za Brunej Darussalam</standard>
@@ -3508,6 +3503,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>iransko vrijeme</generic>
 					<standard>iransko standardno vrijeme</standard>
 					<daylight>iransko ljetno vrijeme</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>irsko standardno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

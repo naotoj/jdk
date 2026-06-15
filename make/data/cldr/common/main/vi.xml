@@ -2859,21 +2859,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Prague">
 				<exemplarCity>Praha</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Giờ Mùa Hè Anh</daylight>
-				</long>
-			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Nam Georgia</exemplarCity>
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hồng Kông</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Giờ chuẩn Ai-len</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Đảo Man</exemplarCity>
@@ -3148,6 +3138,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Giờ Mùa Hè Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Giờ Mùa Hè Anh</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Giờ Brunei Darussalam</standard>
@@ -3419,6 +3414,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Giờ Iran</generic>
 					<standard>Giờ Chuẩn Iran</standard>
 					<daylight>Giờ Mùa Hè Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Giờ chuẩn Ai-len</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

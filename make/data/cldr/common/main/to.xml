@@ -2775,9 +2775,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Palesi</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>houa fakapilitānia taimi liliu</daylight>
-				</long>
 				<exemplarCity>Lonitoni</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
@@ -2785,11 +2782,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Guam">
 				<exemplarCity>Kuami</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>houa fakaʻaealani taimi totonu</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Selūsalema</exemplarCity>
@@ -3082,6 +3074,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>houa fakapalāsila taimi liliu</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>houa fakapilitānia taimi liliu</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>houa fakapulunei</standard>
@@ -3345,6 +3342,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>houa fakaʻilaani</generic>
 					<standard>houa fakaʻilaani taimi totonu</standard>
 					<daylight>houa fakaʻilaani taimi liliu</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>houa fakaʻaealani taimi totonu</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

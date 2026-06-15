@@ -3501,9 +3501,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Лібревіль</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>за літнім часом у Великій Британії</daylight>
-				</long>
 				<exemplarCity>Лондон</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3594,9 +3591,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Джайпур</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>за літнім часом в Ірландії</daylight>
-				</long>
 				<exemplarCity>Дублін</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4481,6 +4475,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>за літнім бразильським часом</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>за літнім часом у Великій Британії</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>за часом у Брунеї</standard>
@@ -4739,6 +4738,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>за іранським часом</generic>
 					<standard>за іранським стандартним часом</standard>
 					<daylight>за іранським літнім часом</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>за літнім часом в Ірландії</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

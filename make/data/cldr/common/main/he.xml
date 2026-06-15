@@ -3638,9 +3638,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ליברוויל</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>שעון קיץ בריטניה</daylight>
-				</long>
 				<exemplarCity>לונדון</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3731,9 +3728,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ג׳איאפורה</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>שעון קיץ אירלנד</daylight>
-				</long>
 				<exemplarCity>דבלין</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4611,6 +4605,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>שעון ברזיליה (קיץ)</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>שעון קיץ בריטניה</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>שעון ברוניי דארוסלאם</standard>
@@ -4869,6 +4868,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>שעון איראן</generic>
 					<standard>שעון איראן (חורף)</standard>
 					<daylight>שעון איראן (קיץ)</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>שעון קיץ אירלנד</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

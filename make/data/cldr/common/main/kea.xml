@@ -1630,11 +1630,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>Santu Dumingu</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Ora di Veron Britániku</daylight>
-				</long>
-			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>Granada</exemplarCity>
 			</zone>
@@ -1643,11 +1638,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity>Guatimala</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ora Padron di Irlanda</daylight>
-				</long>
 			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity>Jamaika</exemplarCity>
@@ -1811,6 +1801,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Ora di Veron di Austrália Osidental</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Ora di Veron Britániku</daylight>
+				</long>
+			</metazone>
 			<metazone type="Cape_Verde">
 				<long>
 					<generic>Ora di Kabu Verdi</generic>
@@ -1875,6 +1870,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Ora di Avaí i Aleutas</generic>
 					<standard>Ora Padron di Avaí i Aleutas</standard>
 					<daylight>Ora di Veron di Avaí i Aleutas</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ora Padron di Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">

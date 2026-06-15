@@ -2274,9 +2274,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>လီဗရာဗီးလ်</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>ဗြိတိန် နွေရာသီ အချိန်</daylight>
-				</long>
 				<exemplarCity>လန်ဒန်</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2367,9 +2364,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ဂျာရာပူရာ</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>အိုင်းရစ်ရှ် စံတော်ချိန်</daylight>
-				</long>
 				<exemplarCity>ဒတ်ဘလင်</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3240,6 +3234,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ဘရာဇီး နွေရာသီ အချိန်</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>ဗြိတိန် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>ဘရူနိုင်း စံတော်ချိန်</standard>
@@ -3498,6 +3497,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>အီရန် အချိန်</generic>
 					<standard>အီရန် စံတော်ချိန်</standard>
 					<daylight>အီရန် နွေရာသီ အချိန်</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>အိုင်းရစ်ရှ် စံတော်ချိန်</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2669,9 +2669,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Addis Abeba</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Londresko udako ordua</daylight>
-				</long>
 				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<zone type="Europe/Guernsey">
@@ -2694,11 +2691,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Hegoaldeko Georgiak</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irlandako ordu estandarra</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Man uhartea</exemplarCity>
@@ -3126,6 +3118,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brasiliako udako ordua</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Londresko udako ordua</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darussalamgo ordua</standard>
@@ -3415,6 +3412,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Irango ordua</generic>
 					<standard>Irango ordu estandarra</standard>
 					<daylight>Irango udako ordua</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irlandako ordu estandarra</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

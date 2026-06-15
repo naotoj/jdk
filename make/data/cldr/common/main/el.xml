@@ -3129,9 +3129,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Λιμπρεβίλ</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Θερινή ώρα Βρετανίας</daylight>
-				</long>
 				<exemplarCity>Λονδίνο</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3222,9 +3219,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Τζαγιαπούρα</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Χειμερινή ώρα Ιρλανδίας</daylight>
-				</long>
 				<exemplarCity>Δουβλίνο</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4106,6 +4100,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Θερινή ώρα Μπραζίλιας</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Θερινή ώρα Βρετανίας</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Ώρα Μπρουνέι Νταρουσαλάμ</standard>
@@ -4379,6 +4378,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ώρα Ιράν</generic>
 					<standard>Χειμερινή ώρα Ιράν</standard>
 					<daylight>Θερινή ώρα Ιράν</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Χειμερινή ώρα Ιρλανδίας</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

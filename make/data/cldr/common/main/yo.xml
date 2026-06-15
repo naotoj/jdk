@@ -1762,11 +1762,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Santo_Domingo">
 				<exemplarCity>ìlú Santo Domigo</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Àkókò Sọmà Gẹẹsi</daylight>
-				</long>
-			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>ìlú Grenada</exemplarCity>
 			</zone>
@@ -1793,11 +1788,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Port-au-Prince">
 				<exemplarCity>ìlú Port-au-Prince</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Àkókò Àfẹnukò Airiisi</daylight>
-				</long>
 			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity>ìlú Jamaikà</exemplarCity>
@@ -2148,6 +2138,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Aago Soma Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Àkókò Sọmà Gẹẹsi</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darussalam Time</standard>
@@ -2406,6 +2401,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Àkókò Irani</generic>
 					<standard>Àkókò Àfẹnukò Irani</standard>
 					<daylight>Àkókò Ojúmọmọ Irani</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Àkókò Àfẹnukò Airiisi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

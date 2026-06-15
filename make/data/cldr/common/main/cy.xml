@@ -2622,9 +2622,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Ffaro</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Amser Haf Prydain</daylight>
-				</long>
 				<exemplarCity>Llundain</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
@@ -2637,9 +2634,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>De Georgia</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Amser Safonol Iwerddon</daylight>
-				</long>
 				<exemplarCity>Dulyn</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2881,6 +2875,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Amser Brasília</generic>
 					<standard>Amser Safonol Brasília</standard>
 					<daylight>Amser Haf Brasília</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Amser Haf Prydain</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -3159,6 +3158,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Amser Iran</generic>
 					<standard>Amser Safonol Iran</standard>
 					<daylight>Amser Haf Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Amser Safonol Iwerddon</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

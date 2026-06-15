@@ -1323,21 +1323,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Faroé</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Hora de verão Britânica</daylight>
-				</long>
-			</zone>
 			<zone type="America/Port-au-Prince">
 				<exemplarCity>Port-au-Prince</exemplarCity>
 			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Macassar</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Hora de verão da Irlanda</daylight>
-				</long>
 			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>Arquipélago de Chagos</exemplarCity>
@@ -1695,6 +1685,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>∅∅∅</daylight>
 				</short>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Hora de verão Britânica</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Hora do Brunei</standard>
@@ -1968,6 +1963,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Hora do Irão</generic>
 					<standard>Hora padrão do Irão</standard>
 					<daylight>Hora de verão do Irão</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Hora de verão da Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

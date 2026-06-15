@@ -268,11 +268,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 		<timeZoneNames>
-			<zone type="Europe/London">
+			<metazone type="British">
 				<short>
 					<daylight>BST</daylight>
 				</short>
-			</zone>
+			</metazone>
 			<metazone type="Europe_Central">
 				<short>
 					<generic>CET</generic>

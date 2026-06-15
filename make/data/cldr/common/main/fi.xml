@@ -3333,9 +3333,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Pariisi</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Britannian kesäaika</daylight>
-				</long>
 				<exemplarCity>Lontoo</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
@@ -3355,11 +3352,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hongkong</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irlannin kesäaika</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Mansaari</exemplarCity>
@@ -3742,6 +3734,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brasilian kesäaika</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britannian kesäaika</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunein aika</standard>
@@ -4005,6 +4002,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Iranin aika</generic>
 					<standard>Iranin normaaliaika</standard>
 					<daylight>Iranin kesäaika</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irlannin kesäaika</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

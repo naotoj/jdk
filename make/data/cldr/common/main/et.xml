@@ -2753,11 +2753,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Paris">
 				<exemplarCity>Pariis</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Briti suveaeg</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity>Thbilisi</exemplarCity>
 			</zone>
@@ -2769,11 +2764,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hongkong</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Iiri suveaeg</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jeruusalemm</exemplarCity>
@@ -3156,6 +3146,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brasiilia suveaeg</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Briti suveaeg</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei aeg</standard>
@@ -3426,6 +3421,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Iraani aeg</generic>
 					<standard>Iraani standardaeg</standard>
 					<daylight>Iraani suveaeg</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Iiri suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

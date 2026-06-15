@@ -2550,9 +2550,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Ilhas Faroé</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Horário de Verão Britânico</daylight>
-				</long>
 				<exemplarCity>Londres</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2587,11 +2584,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Jacarta</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Horário Padrão Irlandês</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jerusalém</exemplarCity>
@@ -3037,6 +3029,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>BRST</daylight>
 				</short>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Horário de Verão Britânico</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Horário de Brunei Darussalam</standard>
@@ -3295,6 +3292,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Horário do Irã</generic>
 					<standard>Horário Padrão do Irã</standard>
 					<daylight>Horário de Verão do Irã</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Horário Padrão Irlandês</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
