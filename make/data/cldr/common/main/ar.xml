@@ -3148,9 +3148,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ليبرفيل</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>توقيت بريطانيا الصيفي</daylight>
-				</long>
 				<exemplarCity>لندن</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -3241,9 +3238,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>جايابيورا</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>توقيت أيرلندا الرسمي</daylight>
-				</long>
 				<exemplarCity>دبلن</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -4121,6 +4115,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>توقيت برازيليا الصيفي</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>توقيت بريطانيا الصيفي</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>توقيت بروناي</standard>
@@ -4379,6 +4378,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>توقيت إيران</generic>
 					<standard>توقيت إيران الرسمي</standard>
 					<daylight>توقيت إيران الصيفي</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>توقيت أيرلندا الرسمي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

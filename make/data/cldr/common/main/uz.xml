@@ -2308,11 +2308,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Libreville">
 				<exemplarCity>Librevil</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Britaniya yozgi vaqti</daylight>
-				</long>
-			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Kayenna</exemplarCity>
 			</zone>
@@ -2372,11 +2367,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>Jaypur</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irlandiya yozgi vaqti</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Quddus</exemplarCity>
@@ -3003,6 +2993,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Braziliya yozgi vaqti</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britaniya yozgi vaqti</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Bruney-Dorussalom vaqti</standard>
@@ -3261,6 +3256,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Eron vaqti</generic>
 					<standard>Eron standart vaqti</standard>
 					<daylight>Eron yozgi vaqti</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irlandiya yozgi vaqti</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

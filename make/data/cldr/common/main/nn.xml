@@ -934,16 +934,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Færøyane</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>britisk sommartid</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>irsk sommartid</daylight>
-				</long>
-			</zone>
 			<zone type="Indian/Comoro">
 				<exemplarCity>Komorane</exemplarCity>
 			</zone>
@@ -1111,6 +1101,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>tidssone for Brasilia</generic>
 					<standard>normaltid for Brasilia</standard>
 					<daylight>sommartid for Brasilia</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>britisk sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
@@ -1291,6 +1286,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>iransk tid</generic>
 					<standard>iransk normaltid</standard>
 					<daylight>iransk sommartid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>irsk sommartid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

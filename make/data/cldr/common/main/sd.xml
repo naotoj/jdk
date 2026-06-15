@@ -2180,9 +2180,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>لیبرویلی</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>برطانيا جي اونهاري جو وقت</daylight>
-				</long>
 				<exemplarCity>لنڊن</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2273,9 +2270,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>جياپورا</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>آئرش جو معياري وقت</daylight>
-				</long>
 				<exemplarCity>ڊبلن</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -3146,6 +3140,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>براسيليا جي اونهاري جو وقت</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>برطانيا جي اونهاري جو وقت</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>برونائي دارالسلام جو وقت</standard>
@@ -3404,6 +3403,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>ايران جو وقت</generic>
 					<standard>ايران جو معياري وقت</standard>
 					<daylight>ايران جي ڏينهن جو وقت</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>آئرش جو معياري وقت</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

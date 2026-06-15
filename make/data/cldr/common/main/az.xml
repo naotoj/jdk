@@ -2477,11 +2477,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Libreville">
 				<exemplarCity>Librevil</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Britaniya Yay Vaxtı</daylight>
-				</long>
-			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>Qrenada</exemplarCity>
 			</zone>
@@ -2553,11 +2548,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>Cayapura</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>İrlandiya Yay Vaxtı</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Yerusəlim</exemplarCity>
@@ -3211,6 +3201,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Braziliya Yay Vaxtı</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britaniya Yay Vaxtı</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darussalam vaxtı</standard>
@@ -3469,6 +3464,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>İran Vaxtı</generic>
 					<standard>İran Standart Vaxtı</standard>
 					<daylight>İran Yay Vaxtı</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>İrlandiya Yay Vaxtı</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

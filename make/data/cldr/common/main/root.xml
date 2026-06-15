@@ -2958,6 +2958,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Pacific/Wallis">
 				<exemplarCity>Wallis &amp; Futuna</exemplarCity>
 			</zone>
+			<metazone type="British">
+				<alias source="locale" path="../metazone[@type='GMT']"/>
+			</metazone>
+			<metazone type="Irish">
+				<alias source="locale" path="../metazone[@type='GMT']"/>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -5516,6 +5522,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>N</displayName>
 				<unitPattern count="other">{0} N</unitPattern>
 			</unit>
+			<unit type="force-dyne">
+				<displayName>dyn</displayName>
+				<unitPattern count="other">{0} dyn</unitPattern>
+			</unit>
+			<unit type="force-poundal">
+				<displayName>pdl</displayName>
+				<unitPattern count="other">{0} pdl</unitPattern>
+			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
 				<displayName>kWh/100km</displayName>
 				<unitPattern count="other">{0} kWh/100km</unitPattern>
@@ -5621,6 +5635,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>in</displayName>
 				<unitPattern count="other">{0} in</unitPattern>
 				<perUnitPattern>{0}/in</perUnitPattern>
+			</unit>
+			<unit type="length-mil">
+				<displayName>mil [US]</displayName>
+				<unitPattern count="other">{0} mil [US]</unitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>pc</displayName>

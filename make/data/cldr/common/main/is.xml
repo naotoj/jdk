@@ -2610,9 +2610,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>París</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Sumartími í Bretlandi</daylight>
-				</long>
 				<exemplarCity>Lundúnir</exemplarCity>
 			</zone>
 			<zone type="Europe/Gibraltar">
@@ -2644,11 +2641,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Djakarta</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Sumartími á Írlandi</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jerúsalem</exemplarCity>
@@ -3027,6 +3019,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Sumartími í Brasilíu</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Sumartími í Bretlandi</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brúneitími</standard>
@@ -3285,6 +3282,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Íranstími</generic>
 					<standard>Staðaltími í Íran</standard>
 					<daylight>Sumartími í Íran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Sumartími á Írlandi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

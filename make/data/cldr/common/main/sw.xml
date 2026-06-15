@@ -1964,18 +1964,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Etc/Unknown">
 				<exemplarCity>Jiji Lisilojulikana</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Saa za Majira ya Joto za Uingereza</daylight>
-				</long>
-			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Georgia Kusini</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Saa za Majira ya Joto za Ayalandi</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Qostanay">
 				<exemplarCity>Kostanay</exemplarCity>
@@ -2184,6 +2174,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Saa za Brasilia</generic>
 					<standard>Saa za Wastani za Brasilia</standard>
 					<daylight>Saa za Majira ya joto za Brasilia</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Saa za Majira ya Joto za Uingereza</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -2444,6 +2439,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Saa za Iran</generic>
 					<standard>Saa za Wastani za Iran</standard>
 					<daylight>Saa za Mchana za Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Saa za Majira ya Joto za Ayalandi</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

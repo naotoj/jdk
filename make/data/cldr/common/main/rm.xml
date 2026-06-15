@@ -2528,9 +2528,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<exemplarCity>Inslas Feroe</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>temp da stad da la Gronda Britannia</daylight>
-				</long>
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
 			<zone type="Asia/Tbilisi">
@@ -2547,11 +2544,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hongkong</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>temp da stad da l’Irlanda</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Insla da Man</exemplarCity>
@@ -2896,6 +2888,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>temp da stad da la Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>temp da stad da la Gronda Britannia</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>temp dal Brunei</standard>
@@ -3154,6 +3151,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>temp da l’Iran</generic>
 					<standard>temp normal da l’Iran</standard>
 					<daylight>temp da stad da l’Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>temp da stad da l’Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

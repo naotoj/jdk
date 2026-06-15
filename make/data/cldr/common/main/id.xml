@@ -2883,21 +2883,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Cairo">
 				<exemplarCity>Kairo</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Waktu Musim Panas Inggris</daylight>
-				</long>
-			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athena</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>Georgia Selatan</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Waktu Standar Irlandia</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Yerusalem</exemplarCity>
@@ -3220,6 +3210,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Waktu Musim Panas Brasil</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Waktu Musim Panas Inggris</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Waktu Brunei Darussalam</standard>
@@ -3510,6 +3505,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Waktu Iran</generic>
 					<standard>Waktu Standar Iran</standard>
 					<daylight>Waktu Musim Panas Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Waktu Standar Irlandia</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

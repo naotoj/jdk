@@ -2771,21 +2771,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Færøerne</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Britisk sommertid</daylight>
-				</long>
-			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athen</exemplarCity>
 			</zone>
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity>Hongkong</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irsk normaltid</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Bagdad</exemplarCity>
@@ -3087,6 +3077,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Brasiliansk sommertid</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britisk sommertid</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darussalam-tid</standard>
@@ -3360,6 +3355,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Iransk tid</generic>
 					<standard>Iransk normaltid</standard>
 					<daylight>Iransk sommertid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irsk normaltid</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

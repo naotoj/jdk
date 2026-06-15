@@ -1664,16 +1664,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Sa’aatii Idil-Addunyaa Qindaa’e</standard>
 				</long>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Sa’aatii Bonaa Biritish</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Sa’aatii Istaandaardii Aayiriish</daylight>
-				</long>
-			</zone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Sa’aatii Afgaanistaan</standard>
@@ -1877,6 +1867,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Sa’aatii Biraaziliyaa</generic>
 					<standard>Sa’aatii Istaandaardii Biraaziliyaa</standard>
 					<daylight>Sa’aatii Bonaa Biraaziliyaa</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Sa’aatii Bonaa Biritish</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -2145,6 +2140,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Sa’aatii Iraan</generic>
 					<standard>Sa’aatii Istaandaardii Iraan</standard>
 					<daylight>Sa’aatii Guyyaa Iraan</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Sa’aatii Istaandaardii Aayiriish</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

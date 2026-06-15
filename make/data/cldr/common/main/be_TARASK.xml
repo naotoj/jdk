@@ -1180,11 +1180,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Budapest">
 				<exemplarCity draft="provisional">Будапэшт</exemplarCity>
 			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight draft="provisional">Ірляндзкі змоўчны час</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity draft="provisional">Ерусалім</exemplarCity>
 			</zone>
@@ -1714,6 +1709,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="provisional">Іранскі час</generic>
 					<standard draft="provisional">Іранскі змоўчны час</standard>
 					<daylight draft="provisional">Іранскі летні час</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight draft="provisional">Ірляндзкі змоўчны час</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

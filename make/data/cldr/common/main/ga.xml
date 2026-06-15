@@ -2819,9 +2819,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Páras</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Am Samhraidh na Breataine</daylight>
-				</long>
 				<short>
 					<daylight>ASB</daylight>
 				</short>
@@ -2873,9 +2870,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Macasar</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Am Caighdéanach na hÉireann</daylight>
-				</long>
 				<short>
 					<daylight>ACÉ</daylight>
 				</short>
@@ -3327,6 +3321,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Am Samhraidh Bhrasília</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Am Samhraidh na Breataine</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Am Bhrúiné Darasalám</standard>
@@ -3608,6 +3607,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Am na hIaráine</generic>
 					<standard>Am Caighdeánach na hIaráine</standard>
 					<daylight>Am Samhraidh na hIaráine</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Am Caighdéanach na hÉireann</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -1054,16 +1054,6 @@ the LDML specification (http://unicode.org/reports/tr35/)
 			<zone type="Etc/Unknown">
 				<exemplarCity>Wala Mailhing Lokasyon</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>British Summer Time</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irish Standard Time</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Ho Chi Minh City</exemplarCity>
 			</zone>
@@ -1240,6 +1230,11 @@ the LDML specification (http://unicode.org/reports/tr35/)
 					<generic>Oras sa Brasilia</generic>
 					<standard>Brasilia Standard Time</standard>
 					<daylight>Brasilia Summer Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>British Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -1500,6 +1495,11 @@ the LDML specification (http://unicode.org/reports/tr35/)
 					<generic>Oras sa Iran</generic>
 					<standard>Iran Standard Time</standard>
 					<daylight>Iran Daylight Time</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irish Standard Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

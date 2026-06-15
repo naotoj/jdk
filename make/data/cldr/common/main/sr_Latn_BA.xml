@@ -528,21 +528,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/St_Johns">
 				<exemplarCity>Sent Džons</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Britanija, ljetnje vrijeme</daylight>
-				</long>
-			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>Itokortormit</exemplarCity>
 			</zone>
 			<zone type="America/Port-au-Prince">
 				<exemplarCity>Port-o-Prens</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Irska, standardno vrijeme</daylight>
-				</long>
 			</zone>
 			<zone type="Pacific/Niue">
 				<exemplarCity>Nijue</exemplarCity>
@@ -753,6 +743,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Brazilija vrijeme</generic>
 					<standard>Brazilija, standardno vrijeme</standard>
 					<daylight>Brazilija, ljetnje vrijeme</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Britanija, ljetnje vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -1008,6 +1003,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Iran vrijeme</generic>
 					<standard>Iran, standardno vrijeme</standard>
 					<daylight>Iran, ljetnje vrijeme</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Irska, standardno vrijeme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

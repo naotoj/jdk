@@ -2553,9 +2553,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Librevilë</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Ora verore britanike</daylight>
-				</long>
 				<exemplarCity>Londër</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2629,11 +2626,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Jayapura">
 				<exemplarCity>Xhajapurë</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ora strandarde e Irlandës</daylight>
-				</long>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Ishulli i Manit</exemplarCity>
@@ -3268,6 +3260,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora verore e Brazilisë</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Ora verore britanike</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Ora e Brunei-Durasalamit</standard>
@@ -3531,6 +3528,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora e Iranit</generic>
 					<standard>Ora standarde e Iranit</standard>
 					<daylight>Ora verore e Iranit</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ora strandarde e Irlandës</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

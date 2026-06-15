@@ -1754,16 +1754,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity>Obodo Amaghị</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>Oge Okpomọkụ Britain</daylight>
-				</long>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Oge Okpomọkụ Ireland</daylight>
-				</long>
-			</zone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Oge Afghanistan</standard>
@@ -1937,6 +1927,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Oge Brasilia</generic>
 					<standard>Oge Izugbe Brasilia</standard>
 					<daylight>Oge Okpomọkụ Brasilia</daylight>
+				</long>
+			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Oge Okpomọkụ Britain</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -2197,6 +2192,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Oge Iran</generic>
 					<standard>Oge Izugbe Iran</standard>
 					<daylight>Oge Ihe Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Oge Okpomọkụ Ireland</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

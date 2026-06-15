@@ -2588,11 +2588,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Europe/Paris">
 				<exemplarCity>Párizs</exemplarCity>
 			</zone>
-			<zone type="Europe/London">
-				<long>
-					<daylight>brit nyári idő</daylight>
-				</long>
-			</zone>
 			<zone type="Asia/Tbilisi">
 				<exemplarCity>Tbiliszi</exemplarCity>
 			</zone>
@@ -2616,11 +2611,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makasar</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>ír nyári idő</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Jeruzsálem</exemplarCity>
@@ -3111,6 +3101,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>brazíliai nyári idő</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>brit nyári idő</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Brunei Darussalam-i idő</standard>
@@ -3392,6 +3387,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>iráni idő</generic>
 					<standard>iráni téli idő</standard>
 					<daylight>iráni nyári idő</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>ír nyári idő</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

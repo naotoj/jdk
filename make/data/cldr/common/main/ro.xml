@@ -2993,9 +2993,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Feroe</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Ora de vară britanică</daylight>
-				</long>
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
 			<zone type="America/Guadeloupe">
@@ -3009,11 +3006,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Europe/Budapest">
 				<exemplarCity>Budapesta</exemplarCity>
-			</zone>
-			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ora de vară a Irlandei</daylight>
-				</long>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Ierusalim</exemplarCity>
@@ -3390,6 +3382,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora de vară a Brasiliei</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Ora de vară britanică</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Ora din Brunei Darussalam</standard>
@@ -3666,6 +3663,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora Iranului</generic>
 					<standard>Ora standard a Iranului</standard>
 					<daylight>Ora de vară a Iranului</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ora de vară a Irlandei</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">

@@ -2616,9 +2616,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Parigi</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
-				<long>
-					<daylight>Ora legale del Regno Unito</daylight>
-				</long>
 				<exemplarCity>Londra</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
@@ -2643,9 +2640,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Giacarta</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
-				<long>
-					<daylight>Ora legale dell’Irlanda</daylight>
-				</long>
 				<exemplarCity>Dublino</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2992,6 +2986,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Ora legale di Brasilia</daylight>
 				</long>
 			</metazone>
+			<metazone type="British">
+				<long>
+					<daylight>Ora legale del Regno Unito</daylight>
+				</long>
+			</metazone>
 			<metazone type="Brunei">
 				<long>
 					<standard>Ora del Brunei Darussalam</standard>
@@ -3265,6 +3264,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Ora dell’Iran</generic>
 					<standard>Ora standard dell’Iran</standard>
 					<daylight>Ora legale dell’Iran</daylight>
+				</long>
+			</metazone>
+			<metazone type="Irish">
+				<long>
+					<daylight>Ora legale dell’Irlanda</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
