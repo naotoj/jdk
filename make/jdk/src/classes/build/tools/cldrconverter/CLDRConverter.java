@@ -859,7 +859,7 @@ public class CLDRConverter {
 
         // exemplar cities.
         Map<String, Object> exCities = map.entrySet().stream()
-            .filter(e -> e.getKey().startsWith(CLDRConverter.EXEMPLAR_CITY_PREFIX))
+            .filter(e -> e.getKey().startsWith(EXEMPLAR_CITY_PREFIX))
             .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         names.putAll(exCities);
 
@@ -982,8 +982,8 @@ public class CLDRConverter {
 
         for (String key : map.keySet()) {
             // Copy available calendar names
-            if (key.startsWith(CLDRConverter.LOCALE_TYPE_PREFIX_CA)) {
-                String type = key.substring(CLDRConverter.LOCALE_TYPE_PREFIX_CA.length());
+            if (key.startsWith(LOCALE_TYPE_PREFIX_CA)) {
+                String type = key.substring(LOCALE_TYPE_PREFIX_CA.length());
                 for (CalendarType calendarType : CalendarType.values()) {
                     if (type.equals(calendarType.lname())) {
                         Object value = map.get(key);
