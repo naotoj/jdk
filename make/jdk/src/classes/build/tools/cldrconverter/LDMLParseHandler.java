@@ -25,6 +25,19 @@
 
 package build.tools.cldrconverter;
 
+import static build.tools.cldrconverter.CLDRConverter.CURRENCY_NAME_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.CURRENCY_SYMBOL_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.EXEMPLAR_CITY_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.LDML_DTD_SYSTEM_ID;
+import static build.tools.cldrconverter.CLDRConverter.LOCALE_KEY_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.LOCALE_KEYTYPE;
+import static build.tools.cldrconverter.CLDRConverter.LOCALE_NAME_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.LOCALE_SEPARATOR;
+import static build.tools.cldrconverter.CLDRConverter.LOCALE_TYPE_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.METAZONE_ID_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.TIMEZONE_ID_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.ZONE_NAME_PREFIX;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.DateFormatSymbols;
@@ -63,7 +76,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
     @Override
     public InputSource resolveEntity(String publicID, String systemID) throws IOException, SAXException {
         // avoid HTTP traffic to unicode.org
-        if (systemID.startsWith(CLDRConverter.LDML_DTD_SYSTEM_ID)) {
+        if (systemID.startsWith(LDML_DTD_SYSTEM_ID)) {
             return new InputSource((new File(CLDRConverter.LOCAL_LDML_DTD)).toURI().toString());
         }
         return null;
@@ -87,11 +100,11 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         // copy string
         case "localeSeparator":
             pushStringEntry(qName, attributes,
-                CLDRConverter.LOCALE_SEPARATOR);
+                LOCALE_SEPARATOR);
             break;
         case "localeKeyTypePattern":
             pushStringEntry(qName, attributes,
-                CLDRConverter.LOCALE_KEYTYPE);
+                LOCALE_KEYTYPE);
             break;
 
         case "language":
@@ -101,7 +114,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
             // for LocaleNames
             // copy string
             pushStringEntry(qName, attributes,
-                CLDRConverter.LOCALE_NAME_PREFIX +
+                LOCALE_NAME_PREFIX +
                 (qName.equals("variant") ? "%%" : "") +
                 attributes.getValue("type"));
             break;
@@ -113,7 +126,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                 String key = convertOldKeyName(attributes.getValue("type"));
                 if (key.length() == 2) {
                     pushStringEntry(qName, attributes,
-                        CLDRConverter.LOCALE_KEY_PREFIX + key);
+                        LOCALE_KEY_PREFIX + key);
                 } else {
                     pushIgnoredContainer(qName);
                 }
@@ -129,7 +142,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                 String scope = attributes.getValue("scope");
                 if (key.length() == 2 && scope == null) {
                     pushStringEntry(qName, attributes,
-                        CLDRConverter.LOCALE_TYPE_PREFIX + key + "." +
+                        LOCALE_TYPE_PREFIX + key + "." +
                         attributes.getValue("type"));
                 } else {
                     pushIgnoredContainer(qName);
@@ -148,7 +161,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         case "symbol":
             // for CurrencyNames
             // need to get the key from the containing <currency> element
-            pushStringEntry(qName, attributes, CLDRConverter.CURRENCY_SYMBOL_PREFIX
+            pushStringEntry(qName, attributes, CURRENCY_SYMBOL_PREFIX
                                                + getContainerKey());
             break;
 
@@ -166,7 +179,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                     String containerKey = getContainerKey();
                     if (containerKey != null && attributes.getValue("count") == null) {
                         pushStringEntry(qName, attributes,
-                                        CLDRConverter.CURRENCY_NAME_PREFIX
+                                        CURRENCY_NAME_PREFIX
                                         + containerKey.toLowerCase(Locale.ROOT),
                                         attributes.getValue("type"));
                     } else {
@@ -505,7 +518,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         case "zone":
             {
                 String tzid = attributes.getValue("type"); // Olson tz id
-                zonePrefix = CLDRConverter.TIMEZONE_ID_PREFIX;
+                zonePrefix = TIMEZONE_ID_PREFIX;
                 put(zonePrefix + tzid, new HashMap<String, String>());
                 pushKeyContainer(qName, attributes, tzid);
             }
@@ -513,7 +526,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         case "metazone":
             {
                 String zone = attributes.getValue("type"); // LDML meta zone id
-                zonePrefix = CLDRConverter.METAZONE_ID_PREFIX;
+                zonePrefix = METAZONE_ID_PREFIX;
                 put(zonePrefix + zone, new HashMap<String, String>());
                 pushKeyContainer(qName, attributes, zone);
             }
@@ -529,10 +542,10 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         case "generic":  // generic name
         case "standard": // standard time name
         case "daylight": // daylight saving (summer) time name
-            pushStringEntry(qName, attributes, CLDRConverter.ZONE_NAME_PREFIX + qName + "." + zoneNameStyle);
+            pushStringEntry(qName, attributes, ZONE_NAME_PREFIX + qName + "." + zoneNameStyle);
             break;
         case "exemplarCity":
-            pushStringEntry(qName, attributes, CLDRConverter.EXEMPLAR_CITY_PREFIX);
+            pushStringEntry(qName, attributes, EXEMPLAR_CITY_PREFIX);
             break;
 
         //
@@ -1024,7 +1037,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
             keyName = type;
             break;
         case "metazone":
-            keyName = CLDRConverter.METAZONE_ID_PREFIX + type;
+            keyName = METAZONE_ID_PREFIX + type;
             break;
         default:
             keyName = "";
@@ -1141,7 +1154,7 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
                 Map<String, String> valmap = (Map<String, String>) get(zonePrefix + getContainerKey());
                 Entry<?> entry = (Entry<?>) currentContainer;
                 if (qName.equals("exemplarCity")) {
-                    put(CLDRConverter.EXEMPLAR_CITY_PREFIX + getContainerKey(), (String) entry.getValue());
+                    put(EXEMPLAR_CITY_PREFIX + getContainerKey(), (String) entry.getValue());
                 } else {
                     valmap.put(entry.getKey(), (String) entry.getValue());
                 }

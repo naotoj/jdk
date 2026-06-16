@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2012, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -24,6 +24,9 @@
  */
 
 package build.tools.cldrconverter;
+
+import static build.tools.cldrconverter.CLDRConverter.METAZONE_ID_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.TIMEZONE_ID_PREFIX;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -312,8 +315,8 @@ class Bundle {
         // First, weed out any empty timezone or metazone names from myMap.
         for (Iterator<String> it = myMap.keySet().iterator(); it.hasNext();) {
             String key = it.next();
-            if (key.startsWith(CLDRConverter.TIMEZONE_ID_PREFIX)
-                    || key.startsWith(CLDRConverter.METAZONE_ID_PREFIX)) {
+            if (key.startsWith(TIMEZONE_ID_PREFIX)
+                    || key.startsWith(METAZONE_ID_PREFIX)) {
                 @SuppressWarnings("unchecked")
                 Map<String, String> nameMap = (Map<String, String>) myMap.get(key);
                 if (nameMap.isEmpty()) {
@@ -326,8 +329,8 @@ class Bundle {
         }
         for (Iterator<String> it = myMap.keySet().iterator(); it.hasNext();) {
             String key = it.next();
-                if (key.startsWith(CLDRConverter.TIMEZONE_ID_PREFIX)
-                    || key.startsWith(CLDRConverter.METAZONE_ID_PREFIX)) {
+                if (key.startsWith(TIMEZONE_ID_PREFIX)
+                    || key.startsWith(METAZONE_ID_PREFIX)) {
                 @SuppressWarnings("unchecked")
                 Map<String, String> nameMap = (Map<String, String>) myMap.get(key);
 
@@ -650,11 +653,11 @@ class Bundle {
     }
 
     private String toMetaZoneKey(String tzKey) {
-        if (tzKey.startsWith(CLDRConverter.TIMEZONE_ID_PREFIX)) {
-            String tz = tzKey.substring(CLDRConverter.TIMEZONE_ID_PREFIX.length());
+        if (tzKey.startsWith(TIMEZONE_ID_PREFIX)) {
+            String tz = tzKey.substring(TIMEZONE_ID_PREFIX.length());
             String meta = CLDRConverter.handlerMetaZones.get(tz);
             if (meta != null) {
-                return CLDRConverter.METAZONE_ID_PREFIX + meta;
+                return METAZONE_ID_PREFIX + meta;
             }
         }
         return null;
