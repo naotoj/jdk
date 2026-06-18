@@ -57,7 +57,7 @@ public class TimeZoneNamesTest {
         return new Object[][] {
             // tzid, locale, style, expected
 
-            // This list is as of CLDR version 48, and should be examined
+            // This list is as of CLDR version 49, and should be examined
             // on the CLDR data upgrade.
 
             // no "metazone" zones (some of them were assigned metazones
@@ -295,6 +295,44 @@ public class TimeZoneNamesTest {
                 "HADT",
                 "Hawaii-Aleutian Time",
                 "HAT"},
+
+            // British/Irish metazones. "Europe/Dublin" for US locale
+            // is already tested above
+            {"Europe/London", Locale.US,
+                "Greenwich Mean Time",
+                "GMT",
+                "British Summer Time",
+                "BST",
+                "British Time",
+                "GMT"},
+            {"Europe/London", Locale.FRANCE,
+                "heure moyenne de Greenwich",
+                "GMT",
+                "heure d’été britannique",
+                "BST",
+                "heure : Londres", // this will change once British metazone is localized
+                "GMT"},
+            {"Europe/London", Locale.JAPAN,
+                "グリニッジ標準時",
+                "GMT",
+                "英国夏時間",
+                "BST",
+                "ロンドン時間", // this will change once British metazone is localized
+                "GMT"},
+            {"Europe/Dublin", Locale.FRANCE,
+                "heure moyenne de Greenwich",
+                "GMT",
+                "heure d’été irlandaise",
+                "IST",
+                "heure : Dublin", // this will change once Irish metazone is localized
+                "GMT"},
+            {"Europe/Dublin", Locale.JAPAN,
+                "グリニッジ標準時",
+                "GMT",
+                "アイルランド標準時",
+                "IST",
+                "ダブリン時間", // this will change once Irish metazone is localized
+                "GMT"},
         };
     }
 
