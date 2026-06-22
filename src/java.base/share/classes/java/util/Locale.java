@@ -80,7 +80,7 @@ import sun.util.locale.provider.TimeZoneNameUtility;
  * user's native country, region, or culture.
  *
  * <p>The {@code Locale} class implements
- * <a href="https://www.rfc-editor.org/info/bcp47">IETF BCP 47</a> which is composed of
+ * <a href="https://www.rfc-editor.org/info/bcp47">IETF BCP 47</a> which contains
  * <a href="https://www.rfc-editor.org/info/rfc4647">RFC 4647 "Matching of Language
  * Tags"</a> and <a href="https://www.rfc-editor.org/info/rfc5646">RFC 5646 "Tags
  * for Identifying Languages"</a> with support for the LDML (UTS#35, "Unicode
@@ -223,8 +223,10 @@ import sun.util.locale.provider.TimeZoneNameUtility;
  *
  * <h3><a id="def_locale_extension">Unicode BCP 47 U Extension</a></h3>
  *
- * <p>UTS#35, "Unicode Locale Data Markup Language" defines optional
- * attributes and keywords to override or refine the default behavior
+ * <p>UTS#35, "Unicode Locale Data Markup Language" defines the
+ * <a href="https://www.unicode.org/reports/tr35/#u_Extension">Unicode BCP 47 U Extension</a>,
+ * an extension based on <a href="https://www.rfc-editor.org/info/rfc6067">RFC 6067</a>,
+ * which describes optional attributes and keywords to override or refine the default behavior
  * associated with a locale.  A keyword is represented by a pair of
  * key and type.  For example, "nu-thai" indicates that Thai local
  * digits (value:"thai") should be used for formatting numbers
