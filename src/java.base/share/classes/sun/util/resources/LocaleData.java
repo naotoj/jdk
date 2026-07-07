@@ -180,8 +180,6 @@ public class LocaleData {
 
     private static class LocaleDataStrategy implements Bundles.Strategy {
         private static final LocaleDataStrategy INSTANCE = new LocaleDataStrategy();
-        private static final Set<Locale> JAVA_BASE_LOCALES =
-            LocaleProviderAdapter.getResourceBundleBased().baseModuleLocales();
 
         private LocaleDataStrategy() {
         }
@@ -225,14 +223,17 @@ public class LocaleData {
             return candidates;
         }
 
-        boolean inJavaBaseModule(Locale locale) {
-            return JAVA_BASE_LOCALES.contains(locale);
+        boolean inJavaBaseModule(String baseName, Locale locale) {
+            var adapter = baseName.contains(DOTCLDR) ?
+                    LocaleProviderAdapter.forType(CLDR) :
+                    LocaleProviderAdapter.forType(JRE);
+            return adapter.baseModuleLocales().contains(locale);
         }
 
         @Override
         public String toBundleName(String baseName, Locale locale) {
             String newBaseName = baseName;
-            if (!inJavaBaseModule(locale)) {
+            if (!inJavaBaseModule(baseName, locale)) {
                 if (baseName.startsWith(JRE.getUtilResourcesPackage())
                         || baseName.startsWith(JRE.getTextResourcesPackage())) {
                     // Assume the lengths are the same.
@@ -252,7 +253,7 @@ public class LocaleData {
         @Override
         public Class<? extends ResourceBundleProvider> getResourceBundleProviderType(String baseName,
                                                                                      Locale locale) {
-            return inJavaBaseModule(locale) ?
+            return inJavaBaseModule(baseName, locale) ?
                         null : LocaleDataResourceBundleProvider.class;
         }
     }
