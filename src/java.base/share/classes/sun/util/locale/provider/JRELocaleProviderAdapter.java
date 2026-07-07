@@ -488,4 +488,9 @@ public class JRELocaleProviderAdapter extends LocaleProviderAdapter implements R
                    "th-TH-TH".equals(oldname) ||
                    "no-NO-NY".equals(oldname);
     }
+
+    @Override
+    public Set<Locale> baseModuleLocales() {
+        return Set.of(Locale.ROOT);
+    }
 }

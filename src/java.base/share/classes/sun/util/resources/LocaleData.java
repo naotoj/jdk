@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1996, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 1996, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -180,9 +180,8 @@ public class LocaleData {
 
     private static class LocaleDataStrategy implements Bundles.Strategy {
         private static final LocaleDataStrategy INSTANCE = new LocaleDataStrategy();
-        // TODO: avoid hard-coded Locales
-        private static final Set<Locale> JAVA_BASE_LOCALES
-            = Set.of(Locale.ROOT, Locale.ENGLISH, Locale.US, Locale.of("en", "US", "POSIX"));
+        private static final Set<Locale> JAVA_BASE_LOCALES =
+            LocaleProviderAdapter.getResourceBundleBased().baseModuleLocales();
 
         private LocaleDataStrategy() {
         }
@@ -226,14 +225,14 @@ public class LocaleData {
             return candidates;
         }
 
-        boolean inJavaBaseModule(String baseName, Locale locale) {
+        boolean inJavaBaseModule(Locale locale) {
             return JAVA_BASE_LOCALES.contains(locale);
         }
 
         @Override
         public String toBundleName(String baseName, Locale locale) {
             String newBaseName = baseName;
-            if (!inJavaBaseModule(baseName, locale)) {
+            if (!inJavaBaseModule(locale)) {
                 if (baseName.startsWith(JRE.getUtilResourcesPackage())
                         || baseName.startsWith(JRE.getTextResourcesPackage())) {
                     // Assume the lengths are the same.
@@ -253,7 +252,7 @@ public class LocaleData {
         @Override
         public Class<? extends ResourceBundleProvider> getResourceBundleProviderType(String baseName,
                                                                                      Locale locale) {
-            return inJavaBaseModule(baseName, locale) ?
+            return inJavaBaseModule(locale) ?
                         null : LocaleDataResourceBundleProvider.class;
         }
     }
