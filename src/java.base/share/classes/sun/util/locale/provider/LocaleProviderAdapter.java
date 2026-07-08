@@ -300,14 +300,6 @@ public abstract class LocaleProviderAdapter {
         return false;
     }
 
-    /**
-     * Returns the locales whose resource bundles are resolved from
-     * the java.base module for this adapter.
-     */
-    public Set<Locale> baseModuleLocales() {
-        return Set.of();
-    }
-
     public static Locale[] toLocaleArray(Set<String> tags) {
         return tags.stream()
             .map(t -> switch (t) {

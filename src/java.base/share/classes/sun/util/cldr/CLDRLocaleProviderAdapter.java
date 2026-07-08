@@ -288,7 +288,6 @@ public class CLDRLocaleProviderAdapter extends JRELocaleProviderAdapter {
                 || langtags.contains(getEquivalentLoc(locale).toLanguageTag());
     }
 
-    @Override
     public Set<Locale> baseModuleLocales() {
         return baseMetaInfo.baseModuleLocales();
     }

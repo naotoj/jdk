@@ -45,7 +45,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.spi.ResourceBundleProvider;
 import sun.util.locale.provider.JRELocaleProviderAdapter;
@@ -199,10 +198,8 @@ public class LocaleData {
             String key = baseName + '-' + locale.toLanguageTag();
             List<Locale> candidates = CANDIDATES_MAP.get(key);
             if (candidates == null) {
-                LocaleProviderAdapter adapter = getAdapter(baseName);
-                candidates = adapter instanceof ResourceBundleBasedAdapter rbba ?
-                    rbba.getCandidateLocales(baseName, locale) :
-                    defaultControl.getCandidateLocales(baseName, locale);
+                var adapter = getAdapter(baseName);
+                candidates = adapter.getCandidateLocales(baseName, locale);
 
                 // Weed out Locales which are known to have no resource bundles
                 int lastDot = baseName.lastIndexOf('.');
@@ -226,10 +223,10 @@ public class LocaleData {
             return getAdapter(baseName).baseModuleLocales().contains(locale);
         }
 
-        private static LocaleProviderAdapter getAdapter(String baseName) {
-            return baseName.contains(DOTCLDR) ?
+        private static ResourceBundleBasedAdapter getAdapter(String baseName) {
+            return (ResourceBundleBasedAdapter)(baseName.contains(DOTCLDR) ?
                 LocaleProviderAdapter.forType(CLDR) :
-                LocaleProviderAdapter.forType(JRE);
+                LocaleProviderAdapter.forType(JRE));
         }
 
         @Override
