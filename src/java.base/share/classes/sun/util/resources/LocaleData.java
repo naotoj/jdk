@@ -199,8 +199,7 @@ public class LocaleData {
             String key = baseName + '-' + locale.toLanguageTag();
             List<Locale> candidates = CANDIDATES_MAP.get(key);
             if (candidates == null) {
-                LocaleProviderAdapter.Type type = baseName.contains(DOTCLDR) ? CLDR : JRE;
-                LocaleProviderAdapter adapter = LocaleProviderAdapter.forType(type);
+                LocaleProviderAdapter adapter = getAdapter(baseName);
                 candidates = adapter instanceof ResourceBundleBasedAdapter rbba ?
                     rbba.getCandidateLocales(baseName, locale) :
                     defaultControl.getCandidateLocales(baseName, locale);
@@ -224,10 +223,13 @@ public class LocaleData {
         }
 
         boolean inJavaBaseModule(String baseName, Locale locale) {
-            var adapter = baseName.contains(DOTCLDR) ?
-                    LocaleProviderAdapter.forType(CLDR) :
-                    LocaleProviderAdapter.forType(JRE);
-            return adapter.baseModuleLocales().contains(locale);
+            return getAdapter(baseName).baseModuleLocales().contains(locale);
+        }
+
+        private static LocaleProviderAdapter getAdapter(String baseName) {
+            return baseName.contains(DOTCLDR) ?
+                LocaleProviderAdapter.forType(CLDR) :
+                LocaleProviderAdapter.forType(JRE);
         }
 
         @Override
