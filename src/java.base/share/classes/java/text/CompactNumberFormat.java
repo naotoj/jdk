@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, 2025, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2018, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -1296,7 +1296,7 @@ public final class CompactNumberFormat extends NumberFormat {
     }
 
     // Patterns for plurals syntax validation
-    private static final String EXPR = "([niftvwe])\\s*(([/%])\\s*(\\d+))*";
+    private static final String EXPR = "([niftvwec])\\s*(([/%])\\s*(\\d+))*";
     private static final String RELATION = "(!?=)";
     private static final String VALUE_RANGE = "((\\d+)\\.\\.(\\d+)|\\d+)";
     private static final String CONDITION = EXPR + "\\s*" +
