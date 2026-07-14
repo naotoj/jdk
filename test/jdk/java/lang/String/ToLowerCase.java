@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2003, 2022, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2003, 2026, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
@@ -23,7 +23,7 @@
 
 /*
     @test
-    @bug 4217441 4533872 4900935 8020037 8032012 8041791 8042589 8054307
+    @bug 4217441 4533872 4900935 8020037 8032012 8041791 8042589 8054307 8133167
     @summary toLowerCase should lower-case Greek Sigma correctly depending
              on the context (final/non-final).  Also it should handle
              Locale specific (lt, tr, and az) lowercasings and supplementary
@@ -36,7 +36,7 @@ public class ToLowerCase {
 
     public static void main(String[] args) {
         Locale turkish = Locale.of("tr", "TR");
-        Locale lt = Locale.of("lt"); // Lithanian
+        Locale lt = Locale.of("lt"); // Lithuanian
         Locale az = Locale.of("az"); // Azeri
 
         // Greek Sigma final/non-final tests
@@ -49,7 +49,16 @@ public class ToLowerCase {
         test("\u0399\u0395\u03a3\u03a5\u03a3 \u03a7\u03a1\u0399\u03a3\u03a4\u039f\u03a3", Locale.US,
              "\u03b9\u03b5\u03c3\u03c5\u03c2 \u03c7\u03c1\u03b9\u03c3\u03c4\u03bf\u03c2"); // "IESUS XRISTOS"
 
-        // Explicit dot above for I's and J's whenever there are more accents above (Lithanian)
+        // Final_Cased (Unicode 4.0) -> Final_Sigma (Unicode 5.0) specific tests
+        test("A:\u03A3", Locale.US, "a:\u03C2");
+        test("A\u03A3:B", Locale.US, "a\u03C3:b");
+        test("A1\u03A3", Locale.US, "a1\u03C3");
+        test("A\u03A31B", Locale.US, "a\u03C21b");
+        // U+10780 is supplementary, Cased, and Case_Ignorable.
+        test("\uD801\uDF80\u03A3", Locale.US, "\uD801\uDF80\u03C2");
+        test("\u03A3\uD801\uDF80", Locale.US, "\u03C3\uD801\uDF80");
+
+        // Explicit dot above for I's and J's whenever there are more accents above (Lithuanian)
         test("I", lt, "i");
         test("I\u0300", lt, "i\u0307\u0300"); // "I" followed by COMBINING GRAVE ACCENT (cc==230)
         test("I\u0316", lt, "i\u0316"); // "I" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
