@@ -38,6 +38,11 @@ import java.util.stream.Stream;
 /**
  * Parses UCD's "SpecialCasing.txt" file and extract entries that are conditional case mappings,
  * then reformats each entry into `Entry` instances in `java.lang.ConditionalSpecialCasing` class.
+ *
+ * Arguments to this utility:
+ *    args[0]: Full path to the "ConditionalSpecialCasing" template file
+ *    args[1]: Full path to the "SpecialCasing.txt" UCD file
+ *    args[2]: Full path to the generated output file
  */
 public class GenerateSpecialCasing {
     // Record for a code point that holds the conditional special casing
@@ -76,9 +81,14 @@ public class GenerateSpecialCasing {
     }
 
     static String entryToString(Entry e) {
+        var codePoint = e.codePoint();
+        if (codePoint == null || codePoint.isBlank()) {
+            throw new RuntimeException("Corrupt entry: " + e);
+        }
+
         return "        new Entry(%s, new char[]{%s}, new char[]{%s}, %s, %s),"
            .formatted(
-               e.codePoint().isEmpty() ? "" : "0x" + e.codePoint(),
+               "0x" + codePoint,
                e.lowerCase().stream().map(cp -> cp.isEmpty() ? "" : "0x"+cp).collect(Collectors.joining(",")),
                e.upperCase().stream().map(cp -> cp.isEmpty() ? "" : "0x"+cp).collect(Collectors.joining(",")),
                e.language().isEmpty() ? "null" : "\"" + e.language() + "\"",
