@@ -92,6 +92,6 @@ public class GenerateSpecialCasing {
                e.lowerCase().stream().map(cp -> cp.isEmpty() ? "" : "0x"+cp).collect(Collectors.joining(",")),
                e.upperCase().stream().map(cp -> cp.isEmpty() ? "" : "0x"+cp).collect(Collectors.joining(",")),
                e.language().isEmpty() ? "null" : "\"" + e.language() + "\"",
-               e.condition().isEmpty() ? "0" : e.condition());
+               e.condition().isEmpty() ? "NONE" : e.condition());
     }
 }

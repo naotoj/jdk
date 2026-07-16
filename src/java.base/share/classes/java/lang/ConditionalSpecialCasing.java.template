@@ -46,6 +46,7 @@ import sun.text.Normalizer;
 final class ConditionalSpecialCasing {
 
     // context conditions.
+    static final int NONE =                     0;
     static final int FINAL_SIGMA =              1;
     static final int AFTER_SOFT_DOTTED =        2;
     static final int MORE_ABOVE =               3;
@@ -143,12 +144,13 @@ final class ConditionalSpecialCasing {
 
     private static boolean isConditionMet(String src, int index, int condition) {
         return switch (condition) {
+            case NONE              -> true;
             case FINAL_SIGMA       -> isFinalSigma(src, index);
             case AFTER_SOFT_DOTTED -> isAfterSoftDotted(src, index);
             case MORE_ABOVE        -> isMoreAbove(src, index);
             case AFTER_I           -> isAfterI(src, index);
             case NOT_BEFORE_DOT    -> !isBeforeDot(src, index);
-            default -> true;
+            default -> throw new InternalError("Special casing condition is not recognized.");
         };
     }
 
