@@ -33,11 +33,12 @@
 import java.util.Locale;
 
 public class ToLowerCase {
+    private static final Locale TURKISH = Locale.of("tr");
+    private static final Locale LITHUANIAN = Locale.of("lt");
+    private static final Locale AZERI = Locale.of("az");
+    private static final Locale GREEK = Locale.of("el");
 
     public static void main(String[] args) {
-        Locale turkish = Locale.of("tr", "TR");
-        Locale lt = Locale.of("lt"); // Lithuanian
-        Locale az = Locale.of("az"); // Azeri
 
         // Greek Sigma final/non-final tests
         test("\u03A3", Locale.US, "\u03C3");
@@ -54,37 +55,37 @@ public class ToLowerCase {
         // should not end the final cased letter search in 5.0 spec
         test("A:\u03A3", Locale.ROOT, "a:\u03C2");
         test("A:\u03A3", Locale.US, "a:\u03C2");
-        test("A:\u03A3", Locale.of("el"), "a:\u03C2");
+        test("A:\u03A3", GREEK, "a:\u03C2");
         test("A\u03A3:B", Locale.ROOT, "a\u03C3:b");
         test("A\u03A3:B", Locale.US, "a\u03C3:b");
-        test("A\u03A3:B", Locale.of("el"), "a\u03C3:b");
+        test("A\u03A3:B", GREEK, "a\u03C3:b");
         test("A1\u03A3", Locale.ROOT, "a1\u03C3");
         test("A1\u03A3", Locale.US, "a1\u03C3");
-        test("A1\u03A3", Locale.of("el"), "a1\u03C3");
+        test("A1\u03A3", GREEK, "a1\u03C3");
         test("A\u03A31B", Locale.ROOT, "a\u03C21b");
         test("A\u03A31B", Locale.US, "a\u03C21b");
-        test("A\u03A31B", Locale.of("el"), "a\u03C21b");
+        test("A\u03A31B", GREEK, "a\u03C21b");
         // U+10780 is supplementary, Cased, and Case_Ignorable.
         test("\uD801\uDF80\u03A3", Locale.ROOT, "\uD801\uDF80\u03C2");
         test("\uD801\uDF80\u03A3", Locale.US, "\uD801\uDF80\u03C2");
-        test("\uD801\uDF80\u03A3", Locale.of("el"), "\uD801\uDF80\u03C2");
+        test("\uD801\uDF80\u03A3", GREEK, "\uD801\uDF80\u03C2");
         test("\u03A3\uD801\uDF80", Locale.ROOT, "\u03C3\uD801\uDF80");
         test("\u03A3\uD801\uDF80", Locale.US, "\u03C3\uD801\uDF80");
-        test("\u03A3\uD801\uDF80", Locale.of("el"), "\u03C3\uD801\uDF80");
+        test("\u03A3\uD801\uDF80", GREEK, "\u03C3\uD801\uDF80");
 
         // Explicit dot above for I's and J's whenever there are more accents above (Lithuanian)
-        test("I", lt, "i");
-        test("I\u0300", lt, "i\u0307\u0300"); // "I" followed by COMBINING GRAVE ACCENT (cc==230)
-        test("I\u0316", lt, "i\u0316"); // "I" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
-        test("J", lt, "j");
-        test("J\u0300", lt, "j\u0307\u0300"); // "J" followed by COMBINING GRAVE ACCENT (cc==230)
-        test("J\u0316", lt, "j\u0316"); // "J" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
-        test("\u012E", lt, "\u012F");
-        test("\u012E\u0300", lt, "\u012F\u0307\u0300"); // "I (w/ OGONEK)" followed by COMBINING GRAVE ACCENT (cc==230)
-        test("\u012E\u0316", lt, "\u012F\u0316"); // "I (w/ OGONEK)" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
-        test("\u00CC", lt, "i\u0307\u0300");
-        test("\u00CD", lt, "i\u0307\u0301");
-        test("\u0128", lt, "i\u0307\u0303");
+        test("I", LITHUANIAN, "i");
+        test("I\u0300", LITHUANIAN, "i\u0307\u0300"); // "I" followed by COMBINING GRAVE ACCENT (cc==230)
+        test("I\u0316", LITHUANIAN, "i\u0316"); // "I" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
+        test("J", LITHUANIAN, "j");
+        test("J\u0300", LITHUANIAN, "j\u0307\u0300"); // "J" followed by COMBINING GRAVE ACCENT (cc==230)
+        test("J\u0316", LITHUANIAN, "j\u0316"); // "J" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
+        test("\u012E", LITHUANIAN, "\u012F");
+        test("\u012E\u0300", LITHUANIAN, "\u012F\u0307\u0300"); // "I (w/ OGONEK)" followed by COMBINING GRAVE ACCENT (cc==230)
+        test("\u012E\u0316", LITHUANIAN, "\u012F\u0316"); // "I (w/ OGONEK)" followed by COMBINING GRAVE ACCENT BELOW (cc!=230)
+        test("\u00CC", LITHUANIAN, "i\u0307\u0300");
+        test("\u00CD", LITHUANIAN, "i\u0307\u0301");
+        test("\u0128", LITHUANIAN, "i\u0307\u0303");
         test("I\u0300", Locale.US, "i\u0300"); // "I" followed by COMBINING GRAVE ACCENT (cc==230)
         test("J\u0300", Locale.US, "j\u0300"); // "J" followed by COMBINING GRAVE ACCENT (cc==230)
         test("\u012E\u0300", Locale.US, "\u012F\u0300"); // "I (w/ OGONEK)" followed by COMBINING GRAVE ACCENT (cc==230)
@@ -93,25 +94,25 @@ public class ToLowerCase {
         test("\u0128", Locale.US, "\u0129");
 
         // I-dot tests
-        test("\u0130", turkish, "i");
-        test("\u0130", az, "i");
-        test("\u0130", lt, "\u0069\u0307");
+        test("\u0130", TURKISH, "i");
+        test("\u0130", AZERI, "i");
+        test("\u0130", LITHUANIAN, "\u0069\u0307");
         test("\u0130", Locale.US, "\u0069\u0307");
         test("\u0130", Locale.JAPAN, "\u0069\u0307");
         test("\u0130", Locale.ROOT, "\u0069\u0307");
 
         // Remove dot_above in the sequence I + dot_above (Turkish and Azeri)
-        test("I\u0307", turkish, "i");
-        test("I\u0307", az, "i");
-        test("J\u0307", turkish, "j\u0307");
-        test("J\u0307", az, "j\u0307");
+        test("I\u0307", TURKISH, "i");
+        test("I\u0307", AZERI, "i");
+        test("J\u0307", TURKISH, "j\u0307");
+        test("J\u0307", AZERI, "j\u0307");
 
         // Unless an I is before a dot_above, it turns into a dotless i (Turkish and Azeri)
-        test("I", turkish, "\u0131");
-        test("I", az, "\u0131");
+        test("I", TURKISH, "\u0131");
+        test("I", AZERI, "\u0131");
         test("I", Locale.US, "i");
-        test("IABC", turkish, "\u0131abc");
-        test("IABC", az, "\u0131abc");
+        test("IABC", TURKISH, "\u0131abc");
+        test("IABC", AZERI, "\u0131abc");
         test("IABC", Locale.US, "iabc");
 
         // Supplementary character tests
