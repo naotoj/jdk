@@ -129,10 +129,10 @@ final class ConditionalSpecialCasing {
             while (iter.hasNext()) {
                 Entry entry = iter.next();
                 String conditionLang = entry.language();
-                if (((conditionLang == null) || (conditionLang.equals(currentLang))) &&
+                if ((conditionLang.isEmpty() || (conditionLang.equals(currentLang))) &&
                         isConditionMet(src, index, entry.condition())) {
                     ret = bLowerCasing ? entry.lowerCase() : entry.upperCase();
-                    if (conditionLang != null) {
+                    if (!conditionLang.isEmpty()) {
                         break;
                     }
                 }
@@ -346,13 +346,21 @@ final class ConditionalSpecialCasing {
 %%%Case_Ignorable%%%
     }
 
+    /**
+     * Examines whether a character is 'Soft_Dotted'.
+     *
+     * The 'Soft_Dotted' property values are specified in the data
+     * file PropList.txt in the Unicode Character Database.
+     */
     private static boolean isSoftDotted(int cp) {
         return
 %%%Soft_Dotted%%%
     }
 
     /**
-     * A record that represents an entry in the Special Casing Properties.
+     * Represents a code point with conditional special casing.
+     * If `language` is empty, the casing rule applies across all languages.
      */
-    record Entry(int codePoint, char [] lowerCase, char [] upperCase, String language, int condition) {};
+    private record Entry(int codePoint, char [] lowerCase, char [] upperCase,
+        String language, int condition) {};
 }

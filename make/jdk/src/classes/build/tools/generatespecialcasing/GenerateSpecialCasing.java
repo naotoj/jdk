@@ -36,8 +36,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Parses UCD's "SpecialCasing.txt" file and extract entries that are conditional case mappings,
- * then reformats each entry into `Entry` instances in `java.lang.ConditionalSpecialCasing` class.
+ * Parses UCD's "SpecialCasing.txt" file and extract selected special case
+ * mappings, then reformats each entry into `Entry` instances in
+ * `java.lang.ConditionalSpecialCasing` class.
  *
  * Arguments to this utility:
  *    args[0]: Full path to the "ConditionalSpecialCasing" template file
@@ -45,8 +46,10 @@ import java.util.stream.Stream;
  *    args[2]: Full path to the generated output file
  */
 public class GenerateSpecialCasing {
-    // Record for a code point that holds the conditional special casing
-    private static record Entry(String codePoint, List<String> lowerCase, List<String> upperCase, String language, String condition) {};
+    // Represents a code point with selected special casing.
+    private record Entry(String codePoint, List<String> lowerCase,
+                         List<String> upperCase, String language,
+                         String condition) {};
 
     public static void main(String[] args) throws IOException {
         var templateFile = Paths.get(args[0]);
@@ -91,7 +94,7 @@ public class GenerateSpecialCasing {
                "0x" + codePoint,
                e.lowerCase().stream().map(cp -> cp.isEmpty() ? "" : "0x"+cp).collect(Collectors.joining(",")),
                e.upperCase().stream().map(cp -> cp.isEmpty() ? "" : "0x"+cp).collect(Collectors.joining(",")),
-               e.language().isEmpty() ? "null" : "\"" + e.language() + "\"",
+               "\"" + e.language() + "\"",
                e.condition().isEmpty() ? "NONE" : e.condition());
     }
 }

@@ -50,13 +50,27 @@ public class ToLowerCase {
              "\u03b9\u03b5\u03c3\u03c5\u03c2 \u03c7\u03c1\u03b9\u03c3\u03c4\u03bf\u03c2"); // "IESUS XRISTOS"
 
         // Final_Cased (Unicode 4.0) -> Final_Sigma (Unicode 5.0) specific tests
+        // ':' is a `Case_Ignorable` and a word boundary between letters, which
+        // should not end the final cased letter search in 5.0 spec
+        test("A:\u03A3", Locale.ROOT, "a:\u03C2");
         test("A:\u03A3", Locale.US, "a:\u03C2");
+        test("A:\u03A3", Locale.of("el"), "a:\u03C2");
+        test("A\u03A3:B", Locale.ROOT, "a\u03C3:b");
         test("A\u03A3:B", Locale.US, "a\u03C3:b");
+        test("A\u03A3:B", Locale.of("el"), "a\u03C3:b");
+        test("A1\u03A3", Locale.ROOT, "a1\u03C3");
         test("A1\u03A3", Locale.US, "a1\u03C3");
+        test("A1\u03A3", Locale.of("el"), "a1\u03C3");
+        test("A\u03A31B", Locale.ROOT, "a\u03C21b");
         test("A\u03A31B", Locale.US, "a\u03C21b");
+        test("A\u03A31B", Locale.of("el"), "a\u03C21b");
         // U+10780 is supplementary, Cased, and Case_Ignorable.
+        test("\uD801\uDF80\u03A3", Locale.ROOT, "\uD801\uDF80\u03C2");
         test("\uD801\uDF80\u03A3", Locale.US, "\uD801\uDF80\u03C2");
+        test("\uD801\uDF80\u03A3", Locale.of("el"), "\uD801\uDF80\u03C2");
+        test("\u03A3\uD801\uDF80", Locale.ROOT, "\u03C3\uD801\uDF80");
         test("\u03A3\uD801\uDF80", Locale.US, "\u03C3\uD801\uDF80");
+        test("\u03A3\uD801\uDF80", Locale.of("el"), "\u03C3\uD801\uDF80");
 
         // Explicit dot above for I's and J's whenever there are more accents above (Lithuanian)
         test("I", lt, "i");
