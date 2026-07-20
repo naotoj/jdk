@@ -1564,7 +1564,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/displayName"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/gender"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsJapanese']/perUnitPattern"/>
-
+		
 		<!-- Other Units, all locales -->
 
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
