@@ -175,9 +175,13 @@ public class ToLowerCase {
         }
         test(src.toString(), Locale.US, exp.toString());
 
+    }
+
+    @Test
+    void testLatin1() {
         // test latin1
-        src = new StringBuilder(0x100);
-        exp = new StringBuilder(0x100);
+        var src = new StringBuilder(0x100);
+        var exp = new StringBuilder(0x100);
         for (int cp = 0; cp < 0x100; cp++) {
             int lowerCase = Character.toLowerCase(cp);
             if (lowerCase == -1) {    //Character.ERROR
@@ -205,7 +209,8 @@ public class ToLowerCase {
     }
 
     private static void test(String in, Locale locale, String expected) {
-        test0(in, locale,expected);
+        assertEquals(expected, in.toLowerCase(locale));
+
         for (String[] ss :  new String[][] {
                                 new String[] {"abc",      "abc"},
                                 new String[] {"aBc",      "abc"},
@@ -221,12 +226,10 @@ public class ToLowerCase {
                                 new String[] {"AB\uD801\uDC1C", "ab\uD801\uDC44"},
 
                             }) {
-            test0(ss[0] + " " + in, locale, ss[1] + " " + expected);
-            test0(in + " " + ss[0], locale, expected + " " + ss[1]);
+            assertEquals(ss[1] + " " + expected,
+                (ss[0] + " " + in).toLowerCase(locale));
+            assertEquals(expected + " " + ss[1],
+                (in + " " + ss[0]).toLowerCase(locale));
         }
-    }
-
-    private static void test0(String in, Locale locale, String expected) {
-        assertEquals(expected, in.toLowerCase(locale));
     }
 }

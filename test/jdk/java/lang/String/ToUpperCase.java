@@ -131,10 +131,13 @@ public class ToUpperCase {
             }
         }
         test(src.toString(), Locale.US, exp.toString());
+    }
 
+    @Test
+    void testNonLatin1ToLatin1() {
         // test non-latin1 -> latin1
-        src = new StringBuilder(0x100).append("ABC");
-        exp = new StringBuilder(0x100).append("ABC");
+        var src = new StringBuilder(0x100).append("ABC");
+        var exp = new StringBuilder(0x100).append("ABC");
         for (int cp = 0x100; cp < 0x10000; cp++) {
             int upperCase  = Character.toUpperCase(cp);
             if (upperCase < 0x100) {
@@ -147,7 +150,8 @@ public class ToUpperCase {
     }
 
     private static void test(String in, Locale locale, String expected) {
-        test0(in, locale,expected);
+        assertEquals(expected, in.toUpperCase(locale));
+
         // trigger different code paths
         for (String[] ss :  new String[][] {
                                 new String[] {"abc",      "ABC"},
@@ -163,12 +167,10 @@ public class ToUpperCase {
                                 new String[] {"Ab\uD801\uDC44", "AB\uD801\uDC1C"},
                                 new String[] {"ab\uD801\uDC44", "AB\uD801\uDC1C"},
                             }) {
-            test0(ss[0] + " " + in, locale, ss[1] + " " + expected);
-            test0(in + " " + ss[0], locale, expected + " " + ss[1]);
+            assertEquals(ss[1] + " " + expected,
+                (ss[0] + " " + in).toUpperCase(locale));
+            assertEquals(expected + " " + ss[1],
+                (in + " " + ss[0]).toUpperCase(locale));
         }
-    }
-
-    private static void test0(String in, Locale locale, String expected) {
-        assertEquals(expected, in.toUpperCase(locale));
     }
 }
