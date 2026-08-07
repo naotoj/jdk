@@ -56,7 +56,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 /*
  * @test
  * @bug 8081022 8151876 8166875 8177819 8189784 8206980 8277049 8278434 8346948
- *      8174269 8371842 8388214
+ *      8174269 8371842 8388214 8384532
  * @key randomness
  */
 
@@ -66,10 +66,12 @@ import org.junit.jupiter.params.provider.MethodSource;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class TestZoneTextPrinterParser extends AbstractTestPrinterParser {
 
-    // Explicit dstOffset attributes from CLDR v48.2 metazone data.
+    // Explicit dstOffset attributes from CLDR v49 metazone data.
     private static final Map<String, ZoneOffset> CLDR_EXPLICIT_DST_OFFSETS = Map.of(
-            "Africa/Windhoek", ZoneOffset.of("+02:00"),
+            "America/Edmonton", ZoneOffset.of("-06:00"),
             "America/Vancouver", ZoneOffset.of("-07:00"),
+            "America/Yellowknife", ZoneOffset.of("-06:00"),
+            "Canada/Mountain", ZoneOffset.of("-06:00"),
             "Canada/Pacific", ZoneOffset.of("-07:00"),
             "Europe/Dublin", ZoneOffset.of("+01:00"),
             "Eire", ZoneOffset.of("+01:00"));

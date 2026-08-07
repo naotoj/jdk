@@ -343,13 +343,18 @@ public class TimeZoneNamesTest {
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Europe/Dublin")), "Greenwich Mean Time", "GMT"),
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Eire")), "Irish Standard Time", "IST"),
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Eire")), "Greenwich Mean Time", "GMT"),
-            // CLDR v48.2 & tz2026b. America/Vancouver switched to permanent DST
+            // CLDR v48.2 & tz2026b. America/Vancouver (and its alias) switched to permanent DST
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), "Pacific Daylight Time", "PDT"),
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), "Pacific Daylight Time", "PDT"),
-            // CLDR v49 & tz2026c. America/Edmonton switched to permanent DST
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Canada/Pacific")), "Pacific Daylight Time", "PDT"),
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Pacific")), "Pacific Daylight Time", "PDT"),
+            // CLDR v49 & tz2026c. America/Edmonton (and its aliases) switched to permanent DST
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Edmonton")), "Mountain Daylight Time", "MDT"),
-//          Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Edmonton")), "Mountain Daylight Time", "MDT")
-            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Edmonton")), "Mountain Standard Time", "MST")
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Edmonton")), "Mountain Daylight Time", "MDT"),
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Yellowknife")), "Mountain Daylight Time", "MDT"),
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Yellowknife")), "Mountain Daylight Time", "MDT"),
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Canada/Mountain")), "Mountain Daylight Time", "MDT"),
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Mountain")), "Mountain Daylight Time", "MDT")
         );
     }
 
