@@ -519,7 +519,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Cari">carian</script>
 			<script type="Cham">çamî</script>
 			<script type="Cher">çerokî</script>
-			<script type="Chis">chisoi</script>
 			<script type="Chrs">xwarezmî</script>
 			<script type="Copt">qiptî</script>
 			<script type="Cpmn">qibris-mînoanî</script>
@@ -2240,12 +2239,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>çax</displayName>
-			</field>
-			<field type="era-short">
-				<displayName>çax</displayName>
-			</field>
-			<field type="era-narrow">
 				<displayName>çax</displayName>
 			</field>
 			<field type="year">
@@ -4337,16 +4330,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern alt="alphaNextToNumber">#,##0.00 ¤;(#,##0.00 ¤)</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
-		<currencyFormats numberSystem="chis">
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
-				</currencyFormat>
-				<currencyFormat type="accounting">
-					<pattern alt="alphaNextToNumber">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

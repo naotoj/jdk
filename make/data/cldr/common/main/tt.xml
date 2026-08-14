@@ -628,6 +628,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="islamic-umalqura" draft="unconfirmed">һиҗри тәкъвим (Өммелкора)</type>
 			<type key="calendar" type="islamic-umalqura" scope="core" draft="unconfirmed">һиҗри (Өммелкора)</type>
 			<type key="calendar" type="iso8601">ISO-8601 календаре</type>
+			<type key="calendar" type="iso8601" scope="core">Gregoriano sutiyuq runa</type>
 			<type key="calendar" type="japanese" draft="unconfirmed">япун тәкъвиме</type>
 			<type key="calendar" type="japanese" scope="core" draft="unconfirmed">япун</type>
 			<type key="calendar" type="persian" draft="unconfirmed">иран тәкъвиме</type>
@@ -742,6 +743,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -950,6 +958,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1061,8 +1076,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</timeFormats>
 				<dateTimeFormats>
 					<numericSeparators>
-						<numericDateSeparator draft="provisional">.</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
+						<numericDateSeparator>.</numericDateSeparator>
 					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -1133,9 +1147,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="mixed">{0} – {1}</intervalFormatRange>
+							<intervalFormatRange type="non-numeric">{0} – {1}</intervalFormatRange>
 						</intervalFormatRanges>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="Gy">
@@ -3001,6 +3014,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>British Tiempo</generic>
 					<daylight>Британия җәйге вакыты</daylight>
 				</long>
 			</metazone>
@@ -3177,6 +3191,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Гринвич уртача вакыты</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Groenlandia pacha</generic>
+					<standard>Groenlandia Tiempo Estándar</standard>
+					<daylight>Groenlandia Inti raymi pacha</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>Көнчыгыш Гренландия вакыты</generic>
@@ -3203,7 +3224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Гавай-Алеут стандарт вакыты</standard>
+					<standard>Гавай вакыты</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -3266,6 +3287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
+					<generic>Irlanda pacha</generic>
 					<daylight>Ирландия стандарт вакыты</daylight>
 				</long>
 			</metazone>
@@ -3635,6 +3657,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Чуук вакыты</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Türkiye Tiempo</generic>
+					<standard>Türkiye Standard Time</standard>
+					<daylight>Türkiye Inti raymi pacha</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Төркмәнстан вакыты</generic>
@@ -3652,6 +3681,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Уругвай вакыты</generic>
 					<standard>Уругвай стандарт вакыты</standard>
 					<daylight>Уругвай җәйге вакыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Urumqi Tiempo</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">

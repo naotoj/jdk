@@ -118,7 +118,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="en_US" alt="short">Ingarihi US</language>
 			<language type="eo">Eheperāto</language>
 			<language type="es">Pāniora</language>
-			<language type="es_419">Pāniora o Amerika Rātini</language>
+			<language type="es_419">Pāniora Amerika Rātini</language>
 			<language type="es_ES">Pāniora Ūropi</language>
 			<language type="es_MX">Pāniora Mehikana</language>
 			<language type="et">Etōniana</language>
@@ -327,8 +327,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pqm">Marahiti-Pehamakoare</language>
 			<language type="ps">Pāhitō</language>
 			<language type="pt">Pōtukīhi</language>
-			<language type="pt_BR">Pōtukīhi Parahi</language>
-			<language type="pt_PT">Pōtukīhi Uropi</language>
+			<language type="pt_BR">Pōtukīhi Parīhi</language>
+			<language type="pt_PT">Pōtukīhi Potukara</language>
 			<language type="qu">Kētua</language>
 			<language type="raj">Ratiahitani</language>
 			<language type="rap">Rapanui</language>
@@ -659,7 +659,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IE">Airani</territory>
 			<territory type="IL">Iharaira</territory>
 			<territory type="IM">Te Moutere Mana</territory>
-			<territory type="IN">Inia</territory>
+			<territory type="IN">Īnia</territory>
 			<territory type="IO">Te Rohe o te Moana Īniana Piritihi</territory>
 			<territory type="IO" alt="chagos">Te Rohe o te Moana Īnia Piritene</territory>
 			<territory type="IQ">Irāka</territory>
@@ -840,6 +840,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="islamic-civil">Maramataka Hitiuri (tūtohi, wā o naiānei)</type>
 			<type key="calendar" type="islamic-umalqura">Maramataka Hitiuri (Uma ara Kura)</type>
 			<type key="calendar" type="iso8601">Maramataka Pākehā (Tau Tuatahi)</type>
+			<type key="calendar" type="iso8601" scope="core">Pākehā</type>
 			<type key="calendar" type="japanese">Maramataka Hapanihi</type>
 			<type key="calendar" type="persian">Maramataka Pāhia</type>
 			<type key="calendar" type="roc">Maramataka Minguo</type>
@@ -919,6 +920,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -976,6 +984,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dateTimeFormatLength>
 					<intervalFormats>
 						<intervalFormatFallback>{0} ki te {1}</intervalFormatFallback>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM – MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">MMM d – d</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">GGGGG y-MM – y-MM</greatestDifference>
 						</intervalFormatItem>
@@ -1013,7 +1027,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="1">Hānuere</month>
 							<month type="2">Pēpuere</month>
 							<month type="3">Māehe</month>
-							<month type="4">Āpereira</month>
+							<month type="4">Āperira</month>
 							<month type="5">Mei</month>
 							<month type="6">Hune</month>
 							<month type="7">Hūrae</month>
@@ -1055,6 +1069,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -1162,10 +1183,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
-					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} {0}</pattern>
@@ -1208,7 +1225,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMddd">ddd MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEddd">E, ddd MMM y G</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
@@ -1231,11 +1250,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yw" count="other">'wiki' w 'o' Y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
-						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
-						</intervalFormatRanges>
 						<intervalFormatFallback>{0} ki te {1}</intervalFormatFallback>
 						<intervalFormatItem id="Gy">
 							<greatestDifference id="G">y G – y G</greatestDifference>
@@ -2093,6 +2107,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Pacific/Apia">
 				<exemplarCity>Āpia</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic>Wā Acre</generic>
+					<standard>Wā Arowhānui Acre</standard>
+					<daylight>Wā Raumati Acre</daylight>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>Wā Awhekenetāna</standard>
@@ -2115,7 +2136,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<standard>Wā o Āwherika ki te uru</standard>
+					<standard>Wā Āwherika ki te Uru</standard>
 				</long>
 			</metazone>
 			<metazone type="Alaska">
@@ -2270,7 +2291,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
-					<daylight>Wā Piritana Raumati</daylight>
+					<generic>Wā Piritana</generic>
+					<daylight>Wā Raumati Piritana</daylight>
 				</long>
 			</metazone>
 			<metazone type="Brunei">
@@ -2371,28 +2393,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Europe_Central">
 				<long>
-					<generic>Wā Uropi Waenga</generic>
-					<standard>Wā Arowhānui Uropi Waenga</standard>
-					<daylight>Wā Raumati Uropi Waenga</daylight>
+					<generic>Wā Ūropi Waenga</generic>
+					<standard>Wā Arowhānui Ūropi Waenga</standard>
+					<daylight>Wā Raumati Ūropi Waenga</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
-					<generic>Wā Uropi Rāwhiti</generic>
-					<standard>Wā Arowhānui Uropi Rāwhiti</standard>
-					<daylight>Wā Raumati Uropi Rāwhiti</daylight>
+					<generic>Wā Ūropi ki te Rāwhiti</generic>
+					<standard>Wā Arowhānui Ūropi ki te Rāwhiti</standard>
+					<daylight>Wā Raumati Ūropi ki te Rāwhiti</daylight>
 				</long>
 			</metazone>
 			<metazone type="Europe_Further_Eastern">
 				<long>
-					<standard>Wā Ūropi ki te rāwhiti rawa</standard>
+					<standard>Wā Ūropi ki te Rāwhiti-atu</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
-					<generic>Wā Uropi Uru</generic>
-					<standard>Wā Arowhānui Uropi Uru</standard>
-					<daylight>Wā Raumati Uropi Uru</daylight>
+					<generic>Wā Ūropi ki te Uru</generic>
+					<standard>Wā Arowhānui Ūropi ki te Uru</standard>
+					<daylight>Wā Raumati Ūropi ki te Uru</daylight>
 				</long>
 			</metazone>
 			<metazone type="Falkland">
@@ -2446,6 +2468,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Wā Toharite Kiriwīti</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Wā Kārikirana</generic>
+					<standard>Wā Arowhānui Kārikirana</standard>
+					<daylight>Wā Rāumati Kārikirana</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>Wā Whenuakāriki ki te rāwhiti</generic>
@@ -2472,7 +2501,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Wā Arowhānui Hawaii-Aleutian</standard>
+					<standard>Wā Hawaii</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -2535,7 +2564,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
-					<daylight>Wā Airihi Arowhānui</daylight>
+					<generic>Wā Airana</generic>
+					<daylight>Wā Arowhānui Airana</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -2557,6 +2587,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Wā Hapani</generic>
 					<standard>Wā Hapani Arowhānui</standard>
 					<daylight>Wā Hapani Awatea</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>Wā Kamchatka</generic>
+					<standard>Wā Kamchatka Arowhānui</standard>
+					<daylight>Wā Kamchatka Raumati</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -2821,6 +2858,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Wā Sakhalin Raumati</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic>Wā Samara</generic>
+					<standard>Wā Samara Arowhānui</standard>
+					<daylight>Wā Samara Raumati</daylight>
+				</long>
+			</metazone>
 			<metazone type="Samoa">
 				<long>
 					<standard>Wā Hāmoa Arowhānui</standard>
@@ -2890,6 +2934,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Wā Chuuk</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Wā Tākei</generic>
+					<standard>Wā Arowhānui Tākei</standard>
+					<daylight>Wā Raumati Tākei</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Wā Tukumanatānga</generic>
@@ -2907,6 +2958,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Wā Urukoi</generic>
 					<standard>Wā Urukoi Arowhānui</standard>
 					<daylight>Wā Urukoi Raumati</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Wā Ürümqi</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -2979,6 +3035,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000000000" count="other">¤ 0B</pattern>
+					<pattern type="10000000000" count="other">¤ 00B</pattern>
+					<pattern type="100000000000" count="other">¤ 000B</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName>Dirham UAE</displayName>
@@ -3587,7 +3652,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XCG">
 				<displayName>Guilder Karapīana</displayName>
-				<displayName count="other">Guilder Karapīana</displayName>
+				<displayName count="other">guilder Karapīana</displayName>
 			</currency>
 			<currency type="XOF">
 				<displayName>Franc CFA Āwherika ki te Uru</displayName>
@@ -3615,7 +3680,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ZWG">
 				<displayName>Kōura Timuwawe</displayName>
-				<displayName count="other">Kino Tāone o Timuwawe</displayName>
+				<displayName count="other">kōura Timuwawe</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">

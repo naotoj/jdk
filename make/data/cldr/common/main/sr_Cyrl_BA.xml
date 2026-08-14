@@ -147,6 +147,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1" alt="variant">нове ере</era>
 					</eraNames>
 				</eras>
+				<dateTimeFormats>
+					<intervalFormats>
+						<intervalFormatRanges>
+							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
+						</intervalFormatRanges>
+					</intervalFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -1628,6 +1636,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="few">{0} грана</unitPattern>
 				<unitPattern count="other">{0} гранова</unitPattern>
 			</unit>
+			<unit type="speed-beaufort">
+				<unitPattern count="one">B {0}</unitPattern>
+				<unitPattern count="few">B {0}</unitPattern>
+				<unitPattern count="other">B {0}</unitPattern>
+			</unit>
 			<unit type="speed-light-speed">
 				<displayName>свјетло</displayName>
 				<unitPattern count="one">{0} свјетло</unitPattern>
@@ -1666,6 +1679,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-beaufort">
 				<displayName>Bft</displayName>
+				<unitPattern count="one">B {0}</unitPattern>
+				<unitPattern count="few">B {0}</unitPattern>
+				<unitPattern count="other">B {0}</unitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<unitPattern count="one">{0}/gal Imp</unitPattern>

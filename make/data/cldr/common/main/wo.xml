@@ -496,6 +496,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian">Arminaatu Gregoriyee</type>
 			<type key="calendar" type="gregorian" scope="core">Gregorian</type>
 			<type key="calendar" type="iso8601">ISO-8601 Calendar</type>
+			<type key="calendar" type="iso8601" scope="core">Griogairianach</type>
 			<type key="collation" type="standard">SSO (Toftalin wiñ gën a xam)</type>
 			<type key="collation" type="standard" scope="core">Njàng miir</type>
 			<type key="numbers" type="latn">Siifari Tugal</type>
@@ -512,6 +513,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="generic">
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -620,6 +628,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 				</months>
+				<dayOfMonths>
+					<dayOfMonthContext type="format">
+						<dayOfMonthWidth type="abbreviated">
+							<dayOfMonth ordinal="other">{0}th</dayOfMonth>
+						</dayOfMonthWidth>
+					</dayOfMonthContext>
+				</dayOfMonths>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
@@ -734,10 +749,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
-					<numericSeparators>
-						<numericDateSeparator draft="provisional">-</numericDateSeparator>
-						<numericTimeSeparator draft="provisional">:</numericTimeSeparator>
-					</numericSeparators>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
 							<pattern>{1} - {0}</pattern>
@@ -792,13 +803,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
-					<intervalFormats>
-						<intervalFormatRanges>
-							<intervalFormatRange type="mixed" draft="provisional">{0} – {1}</intervalFormatRange>
-							<intervalFormatRange type="non-numeric" draft="provisional">{0}–{1}</intervalFormatRange>
-							<intervalFormatRange type="numeric" draft="provisional">{0}–{1}</intervalFormatRange>
-						</intervalFormatRanges>
-					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -1218,6 +1222,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Etc/Unknown">
 				<exemplarCity>Dëkk buñ xamul</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic>Jamonoy Acre</generic>
+					<standard>Acre waxtu buñ miin</standard>
+					<daylight>Waxtu ete bu Acre</daylight>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>waxtu Afganistan</standard>
@@ -1395,6 +1406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="British">
 				<long>
+					<generic>Waxtu Grande Bretagne</generic>
 					<daylight>Waxtu ete bu Grande Bretagne</daylight>
 				</long>
 			</metazone>
@@ -1571,6 +1583,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>GMT (waxtu Greenwich)</standard>
 				</long>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Àm Ghraonlainn</generic>
+					<standard>Àm Coitcheann Ghraonlainn</standard>
+					<daylight>Àm Samhraidh Ghraonlainn</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>waxtu penku Greenland</generic>
@@ -1597,7 +1616,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Hawaii">
 				<long>
-					<standard>Waxtu buñ jagleel Hawaii-Aleutian</standard>
+					<standard>Waxtu Hawaii</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -1660,7 +1679,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Irish">
 				<long>
-					<daylight>waxtu Irlande</daylight>
+					<generic>Waxtu Irlande</generic>
+					<daylight>Waxtu estàndaaru Irlande</daylight>
 				</long>
 			</metazone>
 			<metazone type="Irkutsk">
@@ -1682,6 +1702,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Japon</generic>
 					<standard>Waxtu japon</standard>
 					<daylight>Japon waxtu bëccëg</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>Waxtu Kamchatka</generic>
+					<standard>Kamchatka waxtu</standard>
+					<daylight>Jamonoy ete ci Kamchatka</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -1946,6 +1973,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Sakhalin Sakhalin</daylight>
 				</long>
 			</metazone>
+			<metazone type="Samara">
+				<long>
+					<generic>Waxtu Samara</generic>
+					<standard>Samara Waxtu</standard>
+					<daylight>Waxtu été bu Samara</daylight>
+				</long>
+			</metazone>
 			<metazone type="Samoa">
 				<long>
 					<standard>Samoa Standard Time</standard>
@@ -2015,6 +2049,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard>Waxtu Chuuk</standard>
 				</long>
 			</metazone>
+			<metazone type="Turkey">
+				<long>
+					<generic>Waxtu Turki</generic>
+					<standard>Jamonoy Turki</standard>
+					<daylight>Jamonoy ete ci Turki</daylight>
+				</long>
+			</metazone>
 			<metazone type="Turkmenistan">
 				<long>
 					<generic>Waxtu Turkmenistan</generic>
@@ -2032,6 +2073,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<generic>Waxtu Urugway</generic>
 					<standard>Uruguay waxtu buñ miin</standard>
 					<daylight>Uruguay waxtu ete</daylight>
+				</long>
+			</metazone>
+			<metazone type="Urumqi">
+				<long>
+					<standard>Waxtu Urumqi</standard>
 				</long>
 			</metazone>
 			<metazone type="Uzbekistan">
@@ -2750,7 +2796,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XCG">
 				<displayName>Gildiye Karayib</displayName>
-				<displayName count="other">Gildiye Karayib</displayName>
 			</currency>
 			<currency type="XOF">
 				<displayName>Franc CFA bu Afrik Sowwu-jant</displayName>
@@ -2776,13 +2821,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="ZWG">
 				<displayName>Zimbabwean ZiG</displayName>
-				<displayName count="other">Zimbabwean ZiG</displayName>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
 			<pattern type="atLeast">⩾{0}</pattern>
 		</miscPatterns>
 		<minimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">{0} fan</pluralMinimalPairs>
 			<ordinalMinimalPairs ordinal="other">Jël {0} ci ndeyjoor.</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
