@@ -35,11 +35,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -136,6 +138,15 @@ class Bundle {
         TZ_DST_SHORT_KEY,
         TZ_GEN_LONG_KEY,
         TZ_GEN_SHORT_KEY
+    };
+
+    private static final CLDRConverter.ZoneNameSlot[] ZONE_NAME_SLOTS = {
+        CLDRConverter.ZoneNameSlot.STD_LONG,
+        CLDRConverter.ZoneNameSlot.STD_SHORT,
+        CLDRConverter.ZoneNameSlot.DST_LONG,
+        CLDRConverter.ZoneNameSlot.DST_SHORT,
+        CLDRConverter.ZoneNameSlot.GEN_LONG,
+        CLDRConverter.ZoneNameSlot.GEN_SHORT
     };
 
     private final String id;
@@ -319,7 +330,7 @@ class Bundle {
                     || key.startsWith(METAZONE_ID_PREFIX)) {
                 @SuppressWarnings("unchecked")
                 Map<String, String> nameMap = (Map<String, String>) myMap.get(key);
-                if (nameMap.isEmpty()) {
+                if (nameMap.isEmpty() && !CLDRConverter.metazoneNameAliases.containsKey(key)) {
                     // Some zones have only exemplarCity, which become empty.
                     // Remove those from the map.
                     it.remove();
@@ -336,36 +347,16 @@ class Bundle {
 
                 // Convert key/value pairs to an array.
                 String[] names = new String[ZONE_NAME_KEYS.length];
-                int ix = 0;
-                for (String nameKey : ZONE_NAME_KEYS) {
-                    String name = nameMap.get(nameKey);
-                    if (name == null && parentsMap != null) {
-                        @SuppressWarnings("unchecked")
-                        Map<String, String> parentNames = (Map<String, String>) parentsMap.get(key);
-                        if (parentNames != null) {
-                            name = parentNames.get(nameKey);
-                        }
-                    }
-                    names[ix++] = name;
+                for (int i = 0; i < names.length; i++) {
+                    names[i] = resolveZoneName(myMap, parentsMap, key, i, new HashSet<>());
                 }
                 if (hasNulls(names)) {
                     String metaKey = toMetaZoneKey(key);
                     if (metaKey != null) {
-                        Object obj = myMap.get(metaKey);
-                        if (obj instanceof String[]) {
-                            String[] metaNames = (String[]) obj;
-                            for (int i = 0; i < names.length; i++) {
-                                if (names[i] == null) {
-                                    names[i] = metaNames[i];
-                                }
-                            }
-                        } else if (obj instanceof Map) {
-                            @SuppressWarnings("unchecked")
-                            Map<String, String> m = (Map<String, String>) obj;
-                            for (int i = 0; i < names.length; i++) {
-                                if (names[i] == null) {
-                                    names[i] = m.get(ZONE_NAME_KEYS[i]);
-                                }
+                        for (int i = 0; i < names.length; i++) {
+                            if (names[i] == null) {
+                                names[i] = resolveZoneName(myMap, parentsMap, metaKey, i,
+                                        new HashSet<>());
                             }
                         }
                     }
@@ -414,6 +405,36 @@ class Bundle {
 
         targetMap = myMap;
         return myMap;
+    }
+
+    private static String resolveZoneName(Map<String, Object> map, Map<String, Object> parents,
+                                          String key, int index, Set<String> resolving) {
+        String name = zoneName(map, key, index);
+        if (name == null) {
+            name = zoneName(parents, key, index);
+        }
+        if (name != null) {
+            return name;
+        }
+
+        CLDRConverter.MetazoneNameAlias alias = CLDRConverter.metazoneNameAliases.get(key);
+        if (alias != null && alias.slots().contains(ZONE_NAME_SLOTS[index]) && resolving.add(key)) {
+            return resolveZoneName(map, parents, alias.targetKey(), index, resolving);
+        }
+        return null;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static String zoneName(Map<String, Object> map, String key, int index) {
+        if (map == null) {
+            return null;
+        }
+        return switch (map.get(key)) {
+            case Map<?, ?> m -> (String)m.get(ZONE_NAME_KEYS[index]);
+            case String[] n -> n[index];
+            case null -> null;
+            default -> null;
+        };
     }
 
     private void handleMultipleInheritance(Map<String, Object> map, Map<String, Object> parents, String key) {

@@ -43,6 +43,7 @@ import java.io.IOException;
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -825,11 +826,13 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         case "alias":
             {
                 if (id.equals("root") && !isIgnored(attributes)
+                        && registerMetazoneNameAlias(attributes.getValue("path"))) {
+                    pushIgnoredContainer(qName);
+                } else if (id.equals("root") && !isIgnored(attributes)
                         && ((currentContainer.getqName().equals("decimalFormatLength"))
                         || (currentContainer.getqName().equals("currencyFormat"))
                         || (currentContainer.getqName().equals("percentFormat"))
                         || (currentContainer.getqName().equals("listPattern"))
-                        || (currentContainer.getqName().equals("metazone"))
                         || (currentCalendarType != null && !currentCalendarType.lname().startsWith("islamic-")))) { // ignore islamic variants
                     pushAliasEntry(qName, attributes, attributes.getValue("path"));
                 } else {
@@ -1122,6 +1125,67 @@ class LDMLParseHandler extends AbstractLDMLHandler<Object> {
         }
 
         return calType + "." + toJDKKey(qName, context, width);
+    }
+
+    private boolean registerMetazoneNameAlias(String path) {
+        Container container = currentContainer;
+        String style = null;
+        String nameType = null;
+        KeyContainer metazone = null;
+
+        while (container != null) {
+            switch (container.getqName()) {
+                case "long", "short" -> style = container.getqName();
+                case "generic", "standard", "daylight" -> nameType = container.getqName();
+                case "metazone" -> {
+                    if (container instanceof KeyContainer kc) {
+                        metazone = kc;
+                    }
+                }
+                default -> { }
+            }
+            if (metazone != null) {
+                break;
+            }
+            container = container.getParent();
+        }
+
+        if (metazone == null || !path.contains("metazone[@type='")) {
+            return false;
+        }
+
+        EnumSet<CLDRConverter.ZoneNameSlot> slots = zoneNameSlots(style, nameType);
+        if (slots.isEmpty()) {
+            return false;
+        }
+
+        CLDRConverter.addMetazoneNameAlias(
+                METAZONE_ID_PREFIX + metazone.getKey(),
+                METAZONE_ID_PREFIX + getTarget(path, "", "", ""),
+                slots);
+        return true;
+    }
+
+    private static EnumSet<CLDRConverter.ZoneNameSlot> zoneNameSlots(String style, String nameType) {
+        if (style == null) {
+            return EnumSet.allOf(CLDRConverter.ZoneNameSlot.class);
+        }
+
+        return switch (nameType == null ? style : nameType + '.' + style) {
+            case "long" -> EnumSet.of(CLDRConverter.ZoneNameSlot.STD_LONG,
+                    CLDRConverter.ZoneNameSlot.DST_LONG,
+                    CLDRConverter.ZoneNameSlot.GEN_LONG);
+            case "short" -> EnumSet.of(CLDRConverter.ZoneNameSlot.STD_SHORT,
+                    CLDRConverter.ZoneNameSlot.DST_SHORT,
+                    CLDRConverter.ZoneNameSlot.GEN_SHORT);
+            case "standard.long" -> EnumSet.of(CLDRConverter.ZoneNameSlot.STD_LONG);
+            case "standard.short" -> EnumSet.of(CLDRConverter.ZoneNameSlot.STD_SHORT);
+            case "daylight.long" -> EnumSet.of(CLDRConverter.ZoneNameSlot.DST_LONG);
+            case "daylight.short" -> EnumSet.of(CLDRConverter.ZoneNameSlot.DST_SHORT);
+            case "generic.long" -> EnumSet.of(CLDRConverter.ZoneNameSlot.GEN_LONG);
+            case "generic.short" -> EnumSet.of(CLDRConverter.ZoneNameSlot.GEN_SHORT);
+            default -> EnumSet.noneOf(CLDRConverter.ZoneNameSlot.class);
+        };
     }
 
     @Override
