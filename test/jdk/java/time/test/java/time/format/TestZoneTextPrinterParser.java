@@ -24,6 +24,7 @@
 package test.java.time.format;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.text.DateFormatSymbols;
@@ -216,6 +217,14 @@ public class TestZoneTextPrinterParser extends AbstractTestPrinterParser {
 
         assertEquals(expected, ret);
 
+    }
+
+    // Explicitly tests localized GMT formats where the localized GMT text is a suffix
+    @Test
+    public void test_ParseText_GmtSuffix() {
+        DateTimeFormatter formatter = getFormatter(Locale.forLanguageTag("pt-BR"), TextStyle.FULL);
+        assertDoesNotThrow(() -> formatter.parse("-01:00 GMT", TemporalQueries.zone()));
+        assertEquals(ZoneOffset.ofHours(-1), formatter.parse("-01:00", TemporalQueries.zone()));
     }
 
 

@@ -4675,6 +4675,19 @@ public final class DateTimeFormatterBuilder {
             // handle fixed time-zone IDs
             char nextChar = text.charAt(position);
             if (nextChar == '+' || nextChar == '-') {
+                // Prefer a complete localized zone name over its leading offset.
+                PrefixTree tree = getTree(context);
+                ParsePosition ppos = new ParsePosition(position);
+                PrefixTree parsedZoneId = tree.match(text, ppos);
+
+                DateTimeParseContext offsetContext = context.copy();
+                int offsetEnd = OffsetIdPrinterParser.INSTANCE_ID_Z
+                        .parse(offsetContext, text, position);
+                if (parsedZoneId.value != null && ppos.getIndex() > offsetEnd) {
+                    context.setParsed(ZoneId.of(parsedZoneId.value));
+                    context.setParsedZoneNameType(parsedZoneId.type);
+                    return ppos.getIndex();
+                }
                 return parseOffsetBased(context, text, position, position, OffsetIdPrinterParser.INSTANCE_ID_Z);
             } else if (length >= position + 2) {
                 char nextNextChar = text.charAt(position + 1);
