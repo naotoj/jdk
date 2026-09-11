@@ -348,7 +348,7 @@ public class TimeZoneNamesTest {
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Eire")), irl, "Greenwich Mean Time", "GMT"),
             // CLDR v48.2 & tz2026b. America/Vancouver (and its alias) switched to permanent DST
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), Locale.CANADA, "Pacific Daylight Time", "PDT"),
-            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), Locale.CANADA, "Pacific Daylight Time", "PDT")
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Vancouver")), Locale.CANADA, "Pacific Daylight Time", "PDT"),
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Canada/Pacific")), Locale.CANADA, "Pacific Daylight Time", "PDT"),
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Pacific")), Locale.CANADA, "Pacific Daylight Time", "PDT"),
             // CLDR v49 & tz2026c. America/Edmonton (and its aliases) switched to permanent DST
