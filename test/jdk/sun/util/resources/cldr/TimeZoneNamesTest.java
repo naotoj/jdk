@@ -357,7 +357,10 @@ public class TimeZoneNamesTest {
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Yellowknife")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Yellowknife")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Canada/Mountain")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
-            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Mountain")), Locale.CANADA, "Mountain Daylight Time", "MDT")
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Mountain")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
+            // CLDR v49 & tz2026d. America/Inuvik switched to permanent DST
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Inuvik")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Inuvik")), Locale.CANADA, "Mountain Daylight Time", "MDT")
         );
     }
 

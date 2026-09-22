@@ -71,6 +71,7 @@ public class TestZoneTextPrinterParser extends AbstractTestPrinterParser {
     private static final Map<String, ZoneOffset> CLDR_EXPLICIT_DST_OFFSETS = Map.of(
             "America/Coyhaique", ZoneOffset.of("-03:00"),
             "America/Edmonton", ZoneOffset.of("-06:00"),
+            "America/Inuvik", ZoneOffset.of("-06:00"),
             "America/Punta_Arenas", ZoneOffset.of("-03:00"),
             "America/Vancouver", ZoneOffset.of("-07:00"),
             "America/Yellowknife", ZoneOffset.of("-06:00"),
