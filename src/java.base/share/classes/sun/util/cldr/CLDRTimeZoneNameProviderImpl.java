@@ -87,6 +87,9 @@ public class CLDRTimeZoneNameProviderImpl extends TimeZoneNameProviderImpl {
         if (namesSuper != null) {
             // CLDR's resource bundle has a translated entry for this id.
             // Fix up names if needed, either missing or no-inheritance
+            // Work on a copy so derived names are not cached and
+            // inherited by child locales.
+            namesSuper = Arrays.copyOf(namesSuper, namesSuper.length);
             namesSuper[INDEX_TZID] = id;
 
             for(int i = INDEX_STD_LONG; i < namesSuper.length; i++) { // index 0 is the 'id' itself
