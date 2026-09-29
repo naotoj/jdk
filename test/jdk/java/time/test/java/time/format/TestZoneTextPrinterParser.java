@@ -70,17 +70,20 @@ import org.junit.jupiter.params.provider.ValueSource;
 public class TestZoneTextPrinterParser extends AbstractTestPrinterParser {
 
     // Explicit dstOffset attributes from CLDR v49 metazone data.
-    private static final Map<String, ZoneOffset> CLDR_EXPLICIT_DST_OFFSETS = Map.of(
-            "America/Coyhaique", ZoneOffset.of("-03:00"),
-            "America/Edmonton", ZoneOffset.of("-06:00"),
-            "America/Inuvik", ZoneOffset.of("-06:00"),
-            "America/Punta_Arenas", ZoneOffset.of("-03:00"),
-            "America/Vancouver", ZoneOffset.of("-07:00"),
-            "America/Yellowknife", ZoneOffset.of("-06:00"),
-            "Canada/Mountain", ZoneOffset.of("-06:00"),
-            "Canada/Pacific", ZoneOffset.of("-07:00"),
-            "Europe/Dublin", ZoneOffset.of("+01:00"),
-            "Eire", ZoneOffset.of("+01:00"));
+    private static final Map<String, ZoneOffset> CLDR_EXPLICIT_DST_OFFSETS = Map.ofEntries(
+            Map.entry("America/Coyhaique", ZoneOffset.of("-03:00")),
+            Map.entry("America/Edmonton", ZoneOffset.of("-06:00")),
+            Map.entry("America/Inuvik", ZoneOffset.of("-06:00")),
+            Map.entry("America/Punta_Arenas", ZoneOffset.of("-03:00")),
+            Map.entry("America/Rainy_River", ZoneOffset.of("-05:00")),
+            Map.entry("America/Vancouver", ZoneOffset.of("-07:00")),
+            Map.entry("America/Winnipeg", ZoneOffset.of("-05:00")),
+            Map.entry("America/Yellowknife", ZoneOffset.of("-06:00")),
+            Map.entry("Canada/Central", ZoneOffset.of("-05:00")),
+            Map.entry("Canada/Mountain", ZoneOffset.of("-06:00")),
+            Map.entry("Canada/Pacific", ZoneOffset.of("-07:00")),
+            Map.entry("Europe/Dublin", ZoneOffset.of("+01:00")),
+            Map.entry("Eire", ZoneOffset.of("+01:00")));
 
     private static final Locale[] SAMPLE_LOCALES = {
         Locale.US, Locale.UK, Locale.FRANCE, Locale.GERMANY, Locale.ITALY, Locale.forLanguageTag("es"),

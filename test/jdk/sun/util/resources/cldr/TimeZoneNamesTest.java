@@ -360,7 +360,14 @@ public class TimeZoneNamesTest {
             Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Mountain")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
             // CLDR v49 & tz2026d. America/Inuvik switched to permanent DST
             Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Inuvik")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
-            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Inuvik")), Locale.CANADA, "Mountain Daylight Time", "MDT")
+            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Inuvik")), Locale.CANADA, "Mountain Daylight Time", "MDT"),
+            // CLDR v49 & tz2026e. America/Winnipeg switched to permanent DST
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Winnipeg")), Locale.CANADA, "Central Daylight Time", "CDT"),
+//            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Winnipeg")), Locale.CANADA, "Central DaylightTime", "CDT"),
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("America/Rainy_River")), Locale.CANADA, "Central Daylight Time", "CDT"),
+//            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("America/Rainy_River")), Locale.CANADA, "Central DaylightTime", "CDT"),
+            Arguments.of(ZonedDateTime.of(2026, 4, 5, 0, 0, 0, 0, ZoneId.of("Canada/Central")), Locale.CANADA, "Central Daylight Time", "CDT")
+//            Arguments.of(ZonedDateTime.of(2026, 12, 5, 0, 0, 0, 0, ZoneId.of("Canada/Central")), Locale.CANADA, "Central DaylightTime", "CDT")
         );
     }
 
