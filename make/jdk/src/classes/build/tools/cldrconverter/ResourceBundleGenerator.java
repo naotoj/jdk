@@ -27,7 +27,7 @@ package build.tools.cldrconverter;
 
 import static build.tools.cldrconverter.CLDRConverter.EXEMPLAR_CITY_PREFIX;
 import static build.tools.cldrconverter.CLDRConverter.LIKELY_SCRIPT_PREFIX;
-import static build.tools.cldrconverter.CLDRConverter.METAZONE_DSTOFFSET_PREFIX;
+import static build.tools.cldrconverter.CLDRConverter.METAZONE_DSTOFFSETS;
 import static build.tools.cldrconverter.CLDRConverter.METAZONE_ID_PREFIX;
 import static build.tools.cldrconverter.CLDRConverter.PARENT_LOCALE_PREFIX;
 
@@ -203,7 +203,7 @@ class ResourceBundleGenerator implements BundleGenerator {
                     var escapedVal = CLDRConverter.escape(valStr);
                     if (type == BundleType.TIMEZONE &&
                         !(key.startsWith(EXEMPLAR_CITY_PREFIX) ||
-                          key.startsWith(METAZONE_DSTOFFSET_PREFIX)) ||
+                          key.startsWith(METAZONE_DSTOFFSETS)) ||
                         valStr.startsWith(META_VALUE_PREFIX)) {
                         out.printf("            { \"%s\", %s },\n", keyStr, escapedVal);
                     } else {
