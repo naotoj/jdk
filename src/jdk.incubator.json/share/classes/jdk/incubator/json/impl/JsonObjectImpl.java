@@ -25,14 +25,10 @@
 
 package jdk.incubator.json.impl;
 
-import java.util.Collections;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.SequencedMap;
+import java.lang.reflect.InvocationTargetException;
+import java.util.*;
 
-import jdk.incubator.json.JsonObject;
-import jdk.incubator.json.JsonValue;
+import jdk.incubator.json.*;
 
 /**
  * JsonObject implementation class. Instances of this class are immutable.
@@ -67,6 +63,39 @@ public final class JsonObjectImpl implements JsonObject, JsonValueSupport {
     @Override
     public Map<String, JsonValue> asMap() {
         return Collections.unmodifiableMap(theMembers);
+    }
+
+    @Override
+    public <R extends Record> R asRecord(Class<R> type) {
+        if (!type.isRecord()) {
+            throw new IllegalArgumentException("Concrete record class is required");
+        }
+        var components = type.getRecordComponents();
+        var parameterTypes = new Class<?>[components.length];
+        var values = new Object[components.length];
+        for (int index = 0; index < components.length; index++) {
+            var jv = get(components[index].getName());
+            var paramType = components[index].getType();
+            parameterTypes[index] = paramType;
+            values[index] = switch (paramType) {
+                case Class<?> c when c == JsonValue.class -> jv;
+                case Class<?> c when jv instanceof JsonNull && !c.isPrimitive() -> null;
+                case Class<?> c when c == boolean.class || c == Boolean.class -> jv.asBoolean();
+                case Class<?> c when c == int.class || c == Integer.class -> jv.asInt();
+                case Class<?> c when c == double.class || c == Double.class -> jv.asDouble();
+                case Class<?> c when c == long.class || c == Long.class -> jv.asLong();
+                case Class<?> c when c == String.class -> jv.asString();
+                default -> throw new JsonValueException(
+                        "Unsupported component type: " + paramType.getTypeName());
+            };
+        }
+
+        try {
+            var constructor = type.getDeclaredConstructor(parameterTypes);
+            return constructor.newInstance(values);
+        } catch (Exception e) {
+            throw new JsonValueException("cannot create a record: " + e);
+        }
     }
 
     // Navigation overrides (on default) -> bypass the unmodifiable wrap

@@ -25,6 +25,7 @@
 
 package jdk.incubator.json;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -108,4 +109,31 @@ public non-sealed interface JsonObject extends JsonValue {
         }
         return new JsonObjectImpl(m);
     }
+
+    static JsonObject of(Record src) {
+        Map<String, JsonValue> m = new LinkedHashMap<>();
+        for (var component : src.getClass().getRecordComponents()) {
+            String key = component.getName();
+            JsonValue jv = null;
+            try {
+                jv = switch (component.getAccessor().invoke(src)) {
+                    case Boolean b -> JsonBoolean.of(b);
+                    case Integer i -> JsonNumber.of(i);
+                    case Double d -> JsonNumber.of(d);
+                    case Long l -> JsonNumber.of(l);
+                    case String s -> JsonString.of(s);
+                    case JsonValue v -> v;
+                    case null -> JsonNull.of();
+                    default -> throw new JsonValueException("no known type");
+                };
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new JsonValueException("cannot create from record: " + e);
+            }
+            m.put(key, jv);
+        }
+        return JsonObject.of(m);
+    }
+
+    @Override
+    <R extends Record> R asRecord(Class<R> type);
 }

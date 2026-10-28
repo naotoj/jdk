@@ -27,6 +27,7 @@ package jdk.incubator.json;
 
 import jdk.incubator.json.impl.Utils;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -224,6 +225,10 @@ public sealed interface JsonValue permits JsonString, JsonNumber, JsonObject, Js
      * @throws JsonValueException if this {@code JsonValue} is not an instance of {@code JsonObject}.
      */
     default Map<String, JsonValue> asMap() {
+        throw Utils.composeTypeError(this, JsonObject.class);
+    }
+
+    default <R extends Record> R asRecord(Class<R> type) {
         throw Utils.composeTypeError(this, JsonObject.class);
     }
 
